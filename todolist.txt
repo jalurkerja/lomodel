@@ -1,0 +1,30 @@
+registrasi  ==> https://www.modelmayhem.com/registration/chooseMayhem
+	as personal
+	as agency
+	as corporate
+	as talent
+	
+Navigation menu.
+	news 
+	talents
+		men
+		women
+		hijab
+			==> Profile,Work,clients,News
+			
+	jobs
+	agency
+		==> profile,ranked men,ranked women,ranked hijab,all men,all women,all hijab,news
+
+index
+	main image
+	our top talents
+	
+footer
+	info
+		jobs and casting
+		search model
+	my account
+		log in
+	contact
+	about us
