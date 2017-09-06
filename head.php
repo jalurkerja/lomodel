@@ -79,6 +79,33 @@
 		.dropdown-menu li #btn {
 			float:right;
 		}
+		
+		.toolTip {
+			position: relative;
+			display: inline-block;
+		}
+
+		.toolTip .tooltiptext {
+			padding-top:20px;
+			color:white;
+			font-weight:bolder;
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			background-color: #008CBA;
+			opacity: ;
+			overflow: hidden;
+			width: 0;
+			height: 100%;
+			transition: .5s ease;
+			text-align: center;
+		}
+
+		.toolTip:hover .tooltiptext {
+			width:100%;
+			opacity: 0.7 ;
+		}
 	</style>
 	
 	<nav class="navbar navbar-default navbar-fixed-top">
@@ -120,9 +147,12 @@
 							Models <span class="caret"></span>
 						</a>
 						<ul class="dropdown-menu wow fadeInLeft animated" role="menu">
-							<li><a href="models.php?category=men">Men</a></li>
-							<li><a href="models.php?category=women">Women</a></li>
-							<li><a href="models.php?category=hijab">Hijab</a></li>
+							<?php 
+								$talent_categories = $db->fetch_all_data("talent_categories");
+								foreach($talent_categories as $talent_category){
+									echo "<li><a href='models.php?category=".$talent_category["id"]."'>".$talent_category["name"]."</a></li>";
+								}
+							?>
 							<li><a href="models.php">Show All</a></li>
 						</ul>
 					</li>
