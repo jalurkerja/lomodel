@@ -11,10 +11,12 @@ Navigation menu.
 		women
 		hijab
 			==> Profile,Work,clients,News
+			https://models.com/models/johanna-defant
 			
 	jobs
 	agency
 		==> profile,ranked men,ranked women,ranked hijab,all men,all women,all hijab,news
+			https://models.com/agency/Q-Model-Management-NY
 
 index
 	main image
