@@ -167,7 +167,7 @@
 			$min = number_format($min,0,",",".");
 			$max = number_format($max,0,",",".");
 		}
-		if($_max > 0){return "Rp.".$min." - Rp.".$max;} else {return "Rp.".$min." - ".$v->w("infinite");}
+		if($_max > 0){return "Rp.".$min." - Rp.".$max;} else {return "Rp.".$min." - ".v("infinite");}
 	}
 	
 	function format_tanggal ($tanggal,$mode="dmY",$withtime=false,$gmt7 = false) {
@@ -194,9 +194,9 @@
 		if($tanggal1 == "" || substr($tanggal1,0,10) == "0000-00-00") $tanggal1 = "0000-00-00";
 		if($tanggal2 == "" || substr($tanggal2,0,10) == "0000-00-00") $tanggal2 = "0000-00-00";
 		$return = "";
-		if($tanggal1 != "0000-00-00") $return .= format_tanggal($tanggal1,"dMY"); else  $return .= $v->words("now");
+		if($tanggal1 != "0000-00-00") $return .= format_tanggal($tanggal1,"dMY"); else  $return .= v("now");
 		$return .= " - ";
-		if($tanggal2 != "0000-00-00") $return .= format_tanggal($tanggal2,"dMY"); else  $return .= $v->words("now");
+		if($tanggal2 != "0000-00-00") $return .= format_tanggal($tanggal2,"dMY"); else  $return .= v("now");
 		return $return;
 	}
 	

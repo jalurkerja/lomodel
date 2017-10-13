@@ -39,6 +39,35 @@ class Vocabulary{
 		$arr[$l]["or"]										= "or";
 		$arr[$l]["privacy_policy"]							= "Privacy Policy";
 		$arr[$l]["keyword"]									= "Keyword";
+		$arr[$l]["discover_models_or_be_discovered"]		= "Discover models or be discovered";
+		$arr[$l]["the_easier_way_to_find_models"]			= "The easier way to find models";
+		$arr[$l]["im_a_model"]								= "I'm A Model";
+		$arr[$l]["im_looking_models"]						= "I'm Looking For Models";
+		$arr[$l]["news"]									= "News";
+		$arr[$l]["models"]									= "Models";
+		$arr[$l]["show_all"]								= "Show All";
+		$arr[$l]["castings"]								= "Castings";
+		$arr[$l]["see_all_castings"]						= "See All Castings";
+		$arr[$l]["post_casting"]							= "Post Casting";
+		$arr[$l]["agencies"]								= "Agencies";
+		$arr[$l]["signup"]									= "Sign Up";
+		$arr[$l]["signin"]									= "Sign In";
+		$arr[$l]["my_dasboard"]								= "My Dashboard";
+		$arr[$l]["personal"]								= "Personal";
+		$arr[$l]["agency"]									= "Agency";
+		$arr[$l]["corporate"]								= "Corporate";
+		$arr[$l]["model"]									= "Model";
+		$arr[$l]["personal_description"]					= "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.";
+		$arr[$l]["agency_description"]						= "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.";
+		$arr[$l]["corporate_description"]					= "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.";
+		$arr[$l]["model_description"]						= "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.";
+		$arr[$l]["signin_success"]							= "Sign In Success";
+		$arr[$l]["error_wrong_username_password"]			= "Sign In failed, wrong username and/or password, Please try again!";
+		$arr[$l]["connect_socially_with_us"]				= "Connect socially with us";
+		$arr[$l]["links"]									= "Links";
+		$arr[$l]["contact_us"]								= "Contact Us";
+		$arr[$l]["about"]									= "About";
+		$arr[$l]["contact"]									= "Contact";
 		
 		/*==================================================================================================================================*/
 		/*==================================================================================================================================*/
@@ -65,6 +94,35 @@ class Vocabulary{
 		$arr[$l]["or"]										= "atau";
 		$arr[$l]["privacy_policy"]							= "Polis kerahasiaan";
 		$arr[$l]["keyword"]									= "Kata Kunci";
+		$arr[$l]["discover_models_or_be_discovered"]		= "Discover models or be discovered";
+		$arr[$l]["the_easier_way_to_find_models"]			= "Cara mudah mencari model";
+		$arr[$l]["im_a_model"]								= "Saya Seorang Model";
+		$arr[$l]["im_looking_models"]						= "Saya Mencari Model";
+		$arr[$l]["news"]									= "Berita";
+		$arr[$l]["models"]									= "Model";
+		$arr[$l]["show_all"]								= "Lihat Semua";
+		$arr[$l]["castings"]								= "Casting";
+		$arr[$l]["see_all_castings"]						= "Lihat Semua Casting";
+		$arr[$l]["post_casting"]							= "Pasang Casting";
+		$arr[$l]["agencies"]								= "Agensi";
+		$arr[$l]["signup"]									= "Daftar";
+		$arr[$l]["signin"]									= "Masuk";
+		$arr[$l]["my_dasboard"]								= "Dasbor Saya";
+		$arr[$l]["personal"]								= "Pribadi";
+		$arr[$l]["agency"]									= "Agensi";
+		$arr[$l]["corporate"]								= "Perusahaan";
+		$arr[$l]["model"]									= "Model";
+		$arr[$l]["personal_description"]					= "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.";
+		$arr[$l]["agency_description"]						= "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.";
+		$arr[$l]["corporate_description"]					= "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.";
+		$arr[$l]["model_description"]						= "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.";
+		$arr[$l]["signin_success"]							= "Anda berhasil masuk";
+		$arr[$l]["error_wrong_username_password"]			= "Anda gagal masuk, username dan/atau password salah, Silakan ulangi lagi!";
+		$arr[$l]["connect_socially_with_us"]				= "Terhubung media sosial dengan kami";
+		$arr[$l]["links"]									= "Link";
+		$arr[$l]["contact_us"]								= "Hubungi Kami";
+		$arr[$l]["about"]									= "Tentang Kami";
+		$arr[$l]["contact"]									= "Hubungi";
 		
 		return $arr[$this->locale][$index];
 	}

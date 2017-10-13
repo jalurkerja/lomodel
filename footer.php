@@ -3,36 +3,29 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-sm-3 footer-about wow fadeInUp animated" style="visibility: visible; animation-name: fadeInUp;">
-						<h3>About</h3>
+						<h3><?=v("about");?></h3>
 						<p>
 							Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
 						</p>
-						<p><a class="scroll-link" href="#about-us">Our Team</a></p>
 					</div>
 					<div class="col-sm-4 col-sm-offset-1 footer-contact wow fadeInDown animated" style="visibility: visible; animation-name: fadeInDown;">
-						<h3>Contact</h3>
-						<p><i class="fa fa-map-marker"></i> consectetur adipiscing 10, 10136 eiusmod tempor</p>
-						<p><i class="fa fa-phone"></i> Phone: (0039) 333 12 xx xxx</p>
-						<p><i class="fa fa-envelope"></i> Email: <a href="mailto:hello@domain.com">hello@domain.com</a></p>
-						<p><i class="fa fa-skype"></i> Skype: eiusmod</p>
+						<h3><?=v("contact");?></h3>
+						<p><i class="fa fa-map-marker"></i> Komplek Rasuna Epicentrum, Jl. H R rasuna Said Jakarta, 12940, Indonesia</p>
+						<p><i class="fa fa-phone"></i> Phone: +62 21 29941058</p>
+						<p><i class="fa fa-envelope"></i> Email: <a href="mailto:info@lomodel.id">info@lomodel.id</a></p>
+						<p><i class="fa fa-skype"></i> Skype: lomodel</p>
 					</div>
 					<div class="col-sm-4 footer-links wow fadeInUp animated" style="visibility: visible; animation-name: fadeInUp;">
 						<div class="row">
 							<div class="col-sm-12">
-								<h3>Links</h3>
+								<h3><?=v("links");?></h3>
 							</div>
 						</div>
 						<div class="row">
 							<div class="col-sm-6">
-								<p><a class="scroll-link" href="#top-content">Home</a></p>
-								<p><a class="scroll-link" href="#features">Features</a></p>
-								<p><a class="scroll-link" href="#video">How it works</a></p>
-								<p><a class="scroll-link" href="#testimonials">Our clients</a></p>
-							</div>
-							<div class="col-sm-6">
-								<p><a class="scroll-link" href="#pricing">Plans &amp; pricing</a></p>
-								<p><a href="#">Affiliates</a></p>
-								<p><a class="launch-modal" href="#" data-modal-id="modal-terms">Terms</a></p>
+								<p><a class="scroll-link" href="#top-content"><?=v("terms_and_conditions");?></a></p>
+								<p><a class="scroll-link" href="#features"><?=v("privacy_policy");?></a></p>
+								<p><a class="scroll-link" href="#video"><?=v("contact_us");?></a></p>
 							</div>
 						</div>
 					</div>
@@ -41,8 +34,25 @@
 		</div>
 	</footer>
 	<script>
-		<?php if(isset($_POST["login_is_success"])){ ?> toastr.success('Login Success');<?php  } ?>
-		<?php if(isset($_POST["login_action"]) && !$_login_action){ ?> toastr.warning('Login Failed');<?php  } ?>
+	
+		<?php if(isset($_GET["tabActive"])){ ?>
+				$('.nav-tabs a[href="#<?=$_GET["tabActive"];?>"]').tab('show');
+		<?php } ?>
+		
+		<?php if(isset($_POST["tabActive"])){ ?>
+				$('.nav-tabs a[href="#<?=$_POST["tabActive"];?>"]').tab('show');
+		<?php } ?>
+
+		<?php if(isset($_SESSION["message"]) && $_SESSION["message"] != ""){ ?> 
+			toastr.success("<?=$_SESSION["message"];?>");
+			<?php $_SESSION["message"] = ""; ?>
+		<?php } ?>
+		
+		<?php if(isset($_SESSION["errormessage"]) && $_SESSION["errormessage"] != ""){ ?> 
+			toastr.warning("<?=$_SESSION["errormessage"];?>");
+			<?php $_SESSION["errormessage"] = ""; ?>
+		<?php } ?>
+		
 	</script>
 </body>
 </html>

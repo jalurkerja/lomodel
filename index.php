@@ -1,85 +1,108 @@
 <?php include_once "homepage_header.php"; ?>
-	<style>
-		.video {
-			position: relative;
-			top: 0%; left: 0%;
-			z-index: -100;
-			min-width: 100%;
-			min-height: 100%;
-			width: auto;
-			height: auto;
-			transform: translate(0%, 0%);
-			margin: 0;
-			padding: 0;
-			object-fit: fill;
-		}
-	</style>
 	<!-- Top content -->
-	<div class="top-content">
+	<div class="top-content" id="videoContainer">
 		<div class="container">
-			<div class="backstretch" style="left: 0px; top: 0px; overflow: hidden; margin: 0px; padding: 0px; height: 704px; width: 1312px; z-index: -999998; position: absolute;">
+			<div id="div_video" style="left:0px;top:0px;overflow:hidden;margin:0px;padding:0px;height:660px;width:100%;position:absolute;">
 				<div align="center" class="embed-responsive embed-responsive-16by9">
-					<video autoplay loop class="embed-responsive-item">
+					<video id="mainVideo" autoplay loop class="embed-responsive-item">
 						<source src="images/LoModel.mp4" type="video/mp4">
 					</video>
 				</div>
+				<?php if(!$__isloggedin){ ?>
+				<div class="container">
+					<center>
+						<h2><?=v("discover_models_or_be_discovered");?></h2>
+						<h2><?=v("the_easier_way_to_find_models");?></h2>
+						<button class="benjamin" id="btn_im_a_model"><?=v("im_a_model");?></button>
+						<button class="benjamin" id="btn_im_looking_models"><?=v("im_looking_models");?></button>
+					</center>
+				</div>
+				<?php } ?>
 			</div>
 		</div>
 	</div>
-	<div style="height:360px;"></div>
-<?php $xmain_container_attr = 'position:relative;top:-450px;'; ?>	
-<?php include_once "main_container.php"; ?>
-	<div class="fadeInLeft animated">
+	<script> 
+		$("#mainVideo").ready( function(){ $("#videoContainer").height($("#mainVideo").height()); }); 
+		$( window ).resize( function() { $("#videoContainer").height($("#mainVideo").height()); });
+		$("#btn_im_a_model").click(function(){
+			window.location = "register.php?as=model";
+		});
+		$("#btn_im_looking_models").click(function(){
+			window.location = "register.php?as=nomodel";
+		});
+	</script>
+	<div class="container">
 		<span class="sub alt-font">Apa itu LoModel?</span>
 		<h1><strong>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</strong></h1>
 		<p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
 		<p class="lead">uis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+		
+		<div class="row" id="everyone">
+			<div class="col-xs-4 animated" id="everyone_models" onmouseout="this.classList.remove('fadeInLeft');">
+				<div id="everyone_models_loader" class="loader"><i class="fa fa-circle-o-notch fa-spin fa-3x fa-fw"></i></div>
+				<img class="img-responsive" src="icons/models.png">
+				<span>Models</span>
+			</div>
+			<div class="col-xs-4 animated" id="everyone_castings" onmouseover="this.classList.add('fadeInUp');" onmouseout="this.classList.remove('fadeInUp');">
+				<div id="everyone_castings_loader" class="loader"><i class="fa fa-circle-o-notch fa-spin fa-3x fa-fw"></i></div>
+				<img class="img-responsive" src="icons/castings.png">
+				<span>Castings</span>
+			</div>
+			<div class="col-xs-4 animated" id="everyone_agencies" onmouseover="this.classList.add('fadeInRight');" onmouseout="this.classList.remove('fadeInRight');">
+				<div id="everyone_agencies_loader" class="loader"><i class="fa fa-circle-o-notch fa-spin fa-3x fa-fw"></i></div>
+				<img class="img-responsive" src="icons/agencies.png">
+				<span>Agencies</span>
+			</div>
+		</div>
+	</div>
+	
+	<div class="col-md-12" id="everyone_preview">
+		<i id="everyone_close" class="close fa fa-times"></i>
+		<div class="container">
+			<div id="everyone_container">
+				<br><br><br><br><br>
+			</div>
+		</div>
 	</div>
 	<br>
-	<div class="row">
-		<table width="100%"><tr><td align="center"><h2>Models</h2></td></tr></table>
-		<?php
-			$models = $db->fetch_all_data("talent_files",[],"1=1 GROUP BY user_id ORDER BY rand()","","12");
-			$ii = -1;
-			foreach($models as $model){
-				$ii++;
-				$talent_profile = $db->fetch_all_data("talent_profiles",[],"user_id = '".$model["user_id"]."'")[0];
-				$name = $talent_profile["first_name"]." ".$talent_profile["middle_name"]." ".$talent_profile["last_name"];
-				$nationality = $db->fetch_single_data("nationalities","name",["id" => $talent_profile["nationality_id"]]);
-				$hair_color = $db->fetch_single_data("hair_colors","name",["id" => $talent_profile["hair_color_id"]]);
-				$eye_color = $db->fetch_single_data("eye_colors","name",["id" => $talent_profile["eye_colors_id"]]);
-				$categories = "";
-				$talent_category_ids = pipetoarray($talent_profile["talent_category_ids"]);
-				foreach($talent_category_ids as $talent_category_id){ $categories .= $db->fetch_single_data("talent_categories","name",["id" => $talent_category_id]).","; }
-				$categories = substr($categories,0,-1);
-		?>
-			<div class="col-sm-4 features wow fadeInRight animated"> 				
-				<div class="toolTip">
-					<img height="400" src="user_images/<?=$model["filename"];?>">
-					<span class="tooltiptext">
-						<h3><?=$name;?></h3>
-						<?=$nationality;?>
-						<br>Hair Color: <?=$hair_color;?>
-						<br>Eye Color: <?=$eye_color;?>
-						<br>Height: <?=$talent_profile["height"];?>cm
-						<br>Bust: <?=$talent_profile["bust"];?>cm
-						<br>Waist: <?=$talent_profile["waist"];?>cm
-						<br>Hips: <?=$talent_profile["hips"];?>cm
-						<br>Shoe: <?=$talent_profile["shoe"];?>cm
-						<br>Categories: <?=$categories;?>
-						<div id="btn"><?=$f->input("btn_more","More","type='button' onclick=\"window.location='model_details.php?id=".$model["user_id"]."';\"","btn btn-link-1");?></div>
-					</span>
-				</div>
-			</div>
-		<?php } ?>
+	<script> 
+		function load_everyone_area(mode){
+			$("#everyone_preview").css({display:"none"});
+			$("#"+mode+"_loader").css({display:"block"});			
+			$.get( "ajax/"+mode+".php", function(data) {
+				$("#everyone_container").html(data);
+				$("#everyone_preview").fadeIn("slow").css("display", "block");
+				$("#"+mode+"_loader").css({display:"none"});
+			});
+		}
+		
+		$("#everyone_close").click(function(){
+			$("#everyone_preview").fadeOut("slow", function () {
+				$(this).css({display:"none"});
+			});
+		});
+		
+		$("#everyone_models").click(		function() { load_everyone_area(this.id); });
+		$("#everyone_models").mouseover(	function() { this.classList.add('fadeInLeft'); });
+		$("#everyone_castings").click(		function() { load_everyone_area(this.id); });
+		$("#everyone_castings").mouseover(	function() { this.classList.add('fadeInUp'); });
+		$("#everyone_agencies").click(		function() { load_everyone_area(this.id); });
+		$("#everyone_agencies").mouseover(	function() { this.classList.add('fadeInRight'); });
+		
+	</script>
+	
+	<div id="connect">
+		<div class="container">
+			<h3 class="header3"><?=v("connect_socially_with_us");?></h3>
+			<ul>
+				<li><a class="facebook" href="https://www.facebook.com/lomodel/" title="Ikuti kami di Facebook" target="_blank" rel="nofollow"><i class="fa fa-facebook"></i></a></li>
+				<li><a class="twitter" href="https://twitter.com/lomodel/" title="Ikuti kami di Twitter" target="_blank" rel="nofollow"><i class="fa fa-twitter"></i></a></li>
+				<li><a class="instagram" href="https://instagram.com/lomodel" title="Follow us on Instagram" target="_blank" rel="nofollow"><i class="fa fa-instagram"></i></a></li>
+				<li><a class="youtube" href="https://www.youtube.com/user/lomodel/" title="Ikuti kami di YouTube" target="_blank" rel="nofollow"><i class="fa fa-youtube-play"></i></a></li>
+				<li><a class="pinterest" href="https://pinterest.com/lomodel/boards/" title="Follow us on Pinterest" target="_blank" rel="nofollow"><i class="fa fa-pinterest"></i></a></li>
+				<li><a class="gplus" href="https://plus.google.com/u/0/lomodel/" title="Follow us on Google+" target="_blank" rel="nofollow"><i class="fa fa-google-plus"></i></a></li>
+			</ul>
+		</div>
 	</div>
-
-<?php include_once "main_container_end.php"; ?>
-<?php
-	if($_GET["just_register_as"] == 2){ ?> <script> toastr.success('You have successfully registered as Personal User'); </script> <?php }
-	if($_GET["just_register_as"] == 3){ ?> <script> toastr.success('You have successfully registered as Agency'); </script> <?php }
-	if($_GET["just_register_as"] == 4){ ?> <script> toastr.success('You have successfully registered as Coorporate'); </script> <?php }
-	if($_GET["just_register_as"] == 5){ ?> <script> toastr.success('You have successfully registered as Talen/Model'); </script> <?php }
-?>
-<script> window.history.pushState("","","index.php"); </script>
+	
 <?php include_once "footer.php"; ?>

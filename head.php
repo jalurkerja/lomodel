@@ -2,28 +2,26 @@
 <!DOCTYPE html>
 <html lang="<?=$_COOKIE["locale"];?>">
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <title><?=$__title_project;?></title>
-
-	<link rel="stylesheet" href="styles/azmind_style.css">
-    <link href="styles/app.css" rel="stylesheet">
-    <link href="styles/additional.css" rel="stylesheet">
-    <link href="styles/font-awesome.min.css" rel="stylesheet">
-    <link href="styles/footer-distributed-with-address-and-phones.css" rel="stylesheet">
+	<title><?=$__title_project;?></title>
+	<meta charset="utf-8">
+	<meta name="description" content="<?=$__project_description;?>">
+	<meta name="author" content="<?=$__title_project;?>">
+	<meta name="format-detection" content="telephone=no">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
 	
-	<script src="scripts/jquery-3.2.1.min.js"></script>
-	<script src="public/bootstrap-4.0.0/js/bootstrap.min.js"></script>
-	<script src="scripts/app.js"></script>
-	<script src="scripts/jquery.js"></script>
-	<script src="scripts/toastr.min.js"></script>
-	
-	<link rel="stylesheet" href="styles/toastr.min.css">
+	<link rel="canonical" href="http://www.lomodel.id">
+	<link rel="shortcut icon" type="image/x-icon" href="images/logo.png">
+	<link rel="stylesheet" href="styles/style.css">
+	<link rel="stylesheet" href="styles/bootstrap.min.css">
+	<link rel="stylesheet" href="styles/bootstrap-slider.css">
 	<link rel="stylesheet" href="styles/animate.css">
-	<link rel="stylesheet" href="styles/media-queries.css">
-	<link rel="Shortcut Icon" href="images/logo.png">
+	<link rel="stylesheet" href="styles/toastr.min.css">
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+	
+	<script src="scripts/jquery.min.js"></script>
+	<script src="scripts/bootstrap.min.js"></script>
+	<script src="scripts/toastr.min.js"></script>
+	<script src="scripts/bootstrap-slider.js"></script>
 	
 	<script>
 		function ajaxLoad(filename, content) {
@@ -45,7 +43,7 @@
 		}
 	</script>
 </head>
-<body style="margin:0px;padding:0px;">
+<body style="margin:0px;">
 	<style>
 		.loading {
 			background: lightgoldenrodyellow url('icons/processing.gif') no-repeat center 65%;
@@ -59,56 +57,24 @@
 			z-index: 2000;
 			display: none;
 		}
-		.content_area { padding:1px 20px 20px 20px;background-color:white; }
-		
-		.dropdown-menu li #separator {
-			/* border-left:1px solid grey; */
-			height:100px;
-			width:20px;
-			float:left;
-		}
-		
-		.dropdown-menu li #desc {
-			text-transform: none;
-			padding:10px;
-			color:#777;
-			float:left;
-			max-width:250px;
-		}
-
-		.dropdown-menu li #btn {
-			float:right;
-		}
-		
-		.toolTip {
-			position: relative;
-			display: inline-block;
-		}
-
-		.toolTip .tooltiptext {
-			padding-top:20px;
-			color:white;
-			font-weight:bolder;
-			position: absolute;
-			bottom: 0;
-			left: 0;
-			right: 0;
-			background-color: #008CBA;
-			opacity: ;
-			overflow: hidden;
-			width: 0;
-			height: 100%;
-			transition: .5s ease;
-			text-align: center;
-		}
-
-		.toolTip:hover .tooltiptext {
-			width:100%;
-			opacity: 0.7 ;
-		}
 	</style>
 	
-	<nav class="navbar navbar-default navbar-fixed-top">
+	<!-- Modal -->
+	<div class="modal fade" id="myModal" role="dialog">
+		<div class="modal-dialog">
+			<!-- Modal content-->
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<h4 class="modal-title" id="modalTitle"></h4>
+				</div>
+				<div class="modal-body" id="modalBody"></div>
+				<div class="modal-footer" id="modalFooter"></div>
+			</div>
+		</div>
+	</div>
+	
+	<nav class="navbar navbar-default navbar-fixed-top fadeInLeft animated">
 		<div class="container">
 			<div class="navbar-header">
 				<!-- Collapsed Hamburger -->
@@ -120,95 +86,82 @@
 				</button>
 				<!-- Branding Image -->
 				<a class="navbar-brand" href="index.php">
-					<img src="images/logo.png" style="position:relative;top:-7px;height:40px;max-width: 200%;cursor:pointer;border:0px;" alt="<?=$__title_project;?>" title="<?=$__title_project;?>" onclick="window.location='index.php';">
+					<img src="images/logo.png" style="position:relative;top:-10px;height:40px;max-width: 200%;cursor:pointer;border:0px;" alt="<?=$__title_project;?>" title="<?=$__title_project;?>" onclick="window.location='index.php';">
 				</a>
-				<div style="float:left;font-size:30px;position:relative;left:-10px;"><a style="color:#888;text-decoration:none;" href="index.php">LoModel</a></div>
+				<div style="float:left;font-size:30px;position:relative;left:-10px;top:5px;"><a style="color:#888;text-decoration:none;" href="index.php">LoModel</a></div>
 			</div>
-				
-			<!--div class="header-search-input">
-				<form action="/search" method="GET">
-					<input type="text" class="header-search-drop" placeholder="Cari Judul, Nama, atau isi Campaign" name="keyword" value="" autocomplete="off">
-					<span class="fa fa-search"></span>
-				</form>
-			</div-->
 			
 
 			<div class="collapse navbar-collapse" id="app-navbar-collapse">
-				<!-- Left Side Of Navbar -->
-				<ul class="nav navbar-nav">
-					&nbsp;
-				</ul>
-
 				<!-- Right Side Of Navbar -->
 				<ul class="nav navbar-nav navbar-right">
-					<li><a href="news.php">News</a></li>
+					<!--li><a href="news.php"><?=v("news");?></a></li-->
 					<li class="dropdown">
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-							Models <span class="caret"></span>
-						</a>
+						<a href="models.php" class="dropdown-toggle"><?=v("models");?> <span class="caret"></span></a>
 						<ul class="dropdown-menu wow fadeInLeft animated" role="menu">
 							<?php 
-								$talent_categories = $db->fetch_all_data("talent_categories");
-								foreach($talent_categories as $talent_category){
-									echo "<li><a href='models.php?category=".$talent_category["id"]."'>".$talent_category["name"]."</a></li>";
+								$model_categories = $db->fetch_all_data("model_categories");
+								foreach($model_categories as $model_category){
+									echo "<li><a href='models.php?filter_model_category=".$model_category["id"]."&filter_search=Search'>".$model_category["name_".$__locale]."</a></li>";
 								}
 							?>
-							<li><a href="models.php">Show All</a></li>
 						</ul>
 					</li>
-					<li><a href="jobs.php">Jobs</a></li>
-					<li><a href="agencies.php">Agencies</a></li>
+					<li class="dropdown">
+						<a href="castings.php" class="dropdown-toggle"><?=v("castings");?> <span class="caret"></span></a>
+						<ul class="dropdown-menu wow fadeInLeft animated" role="menu">
+							<li><a href="castings.php"><?=v("see_all_castings");?></a></li>
+							<li><a href="dashboard.php?tabActive=post_a_casting"><?=v("post_casting");?></a></li>
+						</ul>
+					</li>
+					<li><a href="agencies.php"><?=v("agencies");?></a></li>
 					<li style="width:100px;"><a></a></li>
 					<?php if(!$__isloggedin){ ?>
 						<li class="dropdown">
-							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-								Register <span class="caret"></span>
-							</a>
+							<a href="#" class="dropdown-toggle"><?=v("signup");?> <span class="caret"></span></a>
 							<ul class="dropdown-menu" role="menu">
 								<li>
 									<div style="margin:10px;width:1000px;" class="wow fadeInLeft animated">
 										<div class="col-sm-4" id="desc">
-											<b>PERSONAL</b><br>
-											Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-											<div id="btn"><?=$f->input("btn_reg_peronal","Register","type='button' onclick=\"window.location='register.php?as=personal';\"","btn btn-link-1");?></div>
+											<b><?=strtoupper(v("model"));?></b><br><?=v("model_description");?><br>
+											<?=$f->input("btn_reg_peronal","Register","type='button' onclick=\"window.location='register.php?as=model';\"","btn-link-1");?>
 										</div>
 										<div class="col-sm-4" id="desc">
-											<b>AGENCY</b><br>
-											Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-											<div id="btn"><?=$f->input("btn_reg_peronal","Register","type='button' onclick=\"window.location='register.php?as=agency';\"","btn btn-link-1");?></div>
+											<b><?=strtoupper(v("personal"));?></b><br><?=v("personal_description");?><br>
+											<?=$f->input("btn_reg_peronal","Register","type='button' onclick=\"window.location='register.php?as=personal';\"","btn-link-1");?>
 										</div>
 										<div class="col-sm-4" id="desc">
-											<b>CORPORATE</b><br>
-											Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-											<div id="btn"><?=$f->input("btn_reg_peronal","Register","type='button' onclick=\"window.location='register.php?as=corporate';\"","btn btn-link-1");?></div>
+											<b><?=strtoupper(v("agency"));?></b><br><?=v("agency_description");?><br>
+											<?=$f->input("btn_reg_peronal","Register","type='button' onclick=\"window.location='register.php?as=agency';\"","btn-link-1");?>
 										</div>
 										<div class="col-sm-4" id="desc">
-											<b>TALENT/MODEL</b><br>
-											Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-											<div id="btn"><?=$f->input("btn_reg_peronal","Register","type='button' onclick=\"window.location='register.php?as=talent';\"","btn btn-link-1");?></div>
+											<b><?=strtoupper(v("corporate"));?></b><br><?=v("corporate_description");?><br>
+											<?=$f->input("btn_reg_peronal","Register","type='button' onclick=\"window.location='register.php?as=corporate';\"","btn-link-1");?>
 										</div>
 									</div>
 								</li>
 							</ul>
 						</li>
 						
-						<li class="dropdown">
-							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-								Masuk <span class="caret"></span>
-							</a>
+						<li>
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown"><?=v("signin");?> <span class="caret"></span></a>
 							<ul class="dropdown-menu" role="menu">
 								<li>
-									<div class="col-sm-5 wow fadeInLeft animated">
-									<style> .this_form_login input[type='text'], input[type='password']{padding:0px 10px 0px 10px;} </style>
-									<style> .this_form_login input{height:40px;} </style>
-									<?php $f->setAttribute("class='this_form_login'");?>
-									<?=$f->start();?>
-										<?=$t->start("style='color:#888;' ");?>
-											<?=$t->row(["Username","&nbsp;&nbsp;&nbsp;".$f->input("username")]);?>
-											<?=$t->row(["Password","&nbsp;&nbsp;&nbsp;".$f->input("password","","type='password'")]);?>
-											<?=$t->row(["","&nbsp;&nbsp;&nbsp;".$f->input("login_action","Login","type='submit'","btn btn-link-1")]);?>
-										<?=$t->end();?>
-									<?=$f->end();?>
+									<div class="col-sm-5 fadeInLeft animated">
+										<div style="width:200px;" class="text-center">
+											<?php $f->setAttribute("class='this_form_login'");?>
+											<?=$f->start();?>
+												<img width="100" class="profile-img-card" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" />
+												<p id="profile-name" class="profile-name-card"></p>
+												<form class="form-signin">
+													<input name="username" class="form-control" placeholder="Username" required autofocus>
+													<div style="height:5px;"></div>
+													<input name="password" type="password" class="form-control" placeholder="Password" autocomplete="new-password" required>
+													<div style="height:5px;"></div>
+													<?=$t->row([$f->input("login_action","Login","type='submit'","btn btn-link-1")]);?>
+												</form>
+											<?=$f->end();?>
+										</div>
 									</div>
 								</li>
 							</ul>
@@ -216,20 +169,16 @@
 					<?php } else { ?>
 					
 						<li class="dropdown">
-							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+							<a href="#" class="dropdown-toggle">
 								<?=$__fullname;?> <span class="caret"></span>
 							</a>
 							<ul class="dropdown-menu" role="menu">
-								<?php if($__role == 2){ ?>
-									<li><a href="#investor_profile.php">Profile</a></li>
-								<?php } ?>
-								<?php if($__role == 3){ ?>
-									<li><a href="#developer_profile.php">Profile</a></li>
-								<?php } ?>
+								<li><a href="dashboard.php"><?=v("my_dasboard");?></a></li>
 								<li><a href="?logout_action=1">Logout</a></li>
 							</ul>
 						</li>
 					<?php } ?>
+						<li><a href="?locale=<?=$__anti_locale;?>"><img class="localeFlag" height="20" src="icons/<?=$__anti_locale;?>.png"></a></li>
 				</ul>
 			</div>
 		</div>

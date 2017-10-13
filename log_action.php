@@ -45,11 +45,11 @@ function login_action($username,$password){
 
 			return 1;
 		} else {
-			$_SESSION["errormessage"] = $v->words("error_wrong_username_password");
+			$_SESSION["errormessage"] = v("error_wrong_username_password");
 			return 0;
 		}
 	} else {
-		$_SESSION["errormessage"] = $v->words("error_wrong_username_password");
+		$_SESSION["errormessage"] = v("error_wrong_username_password");
 		return 0;
 	}
 	return 0;
@@ -74,10 +74,9 @@ if(isset($_GET["logout_action"])){
 if(isset($_POST["login_action"])){
 	$_login_action = login_action($_POST["username"],$_POST["password"]);
 	if($_login_action > 0) {
-		echo $f->start("login__is_success");
-		echo $f->input("login_is_success","1","type='hidden'");
-		echo $f->end();
-		?> <script language="javascript">login__is_success.submit();</script><?php
+		$_SESSION["message"] = v("signin_success");
+		?> <script language="javascript">window.location="index.php";</script><?php
+		exit();
 	}
 }
 ?>

@@ -1,32 +1,108 @@
-registrasi  ==> https://www.modelmayhem.com/registration/chooseMayhem
-	as personal
-	as agency
-	as corporate
-	as talent
+homepage
+	X navigation
+	X mainvideo
+		X 2 button register
+	X Apa itu LoModel?
+	X models | castings | agencies ==> #everyone
+	X CONNECT SOCIALLY WITH US
+	X Footer
 	
-Navigation menu.
-	news 
-	talents
-		men
-		women
-		hijab
-			==> Profile,Work,clients,News
-			https://models.com/models/johanna-defant
+	#everyone
+		X models
+			top 10 then "More"
+		castings
+			top 10 then "More"
+		agencies
+			top 10 then "More"
+	
+X registrasi
+	X as personal
+	X as agency
+	X as corporate
+	X as model
+	
+dashboard
+	for model
+		profile
+		castings
+			detail
+		photos
+		albums
+		
+	for personal
+		profile
+		bookings
 			
-	jobs
-	agency
-		==> profile,ranked men,ranked women,ranked hijab,all men,all women,all hijab,news
-			https://models.com/agency/Q-Model-Management-NY
-
-index
-	main image
-	our top talents
+	for agency
+		profile
+		castings
+			details
+				models
+		member request list
+			model detail
+				approve
+		post a casting
+		bookings
+			
+		
+	for corporate
+		profile
+		castings
+			details
+				models	
+		post a casting
+		bookings
 	
-footer
-	info
-		jobs and casting
-		search model
-	my account
-		log in
-	contact
-	about us
+	for all notification/message
+	
+serach model page (https://www.modelmanagement.com/model-images/)
+	X advance search by: gender,nationality,city,age,height,bust,waist,hips,shoe,model_categories,eye_color,hair_color
+	
+	X booking
+		1. A professional industry member sends a booking request to a model with a fee proposal.
+		2. The model decides to accept, decline, or request more details for the booking offer.
+		3. Once the job is complete, the money is released to the model.
+		
+	asking join member of agency
+	
+search casting page (https://www.modelmanagement.com/castings/)
+	post a casting
+		only agency,corporate or personal
+		image reference
+		location
+		requirements
+			age,city
+		gender
+		casting_category
+		pembayaran
+		expired_at
+		
+	casting list
+		casting detail
+			apply for casting
+			
+search agecies page
+	asking member
+	
+	
+=======================================================
+BACKOFFICE
+	casting_list
+		publish/reject 
+			sending notification
+			
+	user list
+		user detail
+			activation
+			sending notification
+			
+	payment list
+		payment detail
+			verification
+			
+	
+	
+		
+	
+personal tidak bisa posting a casting
+	

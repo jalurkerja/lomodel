@@ -18,11 +18,11 @@
 		}
 		if($_GET["as"] == "corporate"){
 			$registeras = "Corporate";
-			$_add_name_placeholder = "Coorporate ";
+			$_add_name_placeholder = "Corporate ";
 			$_regrole = "4";
 		}
-		if($_GET["as"] == "talent"){
-			$registeras = "Model/Talent";
+		if($_GET["as"] == "model"){
+			$registeras = "Model";
 			$_regrole = "5";
 		}
 		
@@ -34,12 +34,10 @@
 		}
 	?>
 	<?php if($_step == 1){ ?>
-		<div class="r-form-1-top fadeInLeft animated">
-			<h3>Register as <?=$registeras;?></h3>
-		</div>
-		<div class="features r-form-1-bottom wow fadeInRight animated">
-			<div>
-				<form role="form" method="POST" autocomplete="off" onsubmit="return validation()" enctype="multipart/form-data">
+		<div class="container fadeInLeft animated">
+			<h1 class="well">Register as <?=$registeras;?></h1>
+			<div class="col-lg-12 well">
+				<form role="form" method="POST" autocomplete="off" onsubmit="return validation()" enctype="multipart/form-data">				
 					<div class="col-sm-4 features wow fadeInRight animated">
 						<div class="form-group">
 							<label class="sr-only">Name</label>
@@ -59,7 +57,7 @@
 						</div>
 					</div>
 					<?php include_once "register_form.php"; ?>
-					<table width="100%"><tr><td align="right"> <?=$f->input("register","Register","type='submit'","btn btn-link-1 scroll-link");?> </td></tr></table>
+					<table width="100%"><tr><td align="right"> <?=$f->input("register","Register","type='submit' style='width:100%;'","btn btn-lg btn-info");?> </td></tr></table>
 				</form>
 			</div>
 		</div>

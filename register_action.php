@@ -55,9 +55,9 @@
 							$_POST["first_name"] = $names[0];
 							$_POST["middle_name"] = $names[1];
 							for($xx=2;$xx <= count($names); $xx++){ $_POST["last_name"] .= $names[$xx]." "; }
-							$_POST["talent_category_ids"] = sel_to_pipe($_POST["talent_category_ids"]);
-							$table_name = "talent_profiles";
-							$fields_name = ["nationality_id","first_name","middle_name","last_name","address","hair_color_id","eye_colors_id","height","bust","waist","hips","shoe","talent_category_ids","ig","fb","tw"];
+							$_POST["model_category_ids"] = sel_to_pipe($_POST["model_category_ids"]);
+							$table_name = "model_profiles";
+							$fields_name = ["nationality_id","first_name","middle_name","last_name","address","hair_color_id","eye_colors_id","height","bust","waist","hips","shoe","model_category_ids","ig","fb","tw"];
 						}
 						
 						$db->addtable($table_name);
@@ -81,7 +81,7 @@
 								$db->update();
 							}
 							$success_link = "index.php?just_register_as=".$_regrole;
-							if($_regrole == "5") $success_link = "?as=talent&step=2";
+							if($_regrole == "5") $success_link = "?as=model&step=2";
 						}
 					}
 				} else {
@@ -97,7 +97,7 @@
 					$filename = $_regrole."_".$__user_id."_".$ii.".".pathinfo($_FILES["filename"]["name"][$ii], PATHINFO_EXTENSION);
 					$photo = "user_images/".$filename;
 					move_uploaded_file($_FILES["filename"]["tmp_name"][$ii], $photo);
-					$db->addtable("talent_files");
+					$db->addtable("model_files");
 					$db->addfield("user_id");	$db->addvalue($__user_id);
 					$db->addfield("name");		$db->addvalue($_POST["title"][$ii]);
 					$db->addfield("filetype");	$db->addvalue(1);

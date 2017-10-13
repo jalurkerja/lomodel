@@ -20,6 +20,8 @@
 	if(isset($_GET["locale"])) { setcookie("locale",$_GET["locale"]);$_COOKIE["locale"]=$_GET["locale"]; }
 	if(!isset($_COOKIE["locale"])) { setcookie("locale","id");$_COOKIE["locale"]="id"; }
 	$__locale = $_COOKIE["locale"];
+	if($__locale == "id") $__anti_locale = "en";
+	if($__locale == "en") $__anti_locale = "id";
 	
 	include_once "classes/database.php";
 	include_once "classes/jobseeker.php";
@@ -28,7 +30,7 @@
     include_once "classes/helper.php";
 	include_once "classes/vocabulary.php";
 	
-	$v = new Vocabulary($__locale);
+	$vocabulary = new Vocabulary($__locale);
 	$db = new Database();
 	$js = new JobSeeker();
 	$f = new FormElements();
@@ -48,6 +50,12 @@
 	
 	
 	if(isset($_GET["utm_source"]) && $_GET["utm_source"] != "") add_utm();
+	
+	function v($index){
+		global $vocabulary;
+		if($vocabulary->w($index)) return $vocabulary->w($index);
+		else return $index;
+	}
 	
 	function add_utm() {
 		global $db;
@@ -137,7 +145,7 @@
 			$min = number_format($min,0,",",".");
 			$max = number_format($max,0,",",".");
 		}
-		if($_max > 0){return "Rp.".$min." - Rp.".$max;} else {return "Rp.".$min." - ".$v->w("infinite");}
+		if($_max > 0){return "Rp.".$min." - Rp.".$max;} else {return "Rp.".$min." - ".v("infinite");}
 	}
 	
 	function format_tanggal ($tanggal,$mode="dmY",$withtime=false,$gmt7 = false) {
@@ -164,9 +172,9 @@
 		if($tanggal1 == "" || substr($tanggal1,0,10) == "0000-00-00") $tanggal1 = "0000-00-00";
 		if($tanggal2 == "" || substr($tanggal2,0,10) == "0000-00-00") $tanggal2 = "0000-00-00";
 		$return = "";
-		if($tanggal1 != "0000-00-00") $return .= format_tanggal($tanggal1,"dMY"); else  $return .= $v->words("now");
+		if($tanggal1 != "0000-00-00") $return .= format_tanggal($tanggal1,"dMY"); else  $return .= v("now");
 		$return .= " - ";
-		if($tanggal2 != "0000-00-00") $return .= format_tanggal($tanggal2,"dMY"); else  $return .= $v->words("now");
+		if($tanggal2 != "0000-00-00") $return .= format_tanggal($tanggal2,"dMY"); else  $return .= v("now");
 		return $return;
 	}
 	
