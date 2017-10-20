@@ -4,7 +4,7 @@
 		<div class="container">
 			<div id="div_video" style="left:0px;top:0px;overflow:hidden;margin:0px;padding:0px;height:660px;width:100%;position:absolute;">
 				<div align="center" class="embed-responsive embed-responsive-16by9">
-					<video id="mainVideo" autoplay loop class="embed-responsive-item">
+					<video id="mainVideo" Xautoplay loop class="embed-responsive-item">
 						<source src="images/LoModel.mp4" type="video/mp4">
 					</video>
 				</div>
@@ -32,11 +32,6 @@
 		});
 	</script>
 	<div class="container">
-		<span class="sub alt-font">Apa itu LoModel?</span>
-		<h1><strong>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</strong></h1>
-		<p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-		<p class="lead">uis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-		
 		<div class="row" id="everyone">
 			<div class="col-xs-4 animated" id="everyone_models" onmouseout="this.classList.remove('fadeInLeft');">
 				<div id="everyone_models_loader" class="loader"><i class="fa fa-circle-o-notch fa-spin fa-3x fa-fw"></i></div>

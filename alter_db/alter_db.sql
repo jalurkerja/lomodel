@@ -1,0 +1,11 @@
+ALTER TABLE `agency_profiles` ADD `location_id` INT NOT NULL AFTER `address`;
+ALTER TABLE `corporate_profiles` ADD `location_id` INT NOT NULL AFTER `address`;
+ALTER TABLE `model_profiles` ADD `location_id` INT NOT NULL AFTER `address`;
+ALTER TABLE `personal_profiles` ADD `location_id` INT NOT NULL AFTER `address`;
+UPDATE model_profiles SET location_id='27' WHERE location_id='0' ORDER BY rand() LIMIT 5;
+UPDATE model_profiles SET location_id='30' WHERE location_id='0' ORDER BY rand() LIMIT 5;
+UPDATE model_profiles SET location_id='42' WHERE location_id='0' ORDER BY rand() LIMIT 5;
+UPDATE model_profiles SET location_id='56' WHERE location_id='0' ORDER BY rand() LIMIT 5;
+UPDATE model_profiles SET location_id='52' WHERE location_id='0' ORDER BY rand() LIMIT 5;
+UPDATE model_profiles SET location_id='95' WHERE location_id='0' ORDER BY rand() LIMIT 5;
+UPDATE model_profiles SET location_id='78' WHERE location_id='0' ORDER BY rand() LIMIT 5;

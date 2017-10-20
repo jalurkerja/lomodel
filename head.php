@@ -22,6 +22,7 @@
 	<script src="scripts/bootstrap.min.js"></script>
 	<script src="scripts/toastr.min.js"></script>
 	<script src="scripts/bootstrap-slider.js"></script>
+	<script src="scripts/newWaterfall.js"></script>
 	
 	<script>
 		function ajaxLoad(filename, content) {

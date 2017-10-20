@@ -75,6 +75,8 @@
 				</form>
 			</div>
 		</div>
+		<div class="col-md-12">
+		<ul id="waterfall">
 		<?php
 			    // [filter_gender] => 
 				// [filter_nationality] => 
@@ -106,6 +108,7 @@
 				$ii++;
 				$model_profile = $db->fetch_all_data("model_profiles",[],"user_id = '".$model["user_id"]."'")[0];
 				$name = $model_profile["first_name"]." ".$model_profile["middle_name"]." ".$model_profile["last_name"];
+				$location = $db->fetch_single_data("locations","name_".$__locale,["id" => $model_profile["location_id"]]);
 				$nationality = $db->fetch_single_data("nationalities","name",["id" => $model_profile["nationality_id"]]);
 				$hair_color = $db->fetch_single_data("hair_colors","name",["id" => $model_profile["hair_color_id"]]);
 				$eye_color = $db->fetch_single_data("eye_colors","name",["id" => $model_profile["eye_colors_id"]]);
@@ -114,17 +117,21 @@
 				foreach($model_category_ids as $model_category_id){ $categories .= $db->fetch_single_data("model_categories","name",["id" => $model_category_id]).","; }
 				$categories = substr($categories,0,-1);
 		?>
-			<div class="col-sm-3 fadeInRight animated"> 				
-				<div class="toolTip" style="cursor:pointer;" onclick="window.location='model_details.php?user_id=<?=$model["user_id"];?>';">
-					<img class="img-responsive" height="400" src="user_images/<?=$model["filename"];?>">
-					<span class="details">
-						<span class="name2"><?=$name;?></span>
-						<span class="nationality"><?=$nationality;?></span>
-					</span>
+			<li>
+				<div class="thumbnail" style="margin:4px;">
+					<img style="max-width: 200px;" src="user_images/<?=$model["filename"];?>">
+					<div><b><?=$name;?></b><p><?=$location;?></p></div>
 				</div>
-			</div>
+			</li>
 		<?php } ?>
+		</ul>
+		</div>
 	</div>
-
+	<script>
+		$(document).ready(function ()
+        {
+            $('#waterfall').NewWaterfall({width: 220});
+        });
+	</script>
 <?php include_once "main_container_end.php"; ?>
 <?php include_once "footer.php"; ?>
