@@ -32,34 +32,50 @@
 		if($_error_message != ""){
 			?><script> toastr.warning('<?=$_error_message;?>'); </script> <?php
 		}
+		
+		$selectRegisterAs = "";
+		$titleClass = "col-md-12";
+		if($_GET["as"] == "nomodel"){
+			$selectRegisterAs .= "<div class='col-md-2'>";
+			$selectRegisterAs .= "<select class='form-control' onchange=\"window.location='?as='+this.value;\">";
+			$selectRegisterAs .= "<option value=''></option>";
+			$selectRegisterAs .= "<option value='personal'>Personal</option>";
+			$selectRegisterAs .= "<option value='agency'>Agency</option>";
+			$selectRegisterAs .= "<option value='corporate'>Corporate</option>";
+			$selectRegisterAs .= "</select>";
+			$selectRegisterAs .= "</div>";
+			$titleClass = "col-md-3";
+		}
 	?>
 	<?php if($_step == 1){ ?>
 		<div class="container fadeInLeft animated">
-			<h1 class="well">Register as <?=$registeras;?></h1>
-			<div class="col-lg-12 well">
-				<form role="form" method="POST" autocomplete="off" onsubmit="return validation()" enctype="multipart/form-data">				
-					<div class="col-sm-4 features wow fadeInRight animated">
-						<div class="form-group">
-							<label class="sr-only">Name</label>
-							<?=$f->input("name",$_POST["name"],"required placeholder='".$_add_name_placeholder."Name...'","form-control");?>
+			<h1 class="well col-md-12"><div class="<?=$titleClass;?>">Register as <?=$registeras;?> </div><?=$selectRegisterAs;?></h1>
+			<?php if($_GET["as"] != "nomodel"){ ?>
+				<div class="col-lg-12 well">
+					<form role="form" method="POST" autocomplete="off" onsubmit="return validation()" enctype="multipart/form-data">				
+						<div class="col-sm-4 features wow fadeInRight animated">
+							<div class="form-group">
+								<label class="sr-only">Name</label>
+								<?=$f->input("name",$_POST["name"],"required placeholder='".$_add_name_placeholder."Name...'","form-control");?>
+							</div>
+							<div class="form-group">
+								<label class="sr-only">Email</label>
+								<?=$f->input("email",$_POST["email"],"type='email' required placeholder='Email...'","form-control");?>
+							</div>
+							<div class="form-group">
+								<label class="sr-only">Password</label>
+								<?=$f->input("password_","","pattern='.{6,}' title='6 characters minimum' required type='password' placeholder='Password (minimum 6 character)...' autocomplete='new-password'","form-control");?>
+							</div>
+							<div class="form-group">
+								<label class="sr-only">Retype Password</label>
+								<?=$f->input("repassword","","required type='password' placeholder='Retype Password...'","form-control");?>
+							</div>
 						</div>
-						<div class="form-group">
-							<label class="sr-only">Email</label>
-							<?=$f->input("email",$_POST["email"],"type='email' required placeholder='Email...'","form-control");?>
-						</div>
-						<div class="form-group">
-							<label class="sr-only">Password</label>
-							<?=$f->input("password_","","pattern='.{6,}' title='6 characters minimum' required type='password' placeholder='Password (minimum 6 character)...' autocomplete='new-password'","form-control");?>
-						</div>
-						<div class="form-group">
-							<label class="sr-only">Retype Password</label>
-							<?=$f->input("repassword","","required type='password' placeholder='Retype Password...'","form-control");?>
-						</div>
-					</div>
-					<?php include_once "register_form.php"; ?>
-					<table width="100%"><tr><td align="right"> <?=$f->input("register","Register","type='submit' style='width:100%;'","btn btn-lg btn-info");?> </td></tr></table>
-				</form>
-			</div>
+						<?php include_once "register_form.php"; ?>
+						<table width="100%"><tr><td align="right"> <?=$f->input("register","Register","type='submit' style='width:100%;'","btn btn-lg btn-info");?> </td></tr></table>
+					</form>
+				</div>
+			<?php } ?>
 		</div>
 	<?php 
 		} else {

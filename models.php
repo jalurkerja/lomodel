@@ -92,6 +92,7 @@
 				// [filter_hair_color] => 
 				// [filter_search] => Search
 			$whereclause = "";
+			if($_GET["filter_location"]!="") $whereclause .= "user_id IN (SELECT user_id FROM model_profiles WHERE location_id ='".$_GET["filter_location"]."') AND ";
 			if($_GET["filter_nationality"]!="") $whereclause .= "user_id IN (SELECT user_id FROM model_profiles WHERE nationality_id ='".$_GET["filter_nationality"]."') AND ";
 			if($_GET["filter_model_category"]!="") $whereclause .= "user_id IN (SELECT user_id FROM model_profiles WHERE model_category_ids LIKE '%|".$_GET["filter_model_category"]."|%') AND ";
 			$heights = explode(",",$_GET["filter_height"]);
@@ -118,7 +119,7 @@
 				$categories = substr($categories,0,-1);
 		?>
 			<li>
-				<div class="thumbnail" style="margin:4px;">
+				<div class="thumbnail" style="margin:4px;cursor:pointer;" onclick="window.location='model_details.php?user_id=<?=$model["user_id"];?>';">
 					<img style="max-width: 200px;" src="user_images/<?=$model["filename"];?>">
 					<div><b><?=$name;?></b><p><?=$location;?></p></div>
 				</div>

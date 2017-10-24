@@ -23,7 +23,7 @@
 				$categories = substr($categories,0,-1);
 		?>
 			<li>
-				<div class="thumbnail" style="margin:4px;">
+				<div class="thumbnail" style="margin:4px;cursor:pointer;" onclick="window.location='model_details.php?user_id=<?=$model["user_id"];?>';">
 					<img style="max-width: 200px;" src="user_images/<?=$model["filename"];?>">
 					<div><b><?=$name;?></b><p><?=$location;?></p></div>
 				</div>

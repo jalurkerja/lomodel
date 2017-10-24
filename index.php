@@ -68,9 +68,7 @@
 				$("#everyone_container").html(data);
 				$("#everyone_preview").fadeIn("slow").css("display", "block");
 				$("#"+mode+"_loader").css({display:"none"});
-				$('html, body').animate({
-					scrollTop: $("#everyone_container").offset().top
-				}, 700);
+				$('html, body').animate({ scrollTop: $("#everyone_container").offset().top }, 1000);
 			});
 		}
 		
