@@ -1,1 +1,0 @@
-ALTER TABLE `jobs` ADD `casting_start` DATE NOT NULL AFTER `age_max`, ADD `casting_end` DATE NOT NULL AFTER `casting_start`;
