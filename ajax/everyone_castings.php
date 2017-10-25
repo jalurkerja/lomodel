@@ -1,10 +1,9 @@
-<?php include_once "homepage_header.php"; ?>
-<?php include_once "main_container.php"; ?>
-<?php include_once "casting_action.php"; ?>
+<?php include_once "../common.php"; ?>
+<?php include_once "../casting_action.php"; ?>
 	<?=$f->input("post_a_casting","Post a casting","type='button' onclick='window.location=\"dashboard.php?tabActive=post_a_casting\"'","btn btn-lg btn-info");?>
 	<div class="row">
 		<?php 
-			$castings = $db->fetch_all_data("jobs",[],"is_publish = 1","start_at DESC","100");
+			$castings = $db->fetch_all_data("jobs",[],"is_publish = 1 ORDER BY RAND()","","10");
 			if(count($castings) <= 0){
 				echo "<span class='col-sm-12 well' style='color:red;'>Data tidak ditemukan</span>";
 			} else {
@@ -19,7 +18,7 @@
 					} $model_category_ids = substr($model_category_ids,0,-2);
 					$age = $casting["age_min"]." - ".$casting["age_max"];
 			?>									
-					<div class="col-sm-6">
+					<div class="col-sm-6" style="color:white;">
 						<div class="row">
 							<div class="col-sm-4">
 								<img style="margin-top:10px" src="post_images/<?=$casting["image"];?>" width="100">
@@ -40,15 +39,14 @@
 								<div>For : <?=$model_category_ids;?></div>
 								<div>age : <?=$age;?></div>
 								<div class="col-sm-12"><br></div>
-								<div class="col-sm-12">
-									<?=$f->input("detail","Detail","onclick=\"showJobDetail('".$casting["id"]."');\" type='button' style='width:100%;'","btn btn-lg btn-info");?>
-								</div>
+							</div>
+							<div class="col-sm-12">
+								<?=$f->input("detail","Detail","onclick=\"showJobDetail('".$casting["id"]."');\" type='button' style='width:100%;'","btn btn-lg btn-info");?>
 							</div>
 						</div>
 					</div>
 			<?php } ?>
 		<?php } ?>
 	</div>
-<br>
-<?php include_once "main_container_end.php"; ?>
-<?php include_once "footer.php"; ?>
+	<br><br>
+	<?=$f->input("model_more","More","type='button' style='width:100%;' onclick=\"window.location='castings.php';\"","btn btn-lg btn-info");?>

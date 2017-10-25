@@ -162,7 +162,8 @@
 			if($withtime && is_array($time)) $format_time = " H:i:s";
 
 			if($mode == "dmY"){ $tanggal = date("d-m-Y".$format_time,mktime($h,$i,$s,$m,$d,$Y)); }
-			if($mode == "dMY"){ $tanggal = date("d F Y".$format_time,mktime($h,$i,$s,$m,$d,$Y)); }
+			else if($mode == "dMY"){ $tanggal = date("d F Y".$format_time,mktime($h,$i,$s,$m,$d,$Y)); }
+			else { $tanggal = date($mode.$format_time,mktime($h,$i,$s,$m,$d,$Y)); }
 			return $tanggal;
 		}
 	}
