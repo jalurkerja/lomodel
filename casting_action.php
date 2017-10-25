@@ -9,6 +9,7 @@
 				}
 				if(data > 0){
 					toastr.success("Casting ini berhasil di Apply");
+					$('#myModal').modal('hide');
 				} 
 				if(data == "error:already_applied"){
 					toastr.warning("Casting ini sudah pernah di Apply sebelumnya");

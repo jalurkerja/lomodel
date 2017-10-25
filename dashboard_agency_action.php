@@ -1,3 +1,32 @@
+<script>	
+	function showApplicants(id){
+		$.get( "ajax/casting_applicants.php?id="+id, function(modalBody) {
+			modalFooter = "<button type=\"button\" class=\"btn btn-danger\" data-dismiss=\"modal\">Close</button>";
+			$('#modalTitle').html("Applicants");
+			$('#modalBody').html(modalBody);
+			$('#modalFooter').html(modalFooter);
+			$('#myModal').modal('show');
+		});
+	}
+	
+	function showJobDetail(id){
+		$.get( "ajax/casting_detail.php?id="+id, function(modalBody) {
+			$.get( "ajax/casting_action.php?mode=isApplied&id="+id, function(isApplied) {
+				modalFooter = "";
+				if(isApplied > 0){
+					modalFooter += "<button type=\"button\"  class=\"btn\">Applied</button>";
+				} else {
+					modalFooter += "<button type=\"button\" onclick=\"apply('"+id+"');\" class=\"btn btn-success\">Apply</button>";
+				}
+				modalFooter += "<button type=\"button\" class=\"btn btn-danger\" data-dismiss=\"modal\">Close</button>";
+				$('#modalTitle').html("Casting Detail");
+				$('#modalBody').html(modalBody);
+				$('#modalFooter').html(modalFooter);
+				$('#myModal').modal('show');
+			});
+		});
+	}
+</script>
 <?php
 	if(isset($_POST["posting"])){
 		$age = explode(",",$_POST["age"]);
