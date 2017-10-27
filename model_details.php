@@ -33,7 +33,7 @@
 					<li class="active"><a data-toggle="tab" href="#profile">Profile</a></li>
 					<li><a data-toggle="tab" href="#work">Work</a></li>
 					<li><a data-toggle="tab" href="#clients">Clients</a></li>
-					<?php if($__role == "3" || $__role == "4") { ?>
+					<?php if($__role == "2" || $__role == "3" || $__role == "4" || true) { ?>
 						<li><a data-toggle="tab" href="#booking">Booking</a></li>
 					<?php } ?>
 				</ul>
