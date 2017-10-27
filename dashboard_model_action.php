@@ -1,4 +1,28 @@
 <?php
+	if(isset($_POST["job_done"])){
+		$booking_id = $_POST["booking_id"];
+		$token = $_POST["token"];
+		if($db->fetch_single_data("bookings","book_user_token",["id" => $booking_id]) == $token){
+			$db->addtable("bookings");		$db->where("id",$booking_id);
+			$db->addfield("user_is_done");	$db->addvalue("1");
+			$db->addfield("user_done_at");	$db->addvalue($__now);
+			$db->addfield("user_done_by");	$db->addvalue($__username);
+			$db->addfield("user_done_ip");	$db->addvalue($_SERVER["REMOTE_ADDR"]);
+			$db->update();
+			$_SESSION["message"] = "Thanks, Your job was done";
+			?>
+				<form method="POST" id="frmRefresh">
+					<input type="hidden" name="tabActive" value="bookings">
+				</form>
+				<script> frmRefresh.submit(); </script>
+			<?php
+			exit();
+		} else {
+			$_GET["tabActive"] = "bookings";
+			?> <script> toastr.warning("Invalid token, please try again!"); </script> <?php
+		}
+	}
+	
 	if(isset($_POST["accepting"])){
 		$booking_id = $_POST["booking_id"];
 		$db->addtable("bookings");		$db->where("id",$booking_id);

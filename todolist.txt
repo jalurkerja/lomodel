@@ -10,7 +10,7 @@ homepage
 	#everyone
 		X models
 			top 10 then "More"
-		castings
+		X castings
 			top 10 then "More"
 		agencies
 			top 10 then "More"

@@ -12,9 +12,13 @@
 		}
 		
 		if(isset($_POST["send_booking_proposal"])){
+			$user_token = "";		for($i=0;$i<5;$i++){ $user_token .= rand(0,4).rand(5,9); }
+			$book_user_token = "";	for($i=0;$i<5;$i++){ $book_user_token .= rand(5,9).rand(0,4); }
 			$db->addtable("bookings");
 			$db->addfield("user_id");			$db->addvalue($__user_id);
 			$db->addfield("book_user_id");		$db->addvalue($_POST["book_user_id"]);
+			$db->addfield("user_token");		$db->addvalue($user_token);
+			$db->addfield("book_user_token");	$db->addvalue($book_user_token);
 			$db->addfield("description");		$db->addvalue($_POST["description"]);
 			$db->addfield("casting_start");		$db->addvalue($_POST["casting_start"]);
 			$db->addfield("casting_end");		$db->addvalue($_POST["casting_end"]);
@@ -57,7 +61,6 @@
 			$db->addfield("bank");			$db->addvalue($_POST["bank"]);
 			$db->addfield("transfer_at");	$db->addvalue($_POST["transfer_at"]);
 			$db->addfield("account");		$db->addvalue($_POST["account"]);
-			$db->addfield("status");		$db->addvalue(1);
 			$updating = $db->update();
 			?><script> window.location="?mode=payment_confirmed"; </script><?php
 		}

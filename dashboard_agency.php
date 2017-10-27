@@ -2,14 +2,14 @@
 <?php if($__role!="3") exit(); ?>
 <div class="row">
 	<?php 
-		$personal_profile = $db->fetch_all_data("personal_profiles",[],"user_id='".$__user_id."'")[0];
+		$agency_profile = $db->fetch_all_data("agency_profiles",[],"user_id='".$__user_id."'")[0];
 	?>
 	<div class="container">
 		<h2 class="well">DASHBOARD</h2>
-		<h3><?=$personal_profile["name"];?></h3>
+		<h3><?=$agency_profile["name"];?></h3>
 	</div>
 	<div class="col-sm-3 fadeInRight animated">
-		<img style="width:95%;" id="mainProfileImg" src="user_images/<?=$personal_profile["photo"];?>">
+		<img style="width:95%;" id="mainProfileImg" src="user_images/<?=$agency_profile["photo"];?>">
 	</div>
 	<div class="col-sm-9 fadeInRight animated">
 		<div class="col-md-12 container">
@@ -21,9 +21,7 @@
 			</ul>
 			<br><br>
 			<div class="col-sm-12 tab-content">
-				<div id="profile" class="tab-pane fade in active">
-					<div style="height:300px;"></div>
-				</div>
+				<div id="profile" class="tab-pane fade in active"><?php include_once "dashboard_agency_profile.php"; ?></div>
 				<div id="castings" class="tab-pane fade"><?php include_once "dashboard_agency_castings.php"; ?></div>
 				<div id="post_a_casting" class="tab-pane fade"><?php include_once "dashboard_agency_post_a_casting.php"; ?></div>
 				<div id="bookings" class="tab-pane fade"><?php include_once "dashboard_agency_bookings.php"; ?></div>

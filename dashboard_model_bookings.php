@@ -22,6 +22,7 @@
 						<div><?=format_tanggal($booking["casting_start"]);?> s/d <?=format_tanggal($booking["casting_end"]);?></div>
 						<div><?=str_replace(chr(13).chr(10),"<br>",$booking["description"]);?></div>
 						<div><b>Rp. <?=format_amount($booking["fee"],2);?></b></div>
+						<div>Your token: <?=$booking["user_token"];?><div>
 						<?php if($booking["status"] == "1"){ ?>
 							<div class="col-sm-6">
 								<?=$f->input("accept","Accept","onclick=\"booking('accept','".$booking["id"]."');\" type='button' style='width:100%;'","btn btn-lg btn-success");?>
@@ -31,7 +32,15 @@
 							</div>
 						<?php } ?>
 						<?php if($booking["status"] == "2"){ 
-							?> <div class="col-sm-12 btn-success text-center"><b>Accepted</b></div> <?php
+							?> 
+								<?php if($booking["user_is_done"] == 1){ ?>
+									<div class="col-sm-12 btn-success text-center"><b>Job Accepted and done</b></div>
+								<?php } else { ?>
+									<div class="col-sm-12 btn-success text-center"><b>Job Accepted</b></div>
+									<br><br>
+									<?=$f->input("job_done","Job Done","onclick=\"jobDone('".$booking["id"]."');\" type='button' style='width:100%;'","btn btn-lg btn-success");?>
+								<?php } ?>
+							<?php
 						}?>
 						<?php if($booking["status"] == "3"){ 
 							?> <div class="col-sm-12 btn-danger text-center">Rejected</div> <?php
@@ -45,6 +54,21 @@
 	</table>
 </div>
 <script> 
+	function jobDone(booking_id){
+		modalTitle = "Enter corporate or agency token";
+		modalBody = "<form method='POST' id='frmToken'>";
+		modalBody += "<input type='hidden' name='booking_id' value='"+booking_id+"'>";
+		modalBody += "<input type='hidden' name='job_done' value='1'>";
+		modalBody += "<input type='token' name='token' class='form-control'>";
+		modalBody += "</form>";
+		modalFooter = "<button type=\"button\" class=\"btn btn-danger\" data-dismiss=\"modal\">Close</button>";
+		modalFooter += "<button type=\"button\" class=\"btn btn-success\" onclick=\"frmToken.submit();\">OK</button>";
+		$('#modalTitle').html(modalTitle);
+		$('#modalBody').html(modalBody);
+		$('#modalFooter').html(modalFooter);
+		$('#myModal').modal('show');
+	}
+	
 	function booking(mode,booking_id){
 		var modalTitle = "";
 		var modalBody = "";

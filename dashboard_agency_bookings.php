@@ -20,9 +20,18 @@
 						<div><?=format_tanggal($booking["casting_start"]);?> s/d <?=format_tanggal($booking["casting_end"]);?></div>
 						<div><?=str_replace(chr(13).chr(10),"<br>",$booking["description"]);?></div>
 						<div><b>Rp. <?=format_amount($booking["fee"],2);?></b></div>
+						<div>Your token: <?=$booking["book_user_token"];?><div>
 						
 						<?php if($booking["status"] == "2"){ 
-							?> <div class="col-sm-12 btn-success text-center"><b>Accepted</b></div> <?php
+							?> 
+								<div class="col-sm-12 btn-success text-center"><b>Accepted</b></div> 
+								<?php if($booking["book_user_is_done"] == 1){ ?>
+									<div class="col-sm-12 btn-success text-center"><b>Job was done</b></div>
+								<?php } else { ?>
+									<br><br>
+									<?=$f->input("job_done","Job Done","onclick=\"jobDone('".$booking["id"]."');\" type='button' style='width:100%;'","btn btn-lg btn-success");?>
+								<?php } ?>
+							<?php
 						}?>
 						<?php if($booking["status"] == "3"){ 
 							?> <div class="col-sm-12 btn-danger text-center">Rejected</div> <?php

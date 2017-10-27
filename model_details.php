@@ -33,7 +33,9 @@
 					<li class="active"><a data-toggle="tab" href="#profile">Profile</a></li>
 					<li><a data-toggle="tab" href="#work">Work</a></li>
 					<li><a data-toggle="tab" href="#clients">Clients</a></li>
-					<li><a data-toggle="tab" href="#booking">Booking</a></li>
+					<?php if($__role == "3" || $__role == "4") { ?>
+						<li><a data-toggle="tab" href="#booking">Booking</a></li>
+					<?php } ?>
 				</ul>
 				<div class="tab-content">
 					<div id="profile" class="tab-pane fade in active">
@@ -133,7 +135,7 @@
 									</div>
 								</form>
 							<?php } else { ?>
-								<label style="color:red;">Anda harus terdaftar sebagai Personal, Agensi atau Corporate</label>
+								<label style="color:red;">Anda harus terdaftar sebagai Agensi atau Corporate</label>
 							<?php } ?>
 						</div>
 								
