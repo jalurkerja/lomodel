@@ -70,6 +70,8 @@ serach model page (https://www.modelmanagement.com/model-images/)
 		
 	asking join member of agency
 	
+	penawaran gabung ke agency
+	
 search casting page (https://www.modelmanagement.com/castings/)
 	post a casting
 		only agency,corporate or personal
