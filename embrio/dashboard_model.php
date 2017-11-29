@@ -20,6 +20,7 @@
 				<li><a data-toggle="tab" href="#album">Album</a></li>
 				<li><a data-toggle="tab" href="#appliedCastings">Applied Castings</a></li>
 				<li><a data-toggle="tab" href="#bookings">Booking Requests</a></li>
+				<li><a data-toggle="tab" href="#message"><?=v("message");?></a></li>
 			</ul>
 			<br><br>
 			<div class="col-sm-12 tab-content">
@@ -55,6 +56,7 @@
 				</div>
 				<div id="appliedCastings" class="tab-pane fade"><?php include_once "dashboard_model_appliedCastings.php"; ?></div>
 				<div id="bookings" class="tab-pane fade"><?php include_once "dashboard_model_bookings.php"; ?></div>
+				<div id="message" class="tab-pane fade"><?php include_once "dashboard_messages.php"; ?></div>
 			</div>
 		</div>
 	</div>

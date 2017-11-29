@@ -34,7 +34,16 @@
 		</div>
 	</footer>
 	<script>
-	
+		function session_checker(){
+			$.ajax({url: "ajax/session_checker.php", success: function(result){
+				if(result != "<?=$__isloggedin;?>"){
+					window.location="index.php";
+				}
+			}});
+			setTimeout(function(){ session_checker(); }, 60000);
+		}
+		$( document ).ready(function() { setTimeout(function(){ session_checker(); }, 60000); });
+		
 		<?php if(isset($_GET["tabActive"])){ ?>
 				$('.nav-tabs a[href="#<?=$_GET["tabActive"];?>"]').tab('show');
 		<?php } ?>
@@ -44,12 +53,12 @@
 		<?php } ?>
 
 		<?php if(isset($_SESSION["message"]) && $_SESSION["message"] != ""){ ?> 
-			toastr.success("<?=$_SESSION["message"];?>");
+			toastr.success("<?=$_SESSION["message"];?>","",toastroptions);
 			<?php $_SESSION["message"] = ""; ?>
 		<?php } ?>
 		
 		<?php if(isset($_SESSION["errormessage"]) && $_SESSION["errormessage"] != ""){ ?> 
-			toastr.warning("<?=$_SESSION["errormessage"];?>");
+			toastr.warning("<?=$_SESSION["errormessage"];?>","",toastroptions);
 			<?php $_SESSION["errormessage"] = ""; ?>
 		<?php } ?>
 		

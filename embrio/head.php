@@ -25,6 +25,22 @@
 	<script src="scripts/newWaterfall.js"></script>
 	
 	<script>
+		var toastroptions = {
+			"closeButton": true,
+			"debug": false,
+			"newestOnTop": false,
+			"progressBar": true,
+			"positionClass": "toast-bottom-right",
+			"preventDuplicates": false,
+			"showDuration": "300",
+			"hideDuration": "1000",
+			"timeOut": "5000",
+			"extendedTimeOut": "1000",
+			"showEasing": "swing",
+			"hideEasing": "linear",
+			"showMethod": "fadeIn",
+			"hideMethod": "fadeOut"
+			}
 		function ajaxLoad(filename, content) {
 			content = typeof content !== 'undefined' ? content : 'content';
 			$('.loading').show();
@@ -175,6 +191,7 @@
 							</a>
 							<ul class="dropdown-menu" role="menu">
 								<li><a href="dashboard.php"><?=v("my_dasboard");?></a></li>
+								<li><a href="dashboard.php#message"><?=v("message");?></a></li>
 								<li><a href="?logout_action=1">Logout</a></li>
 							</ul>
 						</li>

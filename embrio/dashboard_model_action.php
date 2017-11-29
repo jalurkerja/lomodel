@@ -19,7 +19,7 @@
 			exit();
 		} else {
 			$_GET["tabActive"] = "bookings";
-			?> <script> toastr.warning("Invalid token, please try again!"); </script> <?php
+			?> <script> toastr.warning("Invalid token, please try again!","",toastroptions); </script> <?php
 		}
 	}
 	

@@ -1,24 +1,24 @@
 <script>
 	function apply(id){
 		<?php if($__role != 5){ ?>
-			toastr.warning("Anda harus Sign In sebagai Model!");
+			toastr.warning("Anda harus Sign In sebagai Model!","",toastroptions);
 		<?php } else { ?>
 			$.get( "ajax/casting_action.php?mode=apply&id="+id, function(data) {
 				if(data <= 0){
-					toastr.warning("Apply gagal, silakan ulangi lagi!");
+					toastr.warning("Apply gagal, silakan ulangi lagi!","",toastroptions);
 				}
 				if(data > 0){
-					toastr.success("Casting ini berhasil di Apply");
+					toastr.success("Casting ini berhasil di Apply","",toastroptions);
 					$('#myModal').modal('hide');
 				} 
 				if(data == "error:already_applied"){
-					toastr.warning("Casting ini sudah pernah di Apply sebelumnya");
+					toastr.warning("Casting ini sudah pernah di Apply sebelumnya","",toastroptions);
 				}
 				if(data == "error:user_not_exist"){
-					toastr.warning("User tidak terdaftar");
+					toastr.warning("User tidak terdaftar","",toastroptions);
 				}
 				if(data == "error:user_not_model"){
-					toastr.warning("Anda harus Sign In sebagai Model!");
+					toastr.warning("Anda harus Sign In sebagai Model!","",toastroptions);
 				}
 			});
 		<?php } ?>

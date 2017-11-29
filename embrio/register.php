@@ -30,7 +30,7 @@
 		include_once "register_action.php";
 		
 		if($_error_message != ""){
-			?><script> toastr.warning('<?=$_error_message;?>'); </script> <?php
+			?><script> toastr.warning('<?=$_error_message;?>','',toastroptions); </script> <?php
 		}
 		
 		$selectRegisterAs = "";

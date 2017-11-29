@@ -68,6 +68,7 @@ class Vocabulary{
 		$arr[$l]["contact_us"]								= "Contact Us";
 		$arr[$l]["about"]									= "About";
 		$arr[$l]["contact"]									= "Contact";
+		$arr[$l]["message"]									= "Message";
 		
 		/*==================================================================================================================================*/
 		/*==================================================================================================================================*/
@@ -123,6 +124,7 @@ class Vocabulary{
 		$arr[$l]["contact_us"]								= "Hubungi Kami";
 		$arr[$l]["about"]									= "Tentang Kami";
 		$arr[$l]["contact"]									= "Hubungi";
+		$arr[$l]["message"]									= "Pesan";
 		
 		return $arr[$this->locale][$index];
 	}
