@@ -34,6 +34,13 @@
 		</div>
 	</footer>
 	<script>
+		function checkMessageCount(){
+			$.ajax({url: "ajax/messages.php?mode=checkMessageCount", success: function(result){
+				loadNotifMessageCount(result);
+			}});
+			setTimeout(function(){ checkMessageCount(); }, 1000); 
+		}
+		
 		function session_checker(){
 			$.ajax({url: "ajax/session_checker.php", success: function(result){
 				if(result != "<?=$__isloggedin;?>"){
@@ -42,7 +49,10 @@
 			}});
 			setTimeout(function(){ session_checker(); }, 60000);
 		}
-		$( document ).ready(function() { setTimeout(function(){ session_checker(); }, 60000); });
+		$( document ).ready(function() { 
+			setTimeout(function(){ session_checker(); }, 60000); 
+			setTimeout(function(){ checkMessageCount(); }, 1000); 
+		});
 		
 		<?php if(isset($_GET["tabActive"])){ ?>
 				$('.nav-tabs a[href="#<?=$_GET["tabActive"];?>"]').tab('show');
@@ -61,7 +71,6 @@
 			toastr.warning("<?=$_SESSION["errormessage"];?>","",toastroptions);
 			<?php $_SESSION["errormessage"] = ""; ?>
 		<?php } ?>
-		
 	</script>
 </body>
 </html>

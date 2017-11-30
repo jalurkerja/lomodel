@@ -11,3 +11,8 @@ CREATE TABLE messages (
 	xtimestamp timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
 	primary key(id)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+ALTER TABLE `model_profiles` ADD `photo` VARCHAR(255) NOT NULL AFTER `tw`;
+UPDATE model_profiles SET photo = (SELECT filename FROM model_files WHERE user_id=model_profiles.user_id);
+ALTER TABLE `messages` ADD INDEX(`created_at`);
+ALTER TABLE `messages` ADD INDEX(`status`);

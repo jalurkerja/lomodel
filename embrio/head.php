@@ -58,6 +58,21 @@
 				}
 			});
 		}
+		function loadNotifCount(elmId,count){
+			if(count != 0){
+				$("#" + elmId).html(count);
+				$("#" + elmId).attr("style","visibility:visible");
+			} else {
+				$("#" + elmId).html("");
+				$("#" + elmId).attr("style","visibility:hidden");
+			}
+		}
+		function loadNotifMessageCount(count){
+			try{ loadNotifCount("notifNavCount",count); } catch(e){}
+			try{ loadNotifCount("notifCount",count); } catch(e){}
+			try{ loadNotifCount("notifMessageCount",count); } catch(e){}
+			try{ loadNotifCount("notifMessageTabCount",count); } catch(e){}
+		}
 	</script>
 </head>
 <body style="margin:0px;">
@@ -100,6 +115,7 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
+					<span class="notification-counter" style="visibility:hidden;" id="notifNavCount"></span>
 				</button>
 				<!-- Branding Image -->
 				<a class="navbar-brand" href="index.php">
@@ -161,7 +177,9 @@
 						</li>
 						
 						<li>
-							<a href="#" class="dropdown-toggle" data-toggle="dropdown"><?=v("signin");?> <span class="caret"></span></a>
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown"><?=v("signin");?> 
+								<span class="caret"></span>
+							</a>
 							<ul class="dropdown-menu" role="menu">
 								<li>
 									<div class="col-sm-5 fadeInLeft animated">
@@ -187,11 +205,18 @@
 					
 						<li class="dropdown">
 							<a href="#" class="dropdown-toggle">
-								<?=$__fullname;?> <span class="caret"></span>
+								<?=$__fullname;?> 
+								<span class="notification-counter" style="visibility:hidden;" id="notifCount"></span>
+								<span class="caret"></span>
 							</a>
 							<ul class="dropdown-menu" role="menu">
 								<li><a href="dashboard.php"><?=v("my_dasboard");?></a></li>
-								<li><a href="dashboard.php#message"><?=v("message");?></a></li>
+								<li>
+									<a href="dashboard.php?tabActive=message">
+										<?=v("message");?>
+										<span class="notification-counter" style="visibility:hidden;" id="notifMessageCount"></span>
+									</a>
+								</li>
 								<li><a href="?logout_action=1">Logout</a></li>
 							</ul>
 						</li>

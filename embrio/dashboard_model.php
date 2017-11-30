@@ -20,7 +20,9 @@
 				<li><a data-toggle="tab" href="#album">Album</a></li>
 				<li><a data-toggle="tab" href="#appliedCastings">Applied Castings</a></li>
 				<li><a data-toggle="tab" href="#bookings">Booking Requests</a></li>
-				<li><a data-toggle="tab" href="#message"><?=v("message");?></a></li>
+				<li onclick="loadMessages();">
+					<a data-toggle="tab" href="#message"><?=v("message");?><span class="notification-counter" style="visibility:hidden;" id="notifMessageTabCount"></span></a>
+				</li>
 			</ul>
 			<br><br>
 			<div class="col-sm-12 tab-content">
