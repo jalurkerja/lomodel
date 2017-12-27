@@ -32,6 +32,7 @@
 		});
 	</script>
 	<div class="container">
+		<h3 class="header3"><?=v("modeling_for_everyone");?></h3>
 		<div class="row" id="everyone">
 			<div class="col-xs-4 animated" id="everyone_models" onmouseout="this.classList.remove('fadeInLeft');">
 				<div id="everyone_models_loader" class="loader"><i class="fa fa-circle-o-notch fa-spin fa-3x fa-fw"></i></div>
@@ -92,8 +93,8 @@
 			<h3 class="header3"><?=v("connect_socially_with_us");?></h3>
 			<ul>
 				<li><a class="facebook" href="https://www.facebook.com/lomodel/" title="Ikuti kami di Facebook" target="_blank" rel="nofollow"><i class="fa fa-facebook"></i></a></li>
-				<li><a class="twitter" href="https://twitter.com/lomodel/" title="Ikuti kami di Twitter" target="_blank" rel="nofollow"><i class="fa fa-twitter"></i></a></li>
-				<li><a class="instagram" href="https://instagram.com/lomodel" title="Follow us on Instagram" target="_blank" rel="nofollow"><i class="fa fa-instagram"></i></a></li>
+				<li><a class="twitter" href="https://twitter.com/lomodel_id/" title="Ikuti kami di Twitter" target="_blank" rel="nofollow"><i class="fa fa-twitter"></i></a></li>
+				<li><a class="instagram" href="https://www.instagram.com/lomodel.id/" title="Follow us on Instagram" target="_blank" rel="nofollow"><i class="fa fa-instagram"></i></a></li>
 				<li><a class="youtube" href="https://www.youtube.com/user/lomodel/" title="Ikuti kami di YouTube" target="_blank" rel="nofollow"><i class="fa fa-youtube-play"></i></a></li>
 				<li><a class="pinterest" href="https://pinterest.com/lomodel/boards/" title="Follow us on Pinterest" target="_blank" rel="nofollow"><i class="fa fa-pinterest"></i></a></li>
 				<li><a class="gplus" href="https://plus.google.com/u/0/lomodel/" title="Follow us on Google+" target="_blank" rel="nofollow"><i class="fa fa-google-plus"></i></a></li>

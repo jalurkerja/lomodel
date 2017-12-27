@@ -5,7 +5,7 @@
 		$agency_profile = $db->fetch_all_data("agency_profiles",[],"user_id='".$__user_id."'")[0];
 	?>
 	<div class="container">
-		<h2 class="well">DASHBOARD</h2>
+		<h2 class="well"><?=strtoupper(v("dashboard"));?></h2>
 		<h3><?=$agency_profile["name"];?></h3>
 	</div>
 	<div class="col-sm-3 fadeInRight animated">

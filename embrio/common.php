@@ -38,14 +38,13 @@
 	$h = new Helper();
 	if($_SERVER["REMOTE_ADDR"] == "::1") $_SERVER["REMOTE_ADDR"] = "127.0.0.1";
 	
-	if($__is_seeker){
-		$__seeker_member_active = $db->fetch_single_data("seeker_memberships","concat(count(0))",array("user_id" => $__user_id,"active_at" => date("Y-m-d").":<=","expired_at" => date("Y-m-d").":>"));
-		if($__seeker_member_active){
-			$__is_autoapply = $db->fetch_single_data("seeker_memberships","is_autoapply",array("user_id" => $__user_id));
-			$__is_priority 	= $db->fetch_single_data("seeker_memberships","is_priority",array("user_id" => $__user_id));
-			$__num_of_training 	= $db->fetch_single_data("seeker_memberships","num_of_training",array("user_id" => $__user_id));
-			$__memebership_id = $db->fetch_single_data("seeker_memberships_trx","membership_id",array("user_id" => $__user_id,"status" => "3"),array("id DESC"));
+	if($__user_id && $__isloggedin){
+		$__token = $db->fetch_single_data("a_users","token",["id" => $__user_id]);
+		if($__token == ""){
+			$__token = generateToken();
 		}
+	} else {
+		$__token = "";
 	}
 	
 	
@@ -55,6 +54,39 @@
 		global $vocabulary;
 		if($vocabulary->w($index)) return $vocabulary->w($index);
 		else return $index;
+	}
+	
+	function randtoken($len){
+		$return = "";
+		while(strlen($return) < $len){
+			if(rand(0,1) == 0){//angka
+				$return .= rand(0,9);
+			} else {//huruf
+				$return .= chr(rand(65,90));
+			}
+		}
+		return $return;
+	}
+	
+	function generateToken($suffix = ""){
+		global $db,$__user_id,$__isloggedin;
+		if($__user_id && $__isloggedin){
+			if($suffix == "") $suffix = $__user_id;
+			$looping = true;
+			while($looping){
+				$token = randtoken(20)."_".$suffix;
+				if($db->fetch_single_data("a_users","id",["token" => $token]) <= 0 ){
+					$db->addtable("a_users");	$db->where("id",$__user_id);
+					$db->addfield("token");		$db->addvalue($token);
+					$updating = $db->update();
+					if($updating["affected_rows"] > 0){
+						$looping = false;
+					}
+				}
+			}
+			return $token;
+		}
+		return "";
 	}
 	
 	function add_utm() {

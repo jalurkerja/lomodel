@@ -5,19 +5,29 @@
 			?> <script>window.location="index.php";</script> <?php
 			exit();
 		}
+		if($_GET["step"] >= 2){
+			if($__role == ""){
+				?> <script>window.location="index.php";</script> <?php
+				exit();
+			}
+			if($__role == "2") $_GET["as"] = "personal";
+			if($__role == "3") $_GET["as"] = "agency";
+			if($__role == "4") $_GET["as"] = "corporate";
+			if($__role == "5") $_GET["as"] = "model";
+		}
 		$_step = (isset($_GET["step"])) ? $_GET["step"] : "1";
 		$_add_name_placeholder = "";
 		if($_GET["as"] == "personal"){
-			$registeras = "Personal";
+			$registeras = v("personal");
 			$_regrole = "2";
 		}
 		if($_GET["as"] == "agency"){
-			$registeras = "Agency";
+			$registeras = v("agency");
 			$_add_name_placeholder = "Agency ";
 			$_regrole = "3";
 		}
 		if($_GET["as"] == "corporate"){
-			$registeras = "Corporate";
+			$registeras = v("corporate");
 			$_add_name_placeholder = "Corporate ";
 			$_regrole = "4";
 		}
@@ -35,13 +45,16 @@
 		
 		$selectRegisterAs = "";
 		$titleClass = "col-md-12";
-		if($_GET["as"] == "nomodel"){
+		if($_GET["as"] == "nomodel" || $_GET["as"] == "null"){
 			$selectRegisterAs .= "<div class='col-md-2'>";
 			$selectRegisterAs .= "<select class='form-control' onchange=\"window.location='?as='+this.value;\">";
 			$selectRegisterAs .= "<option value=''></option>";
-			$selectRegisterAs .= "<option value='personal'>Personal</option>";
-			$selectRegisterAs .= "<option value='agency'>Agency</option>";
-			$selectRegisterAs .= "<option value='corporate'>Corporate</option>";
+			if($_GET["as"] == "null"){
+				$selectRegisterAs .= "<option value='model'>".v("model")."</option>";
+			}
+			$selectRegisterAs .= "<option value='personal'>".v("personal")."</option>";
+			$selectRegisterAs .= "<option value='agency'>".v("agency")."</option>";
+			$selectRegisterAs .= "<option value='corporate'>".v("corporate")."</option>";
 			$selectRegisterAs .= "</select>";
 			$selectRegisterAs .= "</div>";
 			$titleClass = "col-md-3";
@@ -49,8 +62,8 @@
 	?>
 	<?php if($_step == 1){ ?>
 		<div class="container fadeInLeft animated">
-			<h1 class="well col-md-12"><div class="<?=$titleClass;?>">Register as <?=$registeras;?> </div><?=$selectRegisterAs;?></h1>
-			<?php if($_GET["as"] != "nomodel"){ ?>
+			<h2 class="well col-md-12"><div class="<?=$titleClass;?>"><?=v("register_as");?> <?=$registeras;?> </div><?=$selectRegisterAs;?></h2>
+			<?php if($_GET["as"] != "nomodel" && $_GET["as"] != "null"){ ?>
 				<div class="col-lg-12 well">
 					<form role="form" method="POST" autocomplete="off" onsubmit="return validation()" enctype="multipart/form-data">				
 						<div class="col-sm-4 features wow fadeInRight animated">

@@ -52,7 +52,9 @@ class Vocabulary{
 		$arr[$l]["agencies"]								= "Agencies";
 		$arr[$l]["signup"]									= "Sign Up";
 		$arr[$l]["signin"]									= "Sign In";
-		$arr[$l]["my_dasboard"]								= "My Dashboard";
+		$arr[$l]["my_dashboard"]							= "My Dashboard";
+		$arr[$l]["dashboard"]								= "Dashboard";
+		$arr[$l]["back_to_dashboard"]						= "Back to Dashboard";
 		$arr[$l]["personal"]								= "Personal";
 		$arr[$l]["agency"]									= "Agency";
 		$arr[$l]["corporate"]								= "Corporate";
@@ -69,6 +71,29 @@ class Vocabulary{
 		$arr[$l]["about"]									= "About";
 		$arr[$l]["contact"]									= "Contact";
 		$arr[$l]["message"]									= "Message";
+		$arr[$l]["register_as"]								= "Register as";
+		$arr[$l]["modeling_for_everyone"]					= "MODELING FOR EVERYONE";
+		$arr[$l]["nationality"]								= "Nationality";
+		$arr[$l]["hair_color"]								= "Hair Color";
+		$arr[$l]["eye_color"]								= "Eye Color";
+		$arr[$l]["height"]									= "Height";
+		$arr[$l]["chest_size"]								= "Chest";
+		$arr[$l]["bust_size"]								= "Bust (uk)";
+		$arr[$l]["waist_size"]								= "Waist";
+		$arr[$l]["hips_size"]								= "Hips";
+		$arr[$l]["shoe_size"]								= "Shoe (euro)";
+		$arr[$l]["model_category"]							= "Model Category";
+		$arr[$l]["change_photo"]							= "Change Photo";
+		$arr[$l]["change_profile_photo"]					= "Change Profile Photo";
+		$arr[$l]["setup_your_profile_photo"]				= "Setup Your Profile Photo";
+		$arr[$l]["edit_profile"]							= "Edit Profile";
+		$arr[$l]["create_album"]							= "Create Album";
+		$arr[$l]["album_name"]								= "Album Name";
+		$arr[$l]["add_photo"]								= "Add Photo";
+		$arr[$l]["finish"]									= "Finish";
+		$arr[$l]["location"]								= "Location";
+		$arr[$l]["save"]									= "Save";
+		$arr[$l]["profile_updated_successfully"]			= "Profile updated successfully";
 		
 		/*==================================================================================================================================*/
 		/*==================================================================================================================================*/
@@ -108,7 +133,9 @@ class Vocabulary{
 		$arr[$l]["agencies"]								= "Agensi";
 		$arr[$l]["signup"]									= "Daftar";
 		$arr[$l]["signin"]									= "Masuk";
-		$arr[$l]["my_dasboard"]								= "Dasbor Saya";
+		$arr[$l]["my_dashboard"]							= "Dasbor Saya";
+		$arr[$l]["dashboard"]								= "Dasbor";
+		$arr[$l]["back_to_dashboard"]						= "Kembali Ke Dasbor";
 		$arr[$l]["personal"]								= "Pribadi";
 		$arr[$l]["agency"]									= "Agensi";
 		$arr[$l]["corporate"]								= "Perusahaan";
@@ -125,6 +152,29 @@ class Vocabulary{
 		$arr[$l]["about"]									= "Tentang Kami";
 		$arr[$l]["contact"]									= "Hubungi";
 		$arr[$l]["message"]									= "Pesan";
+		$arr[$l]["register_as"]								= "Daftar sebagai";
+		$arr[$l]["modeling_for_everyone"]					= "MODELING UNTUK SEMUA ORANG";
+		$arr[$l]["nationality"]								= "Kebangsaan";
+		$arr[$l]["hair_color"]								= "Warna Rambut";
+		$arr[$l]["eye_color"]								= "Warna Bola Mata";
+		$arr[$l]["height"]									= "Tinggi";
+		$arr[$l]["chest_size"]								= "Lingkar Dada";
+		$arr[$l]["bust_size"]								= "Ukuran Bra (uk)";
+		$arr[$l]["waist_size"]								= "Lingkar Pinggang";
+		$arr[$l]["hips_size"]								= "lingkar Pinggul";
+		$arr[$l]["shoe_size"]								= "Ukuran Sepatu (euro)";
+		$arr[$l]["model_category"]							= "Kategori Model";
+		$arr[$l]["change_photo"]							= "Ubah Foto";
+		$arr[$l]["change_profile_photo"]					= "Ubah Foto Profil";
+		$arr[$l]["setup_your_profile_photo"]				= "Atur Foto Profil Anda";
+		$arr[$l]["edit_profile"]							= "Ubah Profil";
+		$arr[$l]["create_album"]							= "Buat Album";
+		$arr[$l]["album_name"]								= "Nama Album";
+		$arr[$l]["add_photo"]								= "Tambah Photo";
+		$arr[$l]["finish"]									= "Selesai";
+		$arr[$l]["location"]								= "Lokasi";
+		$arr[$l]["save"]									= "Simpan";
+		$arr[$l]["profile_updated_successfully"]			= "Profil berhasil diubah";
 		
 		return $arr[$this->locale][$index];
 	}

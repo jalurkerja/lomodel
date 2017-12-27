@@ -151,29 +151,7 @@
 					<li style="width:100px;"><a></a></li>
 					<?php if(!$__isloggedin){ ?>
 						<li class="dropdown">
-							<a href="#" class="dropdown-toggle"><?=v("signup");?> <span class="caret"></span></a>
-							<ul class="dropdown-menu" role="menu">
-								<li>
-									<div style="margin:10px;width:1000px;" class="wow fadeInLeft animated">
-										<div class="col-sm-4" id="desc">
-											<b><?=strtoupper(v("model"));?></b><br><?=v("model_description");?><br>
-											<?=$f->input("btn_reg_peronal","Register","type='button' onclick=\"window.location='register.php?as=model';\"","btn-link-1");?>
-										</div>
-										<div class="col-sm-4" id="desc">
-											<b><?=strtoupper(v("personal"));?></b><br><?=v("personal_description");?><br>
-											<?=$f->input("btn_reg_peronal","Register","type='button' onclick=\"window.location='register.php?as=personal';\"","btn-link-1");?>
-										</div>
-										<div class="col-sm-4" id="desc">
-											<b><?=strtoupper(v("agency"));?></b><br><?=v("agency_description");?><br>
-											<?=$f->input("btn_reg_peronal","Register","type='button' onclick=\"window.location='register.php?as=agency';\"","btn-link-1");?>
-										</div>
-										<div class="col-sm-4" id="desc">
-											<b><?=strtoupper(v("corporate"));?></b><br><?=v("corporate_description");?><br>
-											<?=$f->input("btn_reg_peronal","Register","type='button' onclick=\"window.location='register.php?as=corporate';\"","btn-link-1");?>
-										</div>
-									</div>
-								</li>
-							</ul>
+							<a href="register.php?as=null"><?=v("signup");?></a>
 						</li>
 						
 						<li>
@@ -210,7 +188,7 @@
 								<span class="caret"></span>
 							</a>
 							<ul class="dropdown-menu" role="menu">
-								<li><a href="dashboard.php"><?=v("my_dasboard");?></a></li>
+								<li><a href="dashboard.php"><?=v("my_dashboard");?></a></li>
 								<li>
 									<a href="dashboard.php?tabActive=message">
 										<?=v("message");?>

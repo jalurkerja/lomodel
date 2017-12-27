@@ -143,7 +143,7 @@
 			<h2 class="well">Payment</h2>
 			<div class="well">
 				<p>Konfirmasi pembayaran Anda telah berhasil dikirim ke bagian keuangan Kami, mohon tunggu verifikasi pembayaran Anda. Terima Kasih.</p><br>
-				<?=$f->input("dashboard","Kembali ke Dashboard","type='button' style='width:100%;' onclick=\"window.location='dashboard.php'\"","btn btn-lg btn-info");?>
+				<?=$f->input("dashboard",v("back_to_dashboard"),"type='button' style='width:100%;' onclick=\"window.location='dashboard.php'\"","btn btn-lg btn-info");?>
 			</div>
 		<?php } ?>
 		
