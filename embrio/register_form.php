@@ -26,6 +26,10 @@
 		if($_regrole == "3"){
 			$_forms["ids"] = ["pic","idcard","address","location_id","zipcode","phone","cellphone","web","nationality_id","ig","fb","tw","about"];
 			$_forms["caption"] = ["PIC","ID Card","Address","Location","Zip Code","Phone","Cellphone","Web","Nationality","Instagram","Facebook","Twitter","About"];
+			if($_mode == "editing"){
+				array_unshift($_forms["ids"],"name");
+				array_unshift($_forms["caption"],v("Name"));
+			}
 			$_forms["type"]["address"] = "textarea";
 			$_forms["type"]["about"] = "textarea";
 			$_forms["type"]["nationality_id"] = "select";

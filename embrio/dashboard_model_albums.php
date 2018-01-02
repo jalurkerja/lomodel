@@ -1,28 +1,3 @@
-<script>	
-	function showGalery(model_album_id){
-		$.get( "ajax/show_galery.php?model_album_id="+model_album_id, function(modalBody) {
-			modalFooter = "<button type=\"button\" class=\"btn btn-danger\" data-dismiss=\"modal\">Close</button>";
-			$('#modalTitle').html("");
-			$('#modalTitle').parent().css( "display", "none" );
-			$('#modalBody').html(modalBody);
-			$('#modalFooter').html(modalFooter);
-			$('#myModal').modal('show');
-		});
-	}
-	
-	function delete_album(seqno){
-		if(confirm("<?=v("are_you_sure_you_want_to_delete_this_photo");?>")){
-			modeSaving.value="deleting";
-			delete_seqno.value=seqno;
-			frmAlbum.submit();
-		}
-	}
-	<?php if($_POST["modeSaving"] == "addingPhoto"){ ?>
-		$( document ).ready(function() {
-			$("HTML, BODY").animate({scrollTop : $('html,body').height()-800 },800);
-		});
-	<?php } ?>
-</script>
 <div>
 	<?php 
 		if(!isset($_GET["album_id"]) && !isset($_GET["create_new_album"])){ //Album Listing
@@ -33,7 +8,7 @@
 			<?php
 			$model_albums = $db->fetch_all_data("model_albums",[],"user_id='".$__user_id."' GROUP BY album_id ORDER BY created_at DESC");
 			if(count($model_albums) <= 0){
-				echo "<span class='col-sm-12 well' style='color:red;'>Data tidak ditemukan</span>";
+				echo "<span class='col-sm-12 well' style='color:red;'>".v("data_not_found")."</span>";
 			} else {
 				foreach($model_albums as $model_album){
 					

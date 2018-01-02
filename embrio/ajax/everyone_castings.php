@@ -5,7 +5,7 @@
 		<?php 
 			$castings = $db->fetch_all_data("jobs",[],"is_publish = 1 ORDER BY RAND()","","10");
 			if(count($castings) <= 0){
-				echo "<span class='col-sm-12 well' style='color:red;'>Data tidak ditemukan</span>";
+				echo "<span class='col-sm-12 well' style='color:red;'>".v("data_not_found")."</span>";
 			} else {
 				foreach($castings as $casting){
 					$work_category_ids = "";

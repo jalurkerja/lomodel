@@ -1,12 +1,16 @@
 <?php 
 	include_once "../common.php";
 	$model_album_id = $_GET["model_album_id"];
-	$filename = $db->fetch_single_data("model_albums","filename",["id" => $model_album_id]);
-	$album_id = $db->fetch_single_data("model_albums","album_id",["id" => $model_album_id]);
-	$next_id = $db->fetch_single_data("model_albums","id",["album_id" => $album_id,"id"=>$model_album_id.":>"],["id"]);
-	$prev_id = $db->fetch_single_data("model_albums","id",["album_id" => $album_id,"id"=>$model_album_id.":<"],["id DESC"]);
-	if(!$next_id) $next_id = $db->fetch_single_data("model_albums","id",["album_id" => $album_id],["id"]);
-	if(!$prev_id) $prev_id = $db->fetch_single_data("model_albums","id",["album_id" => $album_id],["id DESC"]);
+	$mode = $_GET["mode"];
+	if($mode == 0) $mode == $__role;
+	if($__role == "3") $tableName = "agency_albums";
+	if($__role == "5") $tableName = "model_albums";
+	$filename = $db->fetch_single_data($tableName,"filename",["id" => $model_album_id]);
+	$album_id = $db->fetch_single_data($tableName,"album_id",["id" => $model_album_id]);
+	$next_id = $db->fetch_single_data($tableName,"id",["album_id" => $album_id,"id"=>$model_album_id.":>"],["id"]);
+	$prev_id = $db->fetch_single_data($tableName,"id",["album_id" => $album_id,"id"=>$model_album_id.":<"],["id DESC"]);
+	if(!$next_id) $next_id = $db->fetch_single_data($tableName,"id",["album_id" => $album_id],["id"]);
+	if(!$prev_id) $prev_id = $db->fetch_single_data($tableName,"id",["album_id" => $album_id],["id DESC"]);
 ?>
 <table>
 	<tr>

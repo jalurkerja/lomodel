@@ -25,19 +25,19 @@
 <div style="width:590px;border-top:1px solid #888;"></div>
 
 <?=v("model_category");?> : 
-<div class="container"><?=$db->fetch_single_data("model_categories","name_".$__locale,["id" => $model_profile["model_category_ids"]]);?></div>
+<div class="container col-md-12 "><?=$db->fetch_single_data("model_categories","name_".$__locale,["id" => $model_profile["model_category_ids"]]);?></div>
 <div style="width:590px;border-top:1px solid #888;"></div>
 
 Address :
-<div class="container">
+<div class="container col-md-12 ">
 	<?=str_replace([chr(10),chr(13)],["<br>",""],$model_profile["address"]);?><br>
 	<?=$db->fetch_single_data("locations","name_".$__locale,["id" =>$model_profile["location_id"]]);?>
 </div>
 <div style="width:590px;border-top:1px solid #888;"></div>
 
-<?php if($model_profile["ig"]!=""){ ?> Instagram :<div class="container"><?=$model_profile["ig"];?></div><?php } ?>
-<?php if($model_profile["fb"]!=""){ ?> Facebook:<div class="container"><?=$model_profile["fb"];?></div><?php } ?>
-<?php if($model_profile["tw"]!=""){ ?> Twitter :<div class="container"><?=$model_profile["tw"];?></div><?php } ?>
+<?php if($model_profile["ig"]!=""){ ?> Instagram :<div class="container col-md-12 "><?=$model_profile["ig"];?></div><?php } ?>
+<?php if($model_profile["fb"]!=""){ ?> Facebook:<div class="container col-md-12 "><?=$model_profile["fb"];?></div><?php } ?>
+<?php if($model_profile["tw"]!=""){ ?> Twitter :<div class="container col-md-12 "><?=$model_profile["tw"];?></div><?php } ?>
 <?php if($model_profile["ig"]!="" || $model_profile["fb"]!="" || $model_profile["tw"]!=""){ ?> <div style="width:590px;border-top:1px solid #888;"></div> <?php } ?>
 <br>
 <input style="width:590px;" value="<?=v("edit_profile");?>" type="button" onclick="window.location='dashboard_model_profile_edit.php';" class="btn btn-primary">

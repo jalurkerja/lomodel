@@ -3,7 +3,7 @@
 		<?php 
 			$applied_jobs = $db->fetch_all_data("applied_jobs",[],"user_id='".$__user_id."'");
 			if(count($applied_jobs) <= 0){
-				echo "<span class='col-sm-12 well' style='color:red;'>Data tidak ditemukan</span>";
+				echo "<span class='col-sm-12 well' style='color:red;'>".v("data_not_found")."</span>";
 			} else {
 				foreach($applied_jobs as $applied_job){
 					$casting = $db->fetch_all_data("jobs",[],"id = '".$applied_job["job_id"]."'")[0];

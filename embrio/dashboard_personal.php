@@ -30,7 +30,7 @@
 							<?php 
 								$castings = $db->fetch_all_data("jobs",[],"job_giver_user_id='".$__user_id."'");
 								if(count($castings) <= 0){
-									echo "<span class='col-sm-12 well' style='color:red;'>Data tidak ditemukan</span>";
+									echo "<span class='col-sm-12 well' style='color:red;'>".v("data_not_found")."</span>";
 								} else {
 									foreach($castings as $casting){
 										$work_category_ids = "";
@@ -85,7 +85,7 @@
 							<?php 
 								$bookings = $db->fetch_all_data("bookings",[],"user_id='".$__user_id."'");
 								if(count($bookings) <= 0){
-									echo "<span class='col-sm-12 well' style='color:red;'>Data tidak ditemukan</span>";
+									echo "<span class='col-sm-12 well' style='color:red;'>".v("data_not_found")."</span>";
 								} else {
 									foreach($bookings as $booking){
 										$model = $db->fetch_all_data("model_profiles",[],"user_id='".$booking["book_user_id"]."'")[0];

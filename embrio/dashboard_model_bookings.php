@@ -3,7 +3,7 @@
 		<?php 
 			$bookings = $db->fetch_all_data("bookings",[],"book_user_id='".$__user_id."' AND status > 0");
 			if(count($bookings) <= 0){
-				echo "<span class='col-sm-12 well' style='color:red;'>Data tidak ditemukan</span>";
+				echo "<span class='col-sm-12 well' style='color:red;'>".v("data_not_found")."</span>";
 			} else {
 				foreach($bookings as $booking){
 					$booker_role = $db->fetch_single_data("a_users","role",["id" => $booking["user_id"]]);

@@ -106,6 +106,10 @@ class Vocabulary{
 		$arr[$l]["invoices"]									= "Invoices";
 		$arr[$l]["tokens"]										= "Tokens";
 		$arr[$l]["idcard"]										= "ID Card";
+		$arr[$l]["data_not_found"]								= "Data not found";
+		$arr[$l]["already_member"]								= "Already Member";
+		$arr[$l]["join_requests"]								= "Join Requests";
+		$arr[$l]["join_offers"]									= "Join Offers";
 		
 		/*==================================================================================================================================*/
 		/*==================================================================================================================================*/
@@ -199,6 +203,10 @@ class Vocabulary{
 		$arr[$l]["invoices"]									= "Invoice";
 		$arr[$l]["tokens"]										= "Token";
 		$arr[$l]["idcard"]										= "No Identitas";
+		$arr[$l]["data_not_found"]								= "Data tidak ditemukan";
+		$arr[$l]["already_member"]								= "Sudah Menjadi Anggota";
+		$arr[$l]["join_requests"]								= "Permintaan Bergabung";
+		$arr[$l]["join_offers"]									= "Tawaran Bergabung";
 		
 		return $arr[$this->locale][$index];
 	}
