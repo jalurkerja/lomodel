@@ -6,6 +6,10 @@
 		$profileTable = "agency_profiles";
 		$profilePhotoField = "photo";
 	}
+	if($__role == 4){
+		$profileTable = "corporate_profiles";
+		$profilePhotoField = "logo";
+	}
 	if($__role == 5){
 		$profileTable = "model_profiles";
 		$profilePhotoField = "photo";

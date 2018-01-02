@@ -86,6 +86,7 @@ class Vocabulary{
 		$arr[$l]["change_photo"]								= "Change Photo";
 		$arr[$l]["change_profile_photo"]						= "Change Profile Photo";
 		$arr[$l]["setup_your_profile_photo"]					= "Setup Your Profile Photo";
+		$arr[$l]["setup_your_corporate_logo"]					= "Setup Your Corporate Logo";
 		$arr[$l]["edit_profile"]								= "Edit Profile";
 		$arr[$l]["create_album"]								= "Create Album";
 		$arr[$l]["create_new_album"]							= "Create New Album";
@@ -170,6 +171,7 @@ class Vocabulary{
 		$arr[$l]["change_photo"]								= "Ubah Foto";
 		$arr[$l]["change_profile_photo"]						= "Ubah Foto Profil";
 		$arr[$l]["setup_your_profile_photo"]					= "Atur Foto Profil Anda";
+		$arr[$l]["setup_your_corporate_logo"]					= "Atur Logo Perusahaan Anda";
 		$arr[$l]["edit_profile"]								= "Ubah Profil";
 		$arr[$l]["create_album"]								= "Buat Album";
 		$arr[$l]["create_new_album"]							= "Buat Album Baru";

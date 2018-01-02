@@ -62,19 +62,10 @@
 						$inserting = $db->insert(); 
 						// echo $inserting["sql"];
 						if($inserting["affected_rows"] > 0){
-							if($_regrole == "2" || $_regrole == "3") $imgVarName = "photo";
-							if($_regrole == "4") $imgVarName = "logo";
-							if($_FILES[$imgVarName]["tmp_name"]){
-								$filename = $_regrole."_".$user_id.".".pathinfo($_FILES[$imgVarName]["name"], PATHINFO_EXTENSION);
-								$photo = "user_images/".$filename;
-								move_uploaded_file($_FILES[$imgVarName]["tmp_name"], $photo);
-								$db->addtable($table_name);
-								$db->addfield($imgVarName); $db->addvalue($filename);
-								$db->where("user_id",$user_id);
-								$db->update();
-							}
 							$success_link = "index.php?just_register_as=".$_regrole;
+							if($_regrole == "2") $success_link = "?as=personal&step=2";
 							if($_regrole == "3") $success_link = "?as=agency&step=2";
+							if($_regrole == "4") $success_link = "?as=corporate&step=2";
 							if($_regrole == "5") $success_link = "?as=model&step=2";
 						}
 					}

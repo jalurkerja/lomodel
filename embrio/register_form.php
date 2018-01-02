@@ -2,13 +2,12 @@
 	<?php
 		$_forms = array();
 		if($_regrole == "2"){ 
-			$_forms["ids"] = ["idcard","address","zipcode","phone","cellphone","web","nationality_id","gender_id","ig","fb","tw","about","photo"];
-			$_forms["caption"] = ["ID Card","Address","Zip Code","Phone","Cellphone","Web","Nationality","Gender ID","Instagram","Facebook","Twitter","About","Photo"];
+			$_forms["ids"] = ["idcard","address","zipcode","phone","cellphone","web","nationality_id","gender_id","ig","fb","tw","about"];
+			$_forms["caption"] = ["ID Card","Address","Zip Code","Phone","Cellphone","Web","Nationality","Gender ID","Instagram","Facebook","Twitter","About"];
 			$_forms["type"]["address"] = "textarea";
 			$_forms["type"]["about"] = "textarea";
 			$_forms["type"]["gender_id"] = "select";
 			$_forms["type"]["nationality_id"] = "select";
-			$_forms["type"]["photo"] = "file";
 			$_forms["select_data"]["gender_id"] = [""=>"Gender...","1"=>"Male","2"=>"Female"];
 			$nationalities = $db->fetch_select_data("nationalities","id","name",[],[],"",true);
 			$nationalities[""] = "Nationality...";
@@ -31,13 +30,15 @@
 			
 			if(!$keyToNextCol) $keyToNextCol = 6;
 		} 
-		if($_regrole == "4"){ 
-			$_forms["ids"] = ["pic","address","zipcode","phone","cellphone","web","npwp","ig","fb","tw","about","logo"];
-			$_forms["caption"] = ["PIC","Address","Zip Code","Phone","Cellphone","Web","NPWP","Instagram","Facebook","Twitter","About","Logo"];
+		if($_regrole == "4"){
+			$_forms["ids"] = ["pic","address","zipcode","phone","cellphone","web","npwp","ig","fb","tw","about"];
+			$_forms["caption"] = ["PIC","Address","Zip Code","Phone","Cellphone","Web","NPWP","Instagram","Facebook","Twitter","About"];
 			$_forms["type"]["address"] = "textarea";
 			$_forms["type"]["about"] = "textarea";
-			$_forms["type"]["logo"] = "file";
-			$keyToNextCol = 6;
+			$_forms["isRequired"]["ig"] = "0";
+			$_forms["isRequired"]["fb"] = "0";
+			$_forms["isRequired"]["tw"] = "0";
+			if(!$keyToNextCol) $keyToNextCol = 5;
 		} 
 		if($_regrole == "5"){ 
 			$_forms["ids"] = ["nationality_id","address","location_id","model_category_ids","hair_color_id","eye_colors_id","height","chest","bust","waist","hips","shoe","ig","fb","tw"];
@@ -59,7 +60,6 @@
 			$_forms["type"]["about"] = "textarea";
 			$_forms["type"]["hair_color_id"] = "select";
 			$_forms["type"]["eye_colors_id"] = "select";
-			$_forms["type"]["photo"] = "file";
 			$_forms["isRequired"]["bust"] = "0";
 			$_forms["isRequired"]["ig"] = "0";
 			$_forms["isRequired"]["fb"] = "0";
@@ -195,6 +195,7 @@
 <?php 
 	if($_step == 2){
 		if($_regrole == 3) include_once "register_form_agency_2.php";
+		if($_regrole == 4) include_once "register_form_corporate_2.php";
 		if($_regrole == 5) include_once "register_form_model_2.php";
 	} 
 	if($_step == 3){
