@@ -8,11 +8,16 @@
 			$_forms["type"]["about"] = "textarea";
 			$_forms["type"]["gender_id"] = "select";
 			$_forms["type"]["nationality_id"] = "select";
+			$_forms["isRequired"]["phone"] = "0";
+			$_forms["isRequired"]["web"] = "0";
+			$_forms["isRequired"]["ig"] = "0";
+			$_forms["isRequired"]["fb"] = "0";
+			$_forms["isRequired"]["tw"] = "0";
 			$_forms["select_data"]["gender_id"] = [""=>"Gender...","1"=>"Male","2"=>"Female"];
 			$nationalities = $db->fetch_select_data("nationalities","id","name",[],[],"",true);
 			$nationalities[""] = "Nationality...";
 			$_forms["select_data"]["nationality_id"] = $nationalities;
-			$keyToNextCol = 6;
+			if(!$keyToNextCol) $keyToNextCol = 6;
 		} 
 		if($_regrole == "3"){
 			$_forms["ids"] = ["pic","idcard","address","zipcode","phone","cellphone","web","nationality_id","ig","fb","tw","about"];
@@ -194,6 +199,7 @@
 <?php } ?>
 <?php 
 	if($_step == 2){
+		if($_regrole == 2) include_once "register_form_personal_2.php";
 		if($_regrole == 3) include_once "register_form_agency_2.php";
 		if($_regrole == 4) include_once "register_form_corporate_2.php";
 		if($_regrole == 5) include_once "register_form_model_2.php";

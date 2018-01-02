@@ -2,6 +2,10 @@
 <script id="guillotinejs" src="scripts/jquery.guillotine.js"></script>
 <?php include_once "func.crop_image.php"; ?>
 <?php
+	if($__role == 2){
+		$profileTable = "personal_profiles";
+		$profilePhotoField = "photo";
+	}
 	if($__role == 3){
 		$profileTable = "agency_profiles";
 		$profilePhotoField = "photo";
