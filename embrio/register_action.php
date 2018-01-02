@@ -33,15 +33,15 @@
 						
 						if($_regrole == "2"){
 							$table_name = "personal_profiles";
-							$fields_name = ["name","idcard","address","zipcode","phone","cellphone","web","nationality_id","gender_id","ig","fb","tw","about"];
+							$fields_name = ["name","idcard","address","location_id","zipcode","phone","cellphone","web","nationality_id","gender_id","ig","fb","tw","about"];
 						}
 						if($_regrole == "3"){
 							$table_name = "agency_profiles";
-							$fields_name = ["name","pic","idcard","address","zipcode","phone","cellphone","web","nationality_id","ig","fb","tw","about"];
+							$fields_name = ["name","pic","idcard","address","location_id","zipcode","phone","cellphone","web","nationality_id","ig","fb","tw","about"];
 						}
 						if($_regrole == "4"){
 							$table_name = "corporate_profiles";
-							$fields_name = ["name","pic","address","zipcode","phone","cellphone","web","npwp","ig","fb","tw","about"];
+							$fields_name = ["name","pic","address","location_id","zipcode","phone","cellphone","web","npwp","ig","fb","tw","about"];
 						}
 						if($_regrole == "5"){
 							$_POST["name"] = str_replace("  "," ",$_POST["name"]);

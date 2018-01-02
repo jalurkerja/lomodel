@@ -98,6 +98,14 @@ class Vocabulary{
 		$arr[$l]["profile_updated_successfully"]				= "Profile updated successfully";
 		$arr[$l]["are_you_sure_you_want_to_delete_this_photo"]	= "Are you sure you want to delete this photo?";
 		$arr[$l]["notification_success_model_apply_job"]		= "Casting {jobsTitle} has been applied by {modelName}";
+		$arr[$l]["jobs"]										= "Jobs";
+		$arr[$l]["model_applicants"]							= "Model Applicants";
+		$arr[$l]["applied_jobs"]								= "Applied Jobs";
+		$arr[$l]["job_offers"]									= "Job Offers";
+		$arr[$l]["bookings"]									= "Bookings";
+		$arr[$l]["invoices"]									= "Invoices";
+		$arr[$l]["tokens"]										= "Tokens";
+		$arr[$l]["idcard"]										= "ID Card";
 		
 		/*==================================================================================================================================*/
 		/*==================================================================================================================================*/
@@ -183,6 +191,14 @@ class Vocabulary{
 		$arr[$l]["profile_updated_successfully"]				= "Profil berhasil diubah";
 		$arr[$l]["are_you_sure_you_want_to_delete_this_photo"]	= "Anda yakin akan menghapus foto ini?";
 		$arr[$l]["notification_success_model_apply_job"]		= "Lowongan casting {jobsTitle} telah dilamar oleh {modelName}";
+		$arr[$l]["jobs"]										= "Pekerjaan";
+		$arr[$l]["model_applicants"]							= "Lamaran Model";
+		$arr[$l]["applied_jobs"]								= "Pekerjaan yg dilamar";
+		$arr[$l]["job_offers"]									= "Tawaran Pekerjaan";
+		$arr[$l]["bookings"]									= "Bookings";
+		$arr[$l]["invoices"]									= "Invoice";
+		$arr[$l]["tokens"]										= "Token";
+		$arr[$l]["idcard"]										= "No Identitas";
 		
 		return $arr[$this->locale][$index];
 	}
