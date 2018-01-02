@@ -19,7 +19,7 @@
 		<div class="col-md-12 container">
 			<ul class="col-sm-12 nav nav-tabs">
 				<li class="active"><a data-toggle="tab" href="#profile">Profile</a></li>
-				<li><a data-toggle="tab" href="#album">Album</a></li>
+				<li onclick="window.location='?tabActive=album'"><a data-toggle="tab" href="#album">Album</a></li>
 				<li><a data-toggle="tab" href="#appliedCastings">Applied Castings</a></li>
 				<li><a data-toggle="tab" href="#bookings">Booking Requests</a></li>
 				<li onclick="loadMessages();">
@@ -31,18 +31,7 @@
 				<div id="profile" class="tab-pane fade in active">
 					<?php include_once "dashboard_model_profiles.php";?>
 				</div><br>
-				<div id="album" class="tab-pane fade">
-					<?php
-						$model_files = $db->fetch_all_data("model_files",[],"user_id = '".$__user_id."'");
-						foreach($model_files as $model_file){
-							?>
-							<div class="col-sm-3 fadeInRight animated">
-								<img class="img-responsive" height="400" src="user_images/<?=$model["filename"];?>">
-							</div>
-							<?php
-						}
-					?>
-				</div>
+				<div id="album" class="tab-pane fade"><?php include_once "dashboard_model_albums.php"; ?></div>
 				<div id="appliedCastings" class="tab-pane fade"><?php include_once "dashboard_model_appliedCastings.php"; ?></div>
 				<div id="bookings" class="tab-pane fade"><?php include_once "dashboard_model_bookings.php"; ?></div>
 				<div id="message" class="tab-pane fade"><?php include_once "dashboard_messages.php"; ?></div>

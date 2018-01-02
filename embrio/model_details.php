@@ -1,4 +1,10 @@
 <?php include_once "homepage_header.php"; ?>
+<?php
+	if($__user_id == $_GET["user_id"]){
+		?> <script> window.location="dashboard.php"; </script> <?php
+		exit();
+	}
+?>
 <?php include_once "main_container.php"; ?>
 	<script>
 		$(document).ready(function(){
@@ -16,15 +22,15 @@
 	</style>
 	<div class="row">
 		<?php 
-			$model_profile = $db->fetch_all_data("model_profiles",[],"user_id='".$_GET["user_id"]."'")[0];
-			$model = $db->fetch_all_data("model_files",[],"user_id='".$_GET["user_id"]."'")[0];
+			$model = $db->fetch_all_data("model_profiles",[],"user_id='".$_GET["user_id"]."'")[0];
+			// $model = $db->fetch_all_data("model_files",[],"user_id='".$_GET["user_id"]."'")[0];
 		?>
 		
 		<div class="container">
 			<h1 class="well"><?=$model_profile["first_name"];?> <?=$model_profile["middle_name"];?> <?=$model_profile["last_name"];?> </h1>
 		</div>
 		<div class="col-sm-4 fadeInRight animated">
-			<img height="400" src="user_images/<?=$model["filename"];?>">
+			<img height="400" src="user_images/<?=$model["photo"];?>">
 		</div>
 		
 		<div class="col-sm-8 fadeInRight animated">

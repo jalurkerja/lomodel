@@ -1313,3 +1313,15 @@ div { font-family: "ITCAvantGardeGothicStdBook"; }
 .bs-callout-info h4 {
     color: #5bc0de;
 }
+
+.top-right-img {
+    position: absolute;
+	left:200px;
+	color:white;
+    display: block;
+    text-decoration: none;
+	text-shadow: 1px 1px grey;
+	background-color:#337ab7;
+	cursor:pointer;
+	font-size:40px;
+}

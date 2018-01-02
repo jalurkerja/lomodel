@@ -3,7 +3,22 @@
 	$id = $_GET["id"];
 	$mode = $_GET["mode"];
 	if($mode == "apply"){
-		echo $js->apply_job($__user_id,$id);
+		$result = $js->apply_job($__user_id,$id);
+		if(($result*1) > 0){
+			$thread_id = $db->fetch_single_data("messages","thread_id",["user_id" => $user_id],["thread_id DESC"]);
+			$thread_id++;
+			$modelName = $db->fetch_single_data("model_profiles","concat(first_name,' ',middle_name,' ',last_name)",["user_id" => $__user_id]);
+			$jobsTitle = $db->fetch_single_data("jobs","title",["id" => $id]);
+			$job_giver_user_id = $db->fetch_single_data("jobs","job_giver_user_id",["id" => $id]);
+			$message = str_replace(["{modelName}","{jobsTitle}"],[$modelName,$jobsTitle],v("notification_success_model_apply_job"));
+			$db->addtable("messages");
+			$db->addfield("thread_id");		$db->addvalue($thread_id);
+			$db->addfield("user_id");		$db->addvalue(0);
+			$db->addfield("user_id2");		$db->addvalue($job_giver_user_id);
+			$db->addfield("message");		$db->addvalue($message);
+			$db->insert();
+		}
+		echo $result;
 	}
 	if($mode == "isApplied"){
 		echo $js->is_applied($__user_id,$id);
