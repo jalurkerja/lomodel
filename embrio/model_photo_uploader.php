@@ -1,6 +1,16 @@
 <link href="styles/jquery.guillotine.css" media="all" rel="stylesheet">
 <script id="guillotinejs" src="scripts/jquery.guillotine.js"></script>
 <?php include_once "func.crop_image.php"; ?>
+<?php
+	if($__role == 3){
+		$profileTable = "agency_profiles";
+		$profilePhotoField = "photo";
+	}
+	if($__role == 5){
+		$profileTable = "model_profiles";
+		$profilePhotoField = "photo";
+	}
+?>
 <div width="100%">
 	<table align="center" width="95%" class="editPhotoArea"><tr><td align="center">
 
@@ -65,15 +75,15 @@
 
 	<?php 
 		if($_POST["upload"] == null){
-			$db->addtable("model_profiles"); $db->where("user_id",$__user_id); $db->limit(1); $arr_model_profiles = $db->fetch_data();
-			if(!isset($arr_model_profiles["photo"]) || $arr_model_profiles["photo"] == "") $arr_model_profiles["photo"] = "nophoto.png";
+			$db->addtable($profileTable); $db->where("user_id",$__user_id); $db->limit(1); $arr_profiles = $db->fetch_data();
+			if(!isset($arr_profiles[$profilePhotoField]) || $arr_profiles[$profilePhotoField] == "") $arr_profiles[$profilePhotoField] = "nophoto.png";
 	?>
 	
 			<table><tr><td align="center">
 				<div id="loaderspinning" style="display:none;">
 					<span style="font-size:80px;font-weight:bolder;" class="fa fa-circle-o-notch fa-spin fa-3x fa-fw"></span><br><b>Please Wait ..</b>
 				</div>
-				<img src="user_images/<?=$arr_model_profiles["photo"];?>" width="200">
+				<img src="user_images/<?=$arr_profiles[$profilePhotoField];?>" width="200">
 				<br><br>
 				<form action="" method="POST" enctype='multipart/form-data'>
 					<input type="file" name="file_photo" id="file_photo" onchange="uploading();"/>
@@ -91,7 +101,7 @@
 
 	<?php
 		if($_POST["user_photo"] != ""){
-			$old_filename = $db->fetch_single_data("model_profiles","photo",["user_id"=>$__user_id]);
+			$old_filename = $db->fetch_single_data($profileTable,$profilePhotoField,["user_id"=>$__user_id]);
 			$srcimg = "user_images/".basename($_POST["user_photo"]);
 			$destimg = str_replace("temp_","",$srcimg);
 			$scale = $_POST["form_scale"];
@@ -109,8 +119,8 @@
 			chmod($srcimg, 0777);
 			unlink($srcimg);
 			$photo_filename = str_replace("temp_","",basename($_POST["user_photo"]));
-			$db->addtable("model_profiles");$db->where("user_id",$__user_id);
-			$db->addfield("photo");$db->addvalue($photo_filename);
+			$db->addtable($profileTable);$db->where("user_id",$__user_id);
+			$db->addfield($profilePhotoField);$db->addvalue($photo_filename);
 			$db->update();
 			?> <script> window.location="<?=$doneUrl;?>"; </script> <?php
 		}

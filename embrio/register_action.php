@@ -37,7 +37,7 @@
 						}
 						if($_regrole == "3"){
 							$table_name = "agency_profiles";
-							$fields_name = ["name","pic","idcard","address","zipcode","phone","cellphone","web","nationality_id","gender_id","ig","fb","tw","about"];
+							$fields_name = ["name","pic","idcard","address","zipcode","phone","cellphone","web","nationality_id","ig","fb","tw","about"];
 						}
 						if($_regrole == "4"){
 							$table_name = "corporate_profiles";
@@ -74,6 +74,7 @@
 								$db->update();
 							}
 							$success_link = "index.php?just_register_as=".$_regrole;
+							if($_regrole == "3") $success_link = "?as=agency&step=2";
 							if($_regrole == "5") $success_link = "?as=model&step=2";
 						}
 					}

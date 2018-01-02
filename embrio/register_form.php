@@ -15,19 +15,21 @@
 			$_forms["select_data"]["nationality_id"] = $nationalities;
 			$keyToNextCol = 6;
 		} 
-		if($_regrole == "3"){ 
-			$_forms["ids"] = ["pic","idcard","address","zipcode","phone","cellphone","web","nationality_id","gender_id","ig","fb","tw","about","photo"];
-			$_forms["caption"] = ["PIC","ID Card","Address","Zip Code","Phone","Cellphone","Web","Nationality","Gender ID","Instagram","Facebook","Twitter","About","Photo"];
+		if($_regrole == "3"){
+			$_forms["ids"] = ["pic","idcard","address","zipcode","phone","cellphone","web","nationality_id","ig","fb","tw","about"];
+			$_forms["caption"] = ["PIC","ID Card","Address","Zip Code","Phone","Cellphone","Web","Nationality","Instagram","Facebook","Twitter","About"];
 			$_forms["type"]["address"] = "textarea";
 			$_forms["type"]["about"] = "textarea";
-			$_forms["type"]["gender_id"] = "select";
 			$_forms["type"]["nationality_id"] = "select";
-			$_forms["type"]["photo"] = "file";
-			$_forms["select_data"]["gender_id"] = [""=>"Gender...","1"=>"Male","2"=>"Female"];
+			$_forms["isRequired"]["ig"] = "0";
+			$_forms["isRequired"]["fb"] = "0";
+			$_forms["isRequired"]["tw"] = "0";
+			
 			$nationalities = $db->fetch_select_data("nationalities","id","name",[],[],"",true);
 			$nationalities[""] = "Nationality...";
 			$_forms["select_data"]["nationality_id"] = $nationalities;
-			$keyToNextCol = 7;
+			
+			if(!$keyToNextCol) $keyToNextCol = 6;
 		} 
 		if($_regrole == "4"){ 
 			$_forms["ids"] = ["pic","address","zipcode","phone","cellphone","web","npwp","ig","fb","tw","about","logo"];
@@ -192,6 +194,7 @@
 <?php } ?>
 <?php 
 	if($_step == 2){
+		if($_regrole == 3) include_once "register_form_agency_2.php";
 		if($_regrole == 5) include_once "register_form_model_2.php";
 	} 
 	if($_step == 3){
