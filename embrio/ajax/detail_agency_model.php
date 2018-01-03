@@ -2,18 +2,50 @@
 	include_once "../common.php";
 	$agency_user_id = $_GET["agency_user_id"];
 	$model_user_id = $_GET["model_user_id"];
-	if($db->fetch_single_data("agency_models","id",["agency_user_id" => $agency_user_id,"model_user_id" => $model_user_id]) <= 0){
+	$mode = $_GET["mode"];
+	$isRejected = "";
+	
+	$agency_model_id = $db->fetch_single_data("agency_models","id",["agency_user_id" => $agency_user_id,"model_user_id"=>$model_user_id]);
+	$wherearray = ["agency_user_id" => $agency_user_id,"model_user_id" => $model_user_id];
+	if($mode == "already_member"){
+		$wherearray["join_status"] = "2";
+		$whereNext = ["agency_user_id" => $agency_user_id, "join_status"=>"2", "id"=>$agency_model_id.":>"];
+		$wherePrev = ["agency_user_id" => $agency_user_id, "join_status"=>"2", "id"=>$agency_model_id.":<"];
+		$wherePrevNext = ["agency_user_id" => $agency_user_id, "join_status"=>"2"];
+	}
+	if($mode == "join_requests"){
+		$wherearray["mode"] = "1";
+		$wherearray["join_status"] = "2:<>";
+		$whereNext = ["agency_user_id" => $agency_user_id, "join_status"=>"2:<>", "mode" => "1", "id"=>$agency_model_id.":>"];
+		$wherePrev = ["agency_user_id" => $agency_user_id, "join_status"=>"2:<>", "mode" => "1", "id"=>$agency_model_id.":<"];
+		$wherePrevNext = ["agency_user_id" => $agency_user_id, "join_status"=>"2:<>", "mode" => "1"];
+		$joinStatus = $db->fetch_single_data("agency_models","join_status",["id"=>$agency_model_id]);
+		if($joinStatus == "0"){
+			$db->addtable("agency_models");	$db->where("id",$agency_model_id);
+			$db->addfield("join_status");	$db->addvalue("1");
+			$db->update();
+		}
+		if($joinStatus == "3") $isRejected = "<span class='reject-icon2'>Rejected</span>";
+	}
+	if($mode == "join_offers"){
+		$wherearray["mode"] = "2";
+		$wherearray["join_status"] = "2:<>";
+		$whereNext = ["agency_user_id" => $agency_user_id, "join_status"=>"2:<>", "mode" => "2", "id"=>$agency_model_id.":>"];
+		$wherePrev = ["agency_user_id" => $agency_user_id, "join_status"=>"2:<>", "mode" => "2", "id"=>$agency_model_id.":<"];
+		$wherePrevNext = ["agency_user_id" => $agency_user_id, "join_status"=>"2:<>", "mode" => "2"];
+	}
+	
+	if($db->fetch_single_data("agency_models","id",$wherearray) <= 0){
 		?> <script> $( document ).ready(function() { $('#myModal').modal('hide'); }); </script> <?php
 		exit();
 	}
 	$fullname = $db->fetch_single_data("model_profiles","concat(first_name,' ',middle_name,' ',last_name)",["user_id" => $model_user_id]);
 	$photo = $db->fetch_single_data("model_profiles","photo",["user_id" => $model_user_id]);
-	$agency_model_id = $db->fetch_single_data("agency_models","id",["agency_user_id" => $agency_user_id,"model_user_id"=>$model_user_id]);
 	
-	$next_id = $db->fetch_single_data("agency_models","model_user_id",["agency_user_id" => $agency_user_id,"id"=>$agency_model_id.":>"],["id"]);
-	$prev_id = $db->fetch_single_data("agency_models","model_user_id",["agency_user_id" => $agency_user_id,"id"=>$agency_model_id.":<"],["id DESC"]);
-	if(!$next_id) $next_id = $db->fetch_single_data("agency_models","model_user_id",["agency_user_id" => $agency_user_id],["id"]);
-	if(!$prev_id) $prev_id = $db->fetch_single_data("agency_models","model_user_id",["agency_user_id" => $agency_user_id],["id DESC"]);
+	$next_id = $db->fetch_single_data("agency_models","model_user_id",$whereNext,["id"]);
+	$prev_id = $db->fetch_single_data("agency_models","model_user_id",$wherePrev,["id DESC"]);
+	if(!$next_id) $next_id = $db->fetch_single_data("agency_models","model_user_id",$wherePrevNext,["id"]);
+	if(!$prev_id) $prev_id = $db->fetch_single_data("agency_models","model_user_id",$wherePrevNext,["id DESC"]);
 	
 	$model_profile = $db->fetch_all_data("model_profiles",[],"user_id='".$model_user_id."'")[0];
 ?>
@@ -21,6 +53,7 @@
 <div class="row">
 	<div class="col-sm-6 features wow fadeInRight animated">
 		<img class="img-responsive" src="user_images/<?=$photo;?>" style="width:100%">
+		<?=$isRejected;?>
 		<br>
 		<div style="width:100%;border-top:1px solid #888;"></div>
 			<table class="tbl_detail">
@@ -82,10 +115,10 @@
 <table width="100%">
 	<tr>
 		<td nowrap>
-			<i onclick="detailAgencyModel('<?=$agency_user_id;?>','<?=$prev_id;?>');" style="font-size:40px;" class="fa fa-arrow-left"></i>
+			<i onclick="detailAgencyModel('<?=$agency_user_id;?>','<?=$prev_id;?>','<?=$mode;?>');" style="font-size:40px;" class="fa fa-arrow-left"></i>
 		</td>
 		<td align="right" nowrap>
-			<i onclick="detailAgencyModel('<?=$agency_user_id;?>','<?=$next_id;?>');" style="font-size:40px;" class="fa fa-arrow-right"></i>
+			<i onclick="detailAgencyModel('<?=$agency_user_id;?>','<?=$next_id;?>','<?=$mode;?>');" style="font-size:40px;" class="fa fa-arrow-right"></i>
 		</td>
 	</tr>
 </table>

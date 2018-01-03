@@ -1,3 +1,20 @@
+<script>
+	function detailAgencyModel(agency_user_id,model_user_id,mode){
+		agency_user_id = agency_user_id || 0;
+		model_user_id = model_user_id || 0;
+		mode = mode || "already_member";
+		$.get( "ajax/detail_agency_model.php?agency_user_id="+agency_user_id+"&model_user_id="+model_user_id+"&mode="+mode, function(modalBody) {
+			modalFooter = "<button type=\"button\" class=\"btn btn-danger\" data-dismiss=\"modal\">Close</button>";
+			modalBody = modalBody.split("|||");
+			modalTitle = modalBody[0];
+			modalBody = modalBody[1];
+			$('#modalTitle').html(modalTitle);
+			$('#modalBody').html(modalBody);
+			$('#modalFooter').html(modalFooter);
+			$('#myModal').modal('show');
+		});
+	}
+</script>
 <br>
 <h4><?=v("models");?></h4>
 <div class="col-md-12 container">
