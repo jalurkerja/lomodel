@@ -11,10 +11,11 @@
 		$model_category_ids .= $db->fetch_single_data("model_categories","name_".$__locale,["id" => $model_category_id]).", ";
 	} $model_category_ids = substr($model_category_ids,0,-2);
 	$age = $casting["age_min"]." - ".$casting["age_max"];
+	if($casting["image"] == "" || !file_exists("post_images/".$casting["image"])) $casting["image"] = "no_image.png";
 ?>									
 	<div class="row">
 		<div class="col-sm-4">
-			<img style="margin-top:10px" src="post_images/<?=$casting["image"];?>" width="100">
+			<img class="img-responsive" style="margin-top:10px" src="post_images/<?=$casting["image"];?>">
 		</div>
 		<div class="col-sm-8">
 			<div><h3><?=$casting["title"];?></h3></div>

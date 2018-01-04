@@ -21,6 +21,13 @@
 		echo $result;
 	}
 	if($mode == "isApplied"){
+		if($db->fetch_single_data("jobs","job_giver_user_id",["id"=>$id]) == $__user_id) echo "0";
 		echo $js->is_applied($__user_id,$id);
+	}
+	if($mode == "delete"){
+		$db->addtable("jobs"); $db->where("id",$id); $db->where("job_giver_user_id",$__user_id);
+		$db->delete_();
+		$_SESSION["message"] = v("success_message_delete_job");
+		echo "1";
 	}
 ?>

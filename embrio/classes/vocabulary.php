@@ -121,6 +121,8 @@ class Vocabulary{
 		$arr[$l]["success_message_accept_join_request"]			= "You have just accepted {modelName} as a member of your model";
 		$arr[$l]["success_message_reject_join_request"]			= "You have just rejected {modelName} as a member of your model";
 		$arr[$l]["success_message_post_a_job"]					= "Posting a job successfully saved, please wait for publishing process from us";
+		$arr[$l]["confirm_message_delete_a_job"]				= "Are You sure want to delete this job posting?";
+		$arr[$l]["success_message_delete_job"]					= "Job posting successfully deleted";
 		
 		/*==================================================================================================================================*/
 		/*==================================================================================================================================*/
@@ -229,6 +231,8 @@ class Vocabulary{
 		$arr[$l]["success_message_accept_join_request"]			= "Anda baru saja menerima {modelName} sebagai anggota model Anda";
 		$arr[$l]["success_message_reject_join_request"]			= "Anda baru saja menolak {modelName} sebagai anggota model Anda";
 		$arr[$l]["success_message_post_a_job"]					= "Posting pekerjaan berhasil, silakan tunggu proses publikasi dari Kami";
+		$arr[$l]["confirm_message_delete_a_job"]				= "Anda yakin akan menghapus lowongan pekerjaan ini?";
+		$arr[$l]["success_message_delete_job"]					= "Pengahapusan lowongan pekerjaan berhasil";
 		
 		return $arr[$this->locale][$index];
 	}

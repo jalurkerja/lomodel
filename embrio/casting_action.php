@@ -28,10 +28,15 @@
 		$.get( "ajax/casting_detail.php?id="+id, function(modalBody) {
 			$.get( "ajax/casting_action.php?mode=isApplied&id="+id, function(isApplied) {
 				modalFooter = "";
-				if(isApplied > 0){
-					modalFooter += "<button type=\"button\"  class=\"btn\">Applied</button>";
+				if(isApplied.substring(0, 1) == "0" && isApplied.substring(1, 2) != ""){
+					modalFooter = "";					
 				} else {
-					modalFooter += "<button type=\"button\" onclick=\"apply('"+id+"');\" class=\"btn btn-success\">Apply</button>";
+					isApplied = isApplied.substring(1, 2);
+					if(isApplied > 0){
+						modalFooter += "<button type=\"button\"  class=\"btn\">Applied</button>";
+					} else {
+						modalFooter += "<button type=\"button\" onclick=\"apply('"+id+"');\" class=\"btn btn-success\">Apply</button>";
+					}
 				}
 				modalFooter += "<button type=\"button\" class=\"btn btn-danger\" data-dismiss=\"modal\">Close</button>";
 				$('#modalTitle').html("Casting Detail");

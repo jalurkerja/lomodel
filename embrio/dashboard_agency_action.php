@@ -9,14 +9,27 @@
 		});
 	}
 	
+	function deleteJob(id){
+		if(confirm("<?=v("confirm_message_delete_a_job");?>")){
+			$.get( "ajax/casting_action.php?mode=delete&id="+id, function(data) {
+				if(data > 0){ window.location="?tabActive=jobs" }
+			});
+		}
+	}
+	
 	function showJobDetail(id){
 		$.get( "ajax/casting_detail.php?id="+id, function(modalBody) {
 			$.get( "ajax/casting_action.php?mode=isApplied&id="+id, function(isApplied) {
 				modalFooter = "";
-				if(isApplied > 0){
-					modalFooter += "<button type=\"button\"  class=\"btn\">Applied</button>";
+				if(isApplied.substring(0, 1) == "0" && isApplied.substring(1, 2) != ""){
+					modalFooter = "";					
 				} else {
-					modalFooter += "<button type=\"button\" onclick=\"apply('"+id+"');\" class=\"btn btn-success\">Apply</button>";
+					isApplied = isApplied.substring(1, 2);
+					if(isApplied > 0){
+						modalFooter += "<button type=\"button\"  class=\"btn\">Applied</button>";
+					} else {
+						modalFooter += "<button type=\"button\" onclick=\"apply('"+id+"');\" class=\"btn btn-success\">Apply</button>";
+					}
 				}
 				modalFooter += "<button type=\"button\" class=\"btn btn-danger\" data-dismiss=\"modal\">Close</button>";
 				$('#modalTitle').html("Casting Detail");
@@ -31,6 +44,10 @@
 	if(isset($_POST["posting"])){
 		$age = explode(",",$_POST["age"]);
 		$db->addtable("jobs");
+		if($_GET["editing"]){
+			$db->where("id",$_GET["editing"]);
+			$db->where("job_giver_user_id",$__user_id);
+		}
 		$db->addfield("title");				$db->addvalue($_POST["title"]);
 		$db->addfield("job_giver_user_id");	$db->addvalue($__user_id);
 		$db->addfield("work_category_ids");	$db->addvalue(sel_to_pipe($_POST["work_category_ids"]));
@@ -45,7 +62,12 @@
 		$db->addfield("casting_end");		$db->addvalue($_POST["casting_end"]);
 		$db->addfield("start_at");			$db->addvalue($_POST["start_at"]);
 		$db->addfield("end_at");			$db->addvalue($_POST["end_at"]);
-		$inserting = $db->insert();
+		if($_GET["editing"]){
+			$inserting = $db->update();
+			$inserting["insert_id"] = $_GET["editing"];
+		} else {
+			$inserting = $db->insert();
+		}
 		if($inserting["affected_rows"] > 0){
 			$job_id = $inserting["insert_id"];
 			if($_FILES["image"]["tmp_name"]){
