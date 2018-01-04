@@ -49,6 +49,7 @@ class Vocabulary{
 		$arr[$l]["castings"]									= "Castings";
 		$arr[$l]["see_all_castings"]							= "See All Castings";
 		$arr[$l]["post_casting"]								= "Post Casting";
+		$arr[$l]["post_a_job"]									= "Post a job";
 		$arr[$l]["agencies"]									= "Agencies";
 		$arr[$l]["signup"]										= "Sign Up";
 		$arr[$l]["signin"]										= "Sign In";
@@ -119,6 +120,7 @@ class Vocabulary{
 		$arr[$l]["confirm_message_reject_join_request"]			= "Are you sure want to reject him/her to be your model member?";
 		$arr[$l]["success_message_accept_join_request"]			= "You have just accepted {modelName} as a member of your model";
 		$arr[$l]["success_message_reject_join_request"]			= "You have just rejected {modelName} as a member of your model";
+		$arr[$l]["success_message_post_a_job"]					= "Posting a job successfully saved, please wait for publishing process from us";
 		
 		/*==================================================================================================================================*/
 		/*==================================================================================================================================*/
@@ -155,6 +157,7 @@ class Vocabulary{
 		$arr[$l]["castings"]									= "Casting";
 		$arr[$l]["see_all_castings"]							= "Lihat Semua Casting";
 		$arr[$l]["post_casting"]								= "Pasang Casting";
+		$arr[$l]["post_a_job"]									= "Pasang Lowongan";
 		$arr[$l]["agencies"]									= "Agensi";
 		$arr[$l]["signup"]										= "Daftar";
 		$arr[$l]["signin"]										= "Masuk";
@@ -225,6 +228,7 @@ class Vocabulary{
 		$arr[$l]["confirm_message_reject_join_request"]			= "Anda yakin untuk menolak dia sebagai anggota model Anda?";
 		$arr[$l]["success_message_accept_join_request"]			= "Anda baru saja menerima {modelName} sebagai anggota model Anda";
 		$arr[$l]["success_message_reject_join_request"]			= "Anda baru saja menolak {modelName} sebagai anggota model Anda";
+		$arr[$l]["success_message_post_a_job"]					= "Posting pekerjaan berhasil, silakan tunggu proses publikasi dari Kami";
 		
 		return $arr[$this->locale][$index];
 	}

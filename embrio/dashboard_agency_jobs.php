@@ -1,4 +1,11 @@
 <br>
+<?php 
+	if($_GET["post_a_job"] == "1") 
+		include_once "dashboard_agency_post_a_job.php"; 
+	else
+		echo "<input type='button' value='".v("post_a_job")."' class='btn btn-success' onclick='window.location=\"?tabActive=jobs&post_a_job=1\"'>";
+?>
+<br><br>
 <div>
 	<table>
 		<?php 

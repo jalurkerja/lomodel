@@ -56,14 +56,9 @@
 				$db->addfield("image");			$db->addvalue($filename);
 				$db->update();
 			}
-			$_SESSION["message"] = "Posting a casting successfully saved, please wait for publishing process from us";
+			$_SESSION["message"] = v("success_message_post_a_job");
 		}
-		?>
-			<form method="POST" id="frmRefresh">
-				<input type="hidden" name="tabActive" value="castings">
-			</form>
-			<script> frmRefresh.submit(); </script>
-		<?php
+		?> <script> window.location="?tabActive=jobs" </script> <?php
 		exit();
 	}
 ?>

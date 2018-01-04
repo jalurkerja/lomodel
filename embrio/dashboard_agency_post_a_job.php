@@ -1,6 +1,6 @@
 <br>
 <div class="col-lg-7 well">
-	<form role="form" method="POST" autocomplete="off" enctype="multipart/form-data">
+	<form role="form" method="POST" action="?tabActive=jobs&post_a_job=1" autocomplete="off" enctype="multipart/form-data">
 		<div class="form-group">
 			<label>Title</label>
 			<?=$f->input("title",$_POST["title"],"","form-control");?><br>
