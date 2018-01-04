@@ -56,6 +56,9 @@
 		
 		<?php if(isset($_GET["tabActive"])){ ?>
 				$('.nav-tabs a[href="#<?=$_GET["tabActive"];?>"]').tab('show');
+			<?php if(isset($_GET["subtabActive"])){ ?>
+				$('.nav-tabs a[href="#<?=$_GET["subtabActive"];?>"]').tab('show');
+			<?php } ?>
 		<?php } ?>
 		
 		<?php if(isset($_POST["tabActive"])){ ?>

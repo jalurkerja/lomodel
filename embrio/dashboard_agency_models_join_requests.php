@@ -13,8 +13,8 @@
 			<div class="col-sm-3">
 				<div class="thumbnail" style="margin:4px;cursor:pointer;" onclick="detailAgencyModel('<?=$__user_id;?>','<?=$agency_model["model_user_id"];?>','join_requests');">
 					<img style="cursor:pointer;margin-top:10px" class="img-responsive" src="user_images/<?=$model_profile["photo"];?>">
-					<?php if($agency_model["join_status"]=="3"){ ?> <span class="reject-icon">Rejected</span> <?php } ?>
-					<?php if($agency_model["join_status"]=="0"){ ?> <span class="new-img-icon">New</span> <?php } ?>
+					<?php if($agency_model["join_status"]=="0"){ ?> <span class="new-img-icon"><?=v("new");?></span> <?php } ?>
+					<?php if($agency_model["join_status"]=="3"){ ?> <span class="reject-icon"><?=v("rejected");?></span> <?php } ?>
 					<div><b><?=$name;?></b><p><?=$location;?></p></div>
 				</div>
 			</div>

@@ -110,6 +110,15 @@ class Vocabulary{
 		$arr[$l]["already_member"]								= "Already Member";
 		$arr[$l]["join_requests"]								= "Join Requests";
 		$arr[$l]["join_offers"]									= "Join Offers";
+		$arr[$l]["new"]											= "New";
+		$arr[$l]["accept"]										= "Accept";
+		$arr[$l]["accepted"]									= "Accepted";
+		$arr[$l]["reject"]										= "Reject";
+		$arr[$l]["rejected"]									= "Rejected";
+		$arr[$l]["confirm_message_accept_join_request"]			= "Are you sure want to accept him/her to be your model member?";
+		$arr[$l]["confirm_message_reject_join_request"]			= "Are you sure want to reject him/her to be your model member?";
+		$arr[$l]["success_message_accept_join_request"]			= "You have just accepted {modelName} as a member of your model";
+		$arr[$l]["success_message_reject_join_request"]			= "You have just rejected {modelName} as a member of your model";
 		
 		/*==================================================================================================================================*/
 		/*==================================================================================================================================*/
@@ -207,6 +216,15 @@ class Vocabulary{
 		$arr[$l]["already_member"]								= "Sudah Menjadi Anggota";
 		$arr[$l]["join_requests"]								= "Permintaan Bergabung";
 		$arr[$l]["join_offers"]									= "Tawaran Bergabung";
+		$arr[$l]["new"]											= "Baru";
+		$arr[$l]["accept"]										= "Terima";
+		$arr[$l]["accepted"]									= "Diterima";
+		$arr[$l]["reject"]										= "Tolak";
+		$arr[$l]["rejected"]									= "Ditolak";
+		$arr[$l]["confirm_message_accept_join_request"]			= "Anda yakin untuk menerima dia sebagai anggota model Anda?";
+		$arr[$l]["confirm_message_reject_join_request"]			= "Anda yakin untuk menolak dia sebagai anggota model Anda?";
+		$arr[$l]["success_message_accept_join_request"]			= "Anda baru saja menerima {modelName} sebagai anggota model Anda";
+		$arr[$l]["success_message_reject_join_request"]			= "Anda baru saja menolak {modelName} sebagai anggota model Anda";
 		
 		return $arr[$this->locale][$index];
 	}

@@ -1,4 +1,16 @@
 <script>
+	function joinRequestUpdate(agency_model_id,join_status){
+		if(join_status == "2"){ var confirmMsg = "<?=v("confirm_message_accept_join_request");?>"; }
+		if(join_status == "3"){ var confirmMsg = "<?=v("confirm_message_reject_join_request");?>"; }
+		if(confirm(confirmMsg)){
+			$.get( "ajax/join_request_update.php?agency_model_id="+agency_model_id+"&join_status="+join_status, function(modalBody) {
+				if(modalBody != ""){
+					window.location="?tabActive=models&subtabActive="+modalBody;
+				}
+			});
+		}
+	}
+	
 	function detailAgencyModel(agency_user_id,model_user_id,mode){
 		agency_user_id = agency_user_id || 0;
 		model_user_id = model_user_id || 0;

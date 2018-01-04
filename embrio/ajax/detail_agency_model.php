@@ -25,7 +25,7 @@
 			$db->addfield("join_status");	$db->addvalue("1");
 			$db->update();
 		}
-		if($joinStatus == "3") $isRejected = "<span class='reject-icon2'>Rejected</span>";
+		if($joinStatus == "3") $isRejected = "<span class='reject-icon2'>".v("rejected")."</span>";
 	}
 	if($mode == "join_offers"){
 		$wherearray["mode"] = "2";
@@ -49,7 +49,12 @@
 	
 	$model_profile = $db->fetch_all_data("model_profiles",[],"user_id='".$model_user_id."'")[0];
 ?>
-<h3><b><?=$fullname;?></b></h3>|||
+<h3><b><?=$fullname;?></b></h3>
+<?php if($mode == "join_requests" && $joinStatus < 2){ ?>
+<input onclick="joinRequestUpdate('<?=$agency_model_id;?>','2');" type="button" class="btn btn-success" value="<?=v("accept");?>">
+<input onclick="joinRequestUpdate('<?=$agency_model_id;?>','3');" type="button" class="btn btn-warning" value="<?=v("reject");?>">
+<?php } ?>
+|||
 <div class="row">
 	<div class="col-sm-6 features wow fadeInRight animated">
 		<img class="img-responsive" src="user_images/<?=$photo;?>" style="width:100%">
