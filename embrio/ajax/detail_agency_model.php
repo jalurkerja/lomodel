@@ -19,13 +19,6 @@
 		$whereNext = ["agency_user_id" => $agency_user_id, "join_status"=>"2:<>", "mode" => "1", "id"=>$agency_model_id.":>"];
 		$wherePrev = ["agency_user_id" => $agency_user_id, "join_status"=>"2:<>", "mode" => "1", "id"=>$agency_model_id.":<"];
 		$wherePrevNext = ["agency_user_id" => $agency_user_id, "join_status"=>"2:<>", "mode" => "1"];
-		$joinStatus = $db->fetch_single_data("agency_models","join_status",["id"=>$agency_model_id]);
-		if($joinStatus == "0"){
-			$db->addtable("agency_models");	$db->where("id",$agency_model_id);
-			$db->addfield("join_status");	$db->addvalue("1");
-			$db->update();
-		}
-		if($joinStatus == "3") $isRejected = "<span class='reject-icon2'>".v("rejected")."</span>";
 	}
 	if($mode == "join_offers"){
 		$wherearray["mode"] = "2";
@@ -33,6 +26,15 @@
 		$whereNext = ["agency_user_id" => $agency_user_id, "join_status"=>"2:<>", "mode" => "2", "id"=>$agency_model_id.":>"];
 		$wherePrev = ["agency_user_id" => $agency_user_id, "join_status"=>"2:<>", "mode" => "2", "id"=>$agency_model_id.":<"];
 		$wherePrevNext = ["agency_user_id" => $agency_user_id, "join_status"=>"2:<>", "mode" => "2"];
+	}
+	if($mode == "join_requests" || $mode == "join_offers"){
+		$joinStatus = $db->fetch_single_data("agency_models","join_status",["id"=>$agency_model_id]);
+		if($joinStatus == "0"){
+			$db->addtable("agency_models");	$db->where("id",$agency_model_id);
+			$db->addfield("join_status");	$db->addvalue("1");
+			$db->update();
+		}
+		if($joinStatus == "3") $isRejected = "<span class='reject-icon2'>".v("rejected")."</span>";
 	}
 	
 	if($db->fetch_single_data("agency_models","id",$wherearray) <= 0){
