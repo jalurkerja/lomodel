@@ -1,4 +1,4 @@
-<?php include_once "dashboard_model_action.php"; ?>
+<?php include_once "dashboard_agency_action.php"; ?>
 <?php include_once "casting_action.php"; ?>
 <?php if($__role!="4") exit(); ?>
 <div class="row">
@@ -19,6 +19,7 @@
 			<ul class="col-sm-12 nav nav-tabs">
 				<li class="active"><a data-toggle="tab" href="#profile">Profile</a></li>
 				<li onclick="window.location='?tabActive=gallery'"><a data-toggle="tab" href="#gallery"><?=v("gallery");?></a></li>
+				<li><a data-toggle="tab" href="#jobs"><?=v("jobs");?></a></li>
 				<li><a data-toggle="tab" href="#appliedCastings">Applied Castings</a></li>
 				<li><a data-toggle="tab" href="#bookings">Booking Requests</a></li>
 				<li onclick="loadMessages();">
@@ -31,6 +32,7 @@
 					<?php include_once "dashboard_corporate_profiles.php";?>
 				</div><br>
 				<div id="gallery" class="tab-pane fade"><?php include_once "dashboard_corporate_gallery.php"; ?></div>
+				<div id="jobs" class="tab-pane fade"><?php include_once "dashboard_corporate_jobs.php"; ?></div>
 				<div id="appliedCastings" class="tab-pane fade"><?php include_once "dashboard_model_appliedCastings.php"; ?></div>
 				<div id="bookings" class="tab-pane fade"><?php include_once "dashboard_model_bookings.php"; ?></div>
 				<div id="message" class="tab-pane fade"><?php include_once "dashboard_messages.php"; ?></div>
