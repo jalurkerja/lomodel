@@ -66,16 +66,31 @@
 		if($_regrole == "4"){
 			$_forms["ids"] = ["pic","address","location_id","zipcode","phone","cellphone","web","npwp","ig","fb","tw","about"];
 			$_forms["caption"] = ["PIC","Address","Location","Zip Code","Phone","Cellphone","Web","NPWP","Instagram","Facebook","Twitter","About"];
+			if($_mode == "editing"){
+				array_unshift($_forms["ids"],"name");
+				array_unshift($_forms["caption"],v("Name"));
+			}
 			$_forms["type"]["address"] = "textarea";
 			$_forms["type"]["about"] = "textarea";
 			$_forms["type"]["location_id"] = "select";
 			$_forms["isRequired"]["ig"] = "0";
 			$_forms["isRequired"]["fb"] = "0";
 			$_forms["isRequired"]["tw"] = "0";
+			if($_mode == "editing"){
+				$_forms["value"]["name"] = $_data["name"];
+				$_forms["value"]["pic"] = $_data["pic"];
+				$_forms["value"]["address"] = $_data["address"];
+				$_forms["value"]["location_id"] = $_data["location_id"];
+				$_forms["value"]["zipcode"] = $_data["zipcode"];
+				$_forms["value"]["phone"] = $_data["phone"];
+				$_forms["value"]["cellphone"] = $_data["cellphone"];
+				$_forms["value"]["web"] = $_data["web"];
+				$_forms["value"]["ig"] = $_data["ig"];
+				$_forms["value"]["fb"] = $_data["fb"];
+				$_forms["value"]["tw"] = $_data["tw"];
+				$_forms["value"]["about"] = $_data["about"];
+			}
 			
-			$nationalities = $db->fetch_select_data("nationalities","id","name",[],[],"",true);
-			$nationalities[""] = "Nationality...";
-			$_forms["select_data"]["nationality_id"] = $nationalities;
 			$locations = $db->fetch_select_data("locations","id","name_".$__locale,[],["name_".$__locale],"",true);
 			$locations[""] = v("location")."...";
 			$_forms["select_data"]["location_id"] = $locations;

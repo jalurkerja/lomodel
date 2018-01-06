@@ -86,6 +86,8 @@ class Vocabulary{
 		$arr[$l]["model_category"]								= "Model Category";
 		$arr[$l]["change_photo"]								= "Change Photo";
 		$arr[$l]["change_profile_photo"]						= "Change Profile Photo";
+		$arr[$l]["change_logo"]									= "Change Logo";
+		$arr[$l]["change_corporate_logo"]						= "Change Corporate Logo";
 		$arr[$l]["setup_your_profile_photo"]					= "Setup Your Profile Photo";
 		$arr[$l]["setup_your_corporate_logo"]					= "Setup Your Corporate Logo";
 		$arr[$l]["edit_profile"]								= "Edit Profile";
@@ -196,6 +198,8 @@ class Vocabulary{
 		$arr[$l]["model_category"]								= "Kategori Model";
 		$arr[$l]["change_photo"]								= "Ubah Foto";
 		$arr[$l]["change_profile_photo"]						= "Ubah Foto Profil";
+		$arr[$l]["change_logo"]									= "Change Logo";
+		$arr[$l]["change_corporate_logo"]						= "Change Corporate Logo";
 		$arr[$l]["setup_your_profile_photo"]					= "Atur Foto Profil Anda";
 		$arr[$l]["setup_your_corporate_logo"]					= "Atur Logo Perusahaan Anda";
 		$arr[$l]["edit_profile"]								= "Ubah Profil";
