@@ -96,6 +96,10 @@ class Vocabulary{
 		$arr[$l]["album_name"]									= "Album Name";
 		$arr[$l]["add_photo"]									= "Add Photo";
 		$arr[$l]["finish"]										= "Finish";
+		$arr[$l]["gallery"]										= "Gallery";
+		$arr[$l]["create_gallery"]								= "Create Gallery";
+		$arr[$l]["create_new_gallery"]							= "Create New Gallery";
+		$arr[$l]["gallery_name"]								= "Gallery Name";
 		$arr[$l]["location"]									= "Location";
 		$arr[$l]["save"]										= "Save";
 		$arr[$l]["profile_updated_successfully"]				= "Profile updated successfully";
@@ -208,6 +212,10 @@ class Vocabulary{
 		$arr[$l]["album_name"]									= "Nama Album";
 		$arr[$l]["add_photo"]									= "Tambah Photo";
 		$arr[$l]["finish"]										= "Selesai";
+		$arr[$l]["gallery"]										= "Galeri";
+		$arr[$l]["create_gallery"]								= "Buat Galeri";
+		$arr[$l]["create_new_gallery"]							= "Buat Galeri Baru";
+		$arr[$l]["gallery_name"]								= "Nama Galeri";
 		$arr[$l]["location"]									= "Lokasi";
 		$arr[$l]["save"]										= "Simpan";
 		$arr[$l]["profile_updated_successfully"]				= "Profil berhasil diubah";
