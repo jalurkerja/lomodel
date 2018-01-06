@@ -129,6 +129,7 @@ class Vocabulary{
 		$arr[$l]["success_message_post_a_job"]					= "Posting a job successfully saved, please wait for publishing process from us";
 		$arr[$l]["confirm_message_delete_a_job"]				= "Are You sure want to delete this job posting?";
 		$arr[$l]["success_message_delete_job"]					= "Job posting successfully deleted";
+		$arr[$l]["gender"]										= "Gender";
 		
 		/*==================================================================================================================================*/
 		/*==================================================================================================================================*/
@@ -245,6 +246,7 @@ class Vocabulary{
 		$arr[$l]["success_message_post_a_job"]					= "Posting pekerjaan berhasil, silakan tunggu proses publikasi dari Kami";
 		$arr[$l]["confirm_message_delete_a_job"]				= "Anda yakin akan menghapus lowongan pekerjaan ini?";
 		$arr[$l]["success_message_delete_job"]					= "Pengahapusan lowongan pekerjaan berhasil";
+		$arr[$l]["gender"]										= "Jenis Kelamin";
 		
 		return $arr[$this->locale][$index];
 	}
