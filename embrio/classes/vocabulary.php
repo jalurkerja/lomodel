@@ -130,6 +130,7 @@ class Vocabulary{
 		$arr[$l]["confirm_message_delete_a_job"]				= "Are You sure want to delete this job posting?";
 		$arr[$l]["success_message_delete_job"]					= "Job posting successfully deleted";
 		$arr[$l]["gender"]										= "Gender";
+		$arr[$l]["applicants"]									= "Applicants";
 		
 		/*==================================================================================================================================*/
 		/*==================================================================================================================================*/
@@ -247,6 +248,7 @@ class Vocabulary{
 		$arr[$l]["confirm_message_delete_a_job"]				= "Anda yakin akan menghapus lowongan pekerjaan ini?";
 		$arr[$l]["success_message_delete_job"]					= "Pengahapusan lowongan pekerjaan berhasil";
 		$arr[$l]["gender"]										= "Jenis Kelamin";
+		$arr[$l]["applicants"]									= "Pelamar";
 		
 		return $arr[$this->locale][$index];
 	}

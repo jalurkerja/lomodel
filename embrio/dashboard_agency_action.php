@@ -2,7 +2,7 @@
 	function showApplicants(id){
 		$.get( "ajax/casting_applicants.php?id="+id, function(modalBody) {
 			modalFooter = "<button type=\"button\" class=\"btn btn-danger\" data-dismiss=\"modal\">Close</button>";
-			$('#modalTitle').html("Applicants");
+			$('#modalTitle').html("<?=v("applicants");?>");
 			$('#modalBody').html(modalBody);
 			$('#modalFooter').html(modalFooter);
 			$('#myModal').modal('show');

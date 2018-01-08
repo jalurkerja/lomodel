@@ -1,17 +1,18 @@
 <?php 
 	include_once "../common.php";
 	$id = $_GET["id"];
-	$applicants = $db->fetch_all_data("applied_jobs",[],"job_id = '$id'","created_at DESC");
+	$applicants = $db->fetch_all_data("applied_jobs",[],"job_id = '$id' AND job_giver_user_id='$__user_id'","created_at DESC");
 ?>									
 	<div class="row">
 		<?php foreach($applicants as $applicant){ ?>
 			<?php 
 				$model_profile = $db->fetch_all_data("model_profiles",[],"user_id='".$applicant["user_id"]."'")[0];
 				$model = $db->fetch_all_data("model_files",[],"user_id='".$applicant["user_id"]."'")[0];
+				if($model_profile["photo"] == "" || !file_exists("../user_images/".$model_profile["photo"])) $model_profile["photo"] = "nophoto.png";
 			?>
 			<div class="col-sm-12" style="margin:4px;cursor:pointer;" onclick="window.location='model_details.php?user_id=<?=$model["user_id"];?>';">
 				<div class="col-sm-3">
-					<img style="margin-top:10px" width="100" src="user_images/<?=$model["filename"];?>">
+					<img style="margin-top:10px" width="100" src="user_images/<?=$model_profile["photo"];?>">
 				</div>
 				<div class="col-sm-9">
 					<div><h3><?=$model_profile["first_name"];?> <?=$model_profile["middle_name"];?> <?=$model_profile["last_name"];?></h3></div>
