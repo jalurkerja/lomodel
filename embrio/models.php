@@ -91,7 +91,7 @@
 				// [filter_eye_color] => 
 				// [filter_hair_color] => 
 				// [filter_search] => Search
-			$whereclause = "";
+			$whereclause = "user_id IN (SELECT id FROM a_users WHERE role='5' AND verified = '1') AND ";
 			if($_GET["filter_location"]!="") $whereclause .= "user_id IN (SELECT user_id FROM model_profiles WHERE location_id ='".$_GET["filter_location"]."') AND ";
 			if($_GET["filter_nationality"]!="") $whereclause .= "user_id IN (SELECT user_id FROM model_profiles WHERE nationality_id ='".$_GET["filter_nationality"]."') AND ";
 			// if($_GET["filter_model_category"]!="") $whereclause .= "user_id IN (SELECT user_id FROM model_profiles WHERE model_category_ids LIKE '%|".$_GET["filter_model_category"]."|%') AND ";
@@ -104,7 +104,7 @@
 			if($whereclause != "") $whereclause = substr($whereclause,0,-4);
 			
 			
-			$models = $db->fetch_all_data("model_profiles",[],$whereclause,"","30");
+			$models = $db->fetch_all_data("model_profiles",[],$whereclause,"","300");
 			$ii = -1;
 			foreach($models as $model){
 				$ii++;

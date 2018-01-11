@@ -22,15 +22,14 @@
 	</style>
 	<div class="row">
 		<?php 
-			$model = $db->fetch_all_data("model_profiles",[],"user_id='".$_GET["user_id"]."'")[0];
-			// $model = $db->fetch_all_data("model_files",[],"user_id='".$_GET["user_id"]."'")[0];
+			$model_profile = $db->fetch_all_data("model_profiles",[],"user_id='".$_GET["user_id"]."'")[0];
 		?>
 		
 		<div class="container">
 			<h1 class="well"><?=$model_profile["first_name"];?> <?=$model_profile["middle_name"];?> <?=$model_profile["last_name"];?> </h1>
 		</div>
 		<div class="col-sm-4 fadeInRight animated">
-			<img height="400" src="user_images/<?=$model["photo"];?>">
+			<img height="400" src="user_images/<?=$model_profile["photo"];?>">
 		</div>
 		
 		<div class="col-sm-8 fadeInRight animated">

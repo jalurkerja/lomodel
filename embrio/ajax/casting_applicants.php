@@ -10,7 +10,7 @@
 				$model = $db->fetch_all_data("model_files",[],"user_id='".$applicant["user_id"]."'")[0];
 				if($model_profile["photo"] == "" || !file_exists("../user_images/".$model_profile["photo"])) $model_profile["photo"] = "nophoto.png";
 			?>
-			<div class="col-sm-12" style="margin:4px;cursor:pointer;" onclick="window.location='model_details.php?user_id=<?=$model["user_id"];?>';">
+			<div class="col-sm-12" style="margin:4px;cursor:pointer;" onclick="window.open('model_details.php?user_id=<?=$model["user_id"];?>');">
 				<div class="col-sm-3">
 					<img style="margin-top:10px" width="100" src="user_images/<?=$model_profile["photo"];?>">
 				</div>

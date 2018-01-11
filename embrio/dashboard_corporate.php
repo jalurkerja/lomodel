@@ -34,7 +34,7 @@
 				<div id="gallery" class="tab-pane fade"><?php include_once "dashboard_corporate_gallery.php"; ?></div>
 				<div id="jobs" class="tab-pane fade"><?php include_once "dashboard_corporate_jobs.php"; ?></div>
 				<div id="appliedCastings" class="tab-pane fade"><?php include_once "dashboard_model_appliedCastings.php"; ?></div>
-				<div id="bookings" class="tab-pane fade"><?php include_once "dashboard_model_bookings.php"; ?></div>
+				<div id="bookings" class="tab-pane fade"><?php include_once "dashboard_corporate_bookings.php"; ?></div>
 				<div id="message" class="tab-pane fade"><?php include_once "dashboard_messages.php"; ?></div>
 			</div>
 		</div>

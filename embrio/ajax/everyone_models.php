@@ -4,14 +4,13 @@
 		<div class="col-md-12">
 		<ul id="waterfall">
 		<?php
-			$whereclause = "";
-			if($_GET["category"]!="") $whereclause = "user_id IN (SELECT user_id FROM model_profiles WHERE model_category_ids LIKE '%|".$_GET["category"]."|%')";
-			else $whereclause = "1=1 ORDER BY RAND()";
-			$models = $db->fetch_all_data("model_files",[],$whereclause,"","10");
+			$whereclause = "user_id IN (SELECT id FROM a_users WHERE role='5' AND verified = '1')";
+			if($_GET["category"]!="") $whereclause .= " AND model_category_ids LIKE '%|".$_GET["category"]."|%'";
+			else $whereclause .= " ORDER BY RAND()";
+			$model_profiles = $db->fetch_all_data("model_profiles",[],$whereclause,"","20");
 			$ii = -1;
-			foreach($models as $model){
+			foreach($model_profiles as $model_profile){
 				$ii++;
-				$model_profile = $db->fetch_all_data("model_profiles",[],"user_id = '".$model["user_id"]."'")[0];
 				$name = $model_profile["first_name"]." ".$model_profile["middle_name"]." ".$model_profile["last_name"];
 				$location = $db->fetch_single_data("locations","name_".$__locale,["id" => $model_profile["location_id"]]);
 				$nationality = $db->fetch_single_data("nationalities","name",["id" => $model_profile["nationality_id"]]);
@@ -23,8 +22,8 @@
 				$categories = substr($categories,0,-1);
 		?>
 			<li>
-				<div class="thumbnail" style="margin:4px;cursor:pointer;" onclick="window.location='model_details.php?user_id=<?=$model["user_id"];?>';">
-					<img style="max-width: 200px;" src="user_images/<?=$model["filename"];?>">
+				<div class="thumbnail" style="margin:4px;cursor:pointer;" onclick="window.location='model_details.php?user_id=<?=$model_profile["user_id"];?>';">
+					<img style="max-width: 200px;" src="user_images/<?=$model_profile["photo"];?>">
 					<div><b><?=$name;?></b><p><?=$location;?></p></div>
 				</div>
 			</li>
