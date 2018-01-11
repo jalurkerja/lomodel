@@ -34,12 +34,14 @@
 		</div>
 	</footer>
 	<script>
+		<?php if($__isloggedin){ ?>
 		function checkMessageCount(){
 			$.ajax({url: "ajax/messages.php?mode=checkMessageCount", success: function(result){
 				loadNotifMessageCount(result);
 			}});
 			setTimeout(function(){ checkMessageCount(); }, 1000); 
 		}
+		<?php } ?>
 		
 		function session_checker(){
 			$.ajax({url: "ajax/session_checker.php", success: function(result){

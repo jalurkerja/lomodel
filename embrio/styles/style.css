@@ -1226,9 +1226,9 @@ div { font-family: "ITCAvantGardeGothicStdBook"; }
 .notification-counter {
 	background: #5bc0de;
 	position: absolute;
-	right: 0px;
+	right: -5px;
 	display: block;
-	padding: 0 5px;
+	padding: 2px 5px;
 	height: 15px;
 	color: #fff;
 	text-align: center;
@@ -1241,7 +1241,15 @@ div { font-family: "ITCAvantGardeGothicStdBook"; }
 	display:inline;
 }
 
+#conversations{
+	margin-top:20px;
+	margin-bottom:100px;
+	padding:5px;
+	border:1px solid #ccc;
+}
+
 .bs-callout {
+	width:90%;
     padding: 5px;
     margin: 10px 0;
     border: 1px solid #eee;
@@ -1254,6 +1262,8 @@ div { font-family: "ITCAvantGardeGothicStdBook"; }
 }
 
 .bs-callout-right{
+	position:relative;
+	left:10%;
     border-left-width: 1px;
     border-right-width: 5px;
 }

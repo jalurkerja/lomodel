@@ -42,26 +42,30 @@
 	
 	if($mode == "sendMessage"){
 		$thread_id = $_GET["thread_id"];
+		$_GET["id"] = $db->fetch_single_data("messages","id",["thread_id" => $thread_id],["id DESC"]);
 		$sender_id = $_GET["sender_id"];
 		$message = sanitasi($_GET["message"]);
-		if($thread_id <=0){
-			$thread_id = $db->fetch_single_data("messages","thread_id",[],["thread_id"]);
-			$thread_id++;
+		if($message != ""){
+			if($thread_id <=0){
+				$thread_id = $db->fetch_single_data("messages","thread_id",[],["thread_id"]);
+				$thread_id++;
+			}
+			$db->addtable("messages");
+			$db->addfield("thread_id");	$db->addvalue($thread_id);
+			$db->addfield("user_id");	$db->addvalue($__user_id);
+			$db->addfield("user_id2");	$db->addvalue($sender_id);
+			$db->addfield("message");	$db->addvalue($message);
+			$db->addfield("status");	$db->addvalue(0);
+			$inserting = $db->insert();
+			$_GET["id"] = $inserting["insert_id"];
 		}
-		$db->addtable("messages");
-		$db->addfield("thread_id");	$db->addvalue($thread_id);
-		$db->addfield("user_id");	$db->addvalue($__user_id);
-		$db->addfield("user_id2");	$db->addvalue($sender_id);
-		$db->addfield("message");	$db->addvalue($message);
-		$db->addfield("status");	$db->addvalue(0);
-		$inserting = $db->insert();
-		$_GET["id"] = $inserting["insert_id"];
 		$mode = "loaddetail";
 	}
 	
 	if($mode == "loadList"){
-		echo "<table width='100%'>";
 		$messages = $db->fetch_all_data("messages",[],"(user_id = '".$__user_id."' OR user_id2 = '".$__user_id."') AND id IN (SELECT MAX(id) FROM messages GROUP BY thread_id)","created_at DESC","50");
+		if(count($messages) > 0){
+			echo "<table width='100%'>";
 			foreach($messages as $message){
 				if($message["user_id"] == $__user_id) $sender_id = $message["user_id2"];
 				else $sender_id = $message["user_id"];
@@ -94,40 +98,15 @@
 			</tr>
 		<?php
 			}
-		echo "</table>";
+			echo "</table>";
+		} else {
+			echo "<span class='col-sm-12 well' style='color:red;'>".v("message_not_found")."</span>";
+		}
 	}
 	
-	if($mode == "loaddetail"){
-		$id = $_GET["id"];
-		$message = $db->fetch_all_data("messages",[],"id = '".$id."'")[0];
-		if($message["user_id"] == $__user_id) $sender_id = $message["user_id2"];
-		else $sender_id = $message["user_id"];
-		$arrsender = getSenderInfo($sender_id);
-		$thread_id = $db->fetch_single_data("messages","thread_id",["id" => $id]);
-		?>
-		<div class="row">
-			<div class="col-sm-1">
-				<img src="<?=$arrsender["photopath"];?>" width="50">
-			</div>
-			<div class="col-sm-11">
-				<b><?=$arrsender["name"];?></b><br>
-				<i>(<?=$arrsender["role_name"];?>)</i>
-			</div>
-		</div>
-		<br>
-		<div class="row">
-			<div class="form-group">
-				<div class="col-sm-10">
-					<input type="text" class="form-control" id="txtmessage">
-				</div>
-				<div class="col-sm-1">
-					<button class="btn info" onclick="sendMessage('<?=$thread_id;?>','<?=$sender_id;?>',txtmessage.value);">Send</button>
-				</div>
-				<div class="col-sm-1"></div>
-			</div>
-		</div>
-		<?php
-		$messages = $db->fetch_all_data("messages",[],"thread_id = '".$thread_id."'","created_at DESC","200");
+	if($mode == "loadconversations"){
+		$thread_id = $_GET["thread_id"];
+		$messages = $db->fetch_all_data("messages",[],"thread_id = '".$thread_id."' AND (user_id='$__user_id' OR user_id2='$__user_id')","created_at DESC","1000");
 		foreach($messages as $message){
 			if($message["user_id2"] == $__user_id){
 				$class = "bs-callout-success bs-callout-left";
@@ -146,14 +125,48 @@
 			</div>
 			<?php
 		}
-		?>
-		<script>
-			// function refreshMessage(){
-				// loadDetailMessage('<?=$id;?>');
-				// setTimeout(function(){ refreshMessage(); }, 3000);
-			// }
-			// setTimeout(function(){ refreshMessage(); }, 3000);
-		</script>
-		<?php
+	}
+	if($mode == "loaddetail"){
+		$id = $_GET["id"];
+		$message = $db->fetch_all_data("messages",[],"id = '".$id."' AND (user_id='$__user_id' OR user_id2='$__user_id')")[0];
+		if($message["id"] != ""){
+			if($message["user_id"] == $__user_id) $sender_id = $message["user_id2"];
+			else $sender_id = $message["user_id"];
+			$arrsender = getSenderInfo($sender_id);
+			$thread_id = $db->fetch_single_data("messages","thread_id",["id" => $id]);
+			?>
+			<div class="row">
+				<div class="col-sm-1">
+					<img src="<?=$arrsender["photopath"];?>" width="50">
+				</div>
+				<div class="col-sm-11">
+					<b><?=$arrsender["name"];?></b><br>
+					<i>(<?=$arrsender["role_name"];?>)</i>
+				</div>
+			</div>
+			<br>
+			<div class="row">
+				<div class="form-group">
+					<div class="col-sm-10">
+						<input type="text" class="form-control" id="txtmessage">
+					</div>
+					<div class="col-sm-1">
+						<button class="btn info" onclick="sendMessage('<?=$thread_id;?>','<?=$sender_id;?>',txtmessage.value);">Send</button>
+					</div>
+					<div class="col-sm-1"></div>
+				</div>
+			</div>
+			<div id="conversations"></div>
+			<script>
+				function refreshMessage(){
+					loadConversations('<?=$thread_id;?>');
+					setTimeout(function(){ refreshMessage(); }, 1000);
+				}
+				setTimeout(function(){ refreshMessage(); }, 1000);
+			</script>
+			<?php
+		} else {
+			?><script> loadMessages(); </script><?php
+		}
 	}
 ?>
