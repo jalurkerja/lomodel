@@ -15,6 +15,7 @@
 	</div>
 	<div class="col-sm-9 fadeInRight animated">
 		<div class="col-md-12 container">
+			<div style="width:100%;border-bottom:1px solid #ddd;position:relative;height:1px;top:42px;"></div>
 			<ul class="col-sm-12 nav nav-tabs">
 				<li class="active"><a data-toggle="tab" href="#profile">Profile</a></li>
 				<li onclick="window.location='?tabActive=album'"><a data-toggle="tab" href="#album">Album</a></li>
@@ -22,6 +23,7 @@
 				<li><a data-toggle="tab" href="#jobs"><?=v("jobs");?></a></li>
 				<li><a data-toggle="tab" href="#appliedJobs"><?=v("applied_jobs");?></a></li>
 				<li><a data-toggle="tab" href="#jobOffers"><?=v("job_offers");?></a></li>
+				
 				<li><a data-toggle="tab" href="#bookings"><?=v("bookings");?></a></li>
 				<li onclick="loadMessages();">
 					<a data-toggle="tab" href="#message"><?=v("message");?><span class="notification-counter" style="visibility:hidden;" id="notifMessageTabCount"></span></a>

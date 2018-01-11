@@ -1,3 +1,4 @@
+<br>
 <div id="dashboard_messages"></div>
 <script>
 	function sendMessage(thread_id,sender_id,textmessage){

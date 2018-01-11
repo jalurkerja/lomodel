@@ -1,3 +1,4 @@
+<br>
 <div>
 	<?php 
 		if(!isset($_GET["album_id"]) && !isset($_GET["create_new_album"])){ //Album Listing
