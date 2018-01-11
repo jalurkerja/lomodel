@@ -13,7 +13,8 @@
         public function apply_job($user_id,$job_id){
 			if($this->is_applied($user_id,$job_id) <= 0){
 				if($user_id > 0){
-					if($this->fetch_single_data("a_users","role",["id" => $user_id]) == 5){
+					$applier_role = $this->fetch_single_data("a_users","role",["id" => $user_id]);
+					if($applier_role == 3 || $applier_role == 5){
 						$job_giver_user_id = $this->fetch_single_data("jobs","job_giver_user_id",["id" => $job_id]);
 						$this->addtable("applied_jobs");
 						$this->addfield("user_id");			$this->addvalue($user_id);
@@ -31,6 +32,18 @@
 			}else{
 				return "error:already_applied";
 			}
+		}
+		
+		public function get_role($user_id){
+			return $this->fetch_single_data("a_users","role",["id" => $user_id]);
+		}
+
+		public function get_fullname($user_id){
+			if($this->get_role($user_id) == "2"){ $tableName = "personal_profiles";	$fieldName = "name"; }
+			if($this->get_role($user_id) == "3"){ $tableName = "agency_profiles";	$fieldName = "name"; }
+			if($this->get_role($user_id) == "4"){ $tableName = "corporate_profiles";$fieldName = "name"; }
+			if($this->get_role($user_id) == "5"){ $tableName = "model_profiles";	$fieldName = "concat(first_name,' ',middle_name,' ',last_name) as name"; }
+			return $this->fetch_single_data($tableName,$fieldName,["user_id" => $user_id]);
 		}
     }
 ?>

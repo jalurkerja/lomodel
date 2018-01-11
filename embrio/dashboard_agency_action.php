@@ -24,7 +24,7 @@
 				if(isApplied.substring(0, 1) == "0" && isApplied.substring(1, 2) != ""){
 					modalFooter = "";					
 				} else {
-					isApplied = isApplied.substring(1, 2);
+					// isApplied = isApplied.substring(1, 2);
 					if(isApplied > 0){
 						modalFooter += "<button type=\"button\"  class=\"btn\">Applied</button>";
 					} else {

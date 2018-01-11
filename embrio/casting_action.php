@@ -1,7 +1,7 @@
 <script>
 	function apply(id){
-		<?php if($__role != 5){ ?>
-			toastr.warning("Anda harus Sign In sebagai Model!","",toastroptions);
+		<?php if($__role != 3 && $__role != 5){ ?>
+			toastr.warning("Anda harus Sign In sebagai Model atau Agency!","",toastroptions);
 		<?php } else { ?>
 			$.get( "ajax/casting_action.php?mode=apply&id="+id, function(data) {
 				if(data <= 0){
@@ -18,7 +18,7 @@
 					toastr.warning("User tidak terdaftar","",toastroptions);
 				}
 				if(data == "error:user_not_model"){
-					toastr.warning("Anda harus Sign In sebagai Model!","",toastroptions);
+					toastr.warning("Anda harus Sign In sebagai Model atau Agency!","",toastroptions);
 				}
 			});
 		<?php } ?>
@@ -31,7 +31,7 @@
 				if(isApplied.substring(0, 1) == "0" && isApplied.substring(1, 2) != ""){
 					modalFooter = "";					
 				} else {
-					isApplied = isApplied.substring(1, 2);
+					// isApplied = isApplied.substring(1, 2);
 					if(isApplied > 0){
 						modalFooter += "<button type=\"button\"  class=\"btn\">Applied</button>";
 					} else {

@@ -144,7 +144,7 @@
 						<a href="castings.php" class="dropdown-toggle"><?=v("castings");?> <span class="caret"></span></a>
 						<ul class="dropdown-menu wow fadeInLeft animated" role="menu">
 							<li><a href="castings.php"><?=v("see_all_castings");?></a></li>
-							<li><a href="dashboard.php?tabActive=post_a_casting"><?=v("post_casting");?></a></li>
+							<li><a href="dashboard.php?tabActive=jobs&post_a_job=1"><?=v("post_casting");?></a></li>
 						</ul>
 					</li>
 					<li><a href="agencies.php"><?=v("agencies");?></a></li>

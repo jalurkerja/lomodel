@@ -20,7 +20,6 @@
 				<li onclick="window.location='?tabActive=album'"><a data-toggle="tab" href="#album">Album</a></li>
 				<li><a data-toggle="tab" href="#models">Models</a></li>
 				<li><a data-toggle="tab" href="#jobs"><?=v("jobs");?></a></li>
-				<li><a data-toggle="tab" href="#modelApplicants"><?=v("model_applicants");?></a></li>
 				<li><a data-toggle="tab" href="#appliedJobs"><?=v("applied_jobs");?></a></li>
 				<li><a data-toggle="tab" href="#jobOffers"><?=v("job_offers");?></a></li>
 				<li><a data-toggle="tab" href="#bookings"><?=v("bookings");?></a></li>
@@ -36,7 +35,6 @@
 				<div id="album" class="tab-pane fade"><?php include_once "dashboard_agency_albums.php"; ?></div>
 				<div id="models" class="tab-pane fade"><?php include_once "dashboard_agency_models.php"; ?></div>
 				<div id="jobs" class="tab-pane fade"><?php include_once "dashboard_agency_jobs.php"; ?></div>
-				<div id="modelApplicants" class="tab-pane fade"><?php include_once "dashboard_agency_model_applicants.php"; ?></div>
 				<div id="appliedJobs" class="tab-pane fade"><?php include_once "dashboard_agency_applied_jobs.php"; ?></div>
 				<div id="jobOffers" class="tab-pane fade"><?php include_once "dashboard_agency_job_offers.php"; ?></div>
 				<div id="bookings" class="tab-pane fade"><?php include_once "dashboard_agency_bookings.php"; ?></div>

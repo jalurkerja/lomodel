@@ -12,10 +12,12 @@
 	} $model_category_ids = substr($model_category_ids,0,-2);
 	$age = $casting["age_min"]." - ".$casting["age_max"];
 	if($casting["image"] == "" || !file_exists("post_images/".$casting["image"])) $casting["image"] = "no_image.png";
+	$job_giver_name = $js->get_fullname($casting["job_giver_user_id"]);
 ?>									
 	<div class="row">
 		<div class="col-sm-4">
-			<img class="img-responsive" style="margin-top:10px" src="post_images/<?=$casting["image"];?>">
+			<img class="img-responsive" style="margin-top:10px" src="post_images/<?=$casting["image"];?>"><br>
+			<b><?=$job_giver_name;?></b>
 		</div>
 		<div class="col-sm-8">
 			<div><h3><?=$casting["title"];?></h3></div>
