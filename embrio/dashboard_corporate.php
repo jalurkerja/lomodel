@@ -20,11 +20,12 @@
 				<li class="active"><a data-toggle="tab" href="#profile">Profile</a></li>
 				<li onclick="window.location='?tabActive=gallery'"><a data-toggle="tab" href="#gallery"><?=v("gallery");?></a></li>
 				<li><a data-toggle="tab" href="#jobs"><?=v("jobs");?></a></li>
-				<li><a data-toggle="tab" href="#appliedCastings">Applied Castings</a></li>
 				<li><a data-toggle="tab" href="#bookings">Booking Requests</a></li>
 				<li onclick="loadMessages();">
 					<a data-toggle="tab" href="#message"><?=v("message");?><span class="notification-counter" style="visibility:hidden;" id="notifMessageTabCount"></span></a>
 				</li>
+				<li><a data-toggle="tab" href="#invoices"><?=v("invoices");?></a></li>
+				<li><a data-toggle="tab" href="#tokens"><?=v("tokens");?></a></li>
 			</ul>
 			<br><br>
 			<div class="col-sm-12 tab-content">
@@ -33,9 +34,10 @@
 				</div><br>
 				<div id="gallery" class="tab-pane fade"><?php include_once "dashboard_corporate_gallery.php"; ?></div>
 				<div id="jobs" class="tab-pane fade"><?php include_once "dashboard_corporate_jobs.php"; ?></div>
-				<div id="appliedCastings" class="tab-pane fade"><?php include_once "dashboard_model_appliedCastings.php"; ?></div>
-				<div id="bookings" class="tab-pane fade"><?php include_once "dashboard_corporate_bookings.php"; ?></div>
+				<div id="bookings" class="tab-pane fade"><?php include_once "dashboard_bookings.php"; ?></div>
 				<div id="message" class="tab-pane fade"><?php include_once "dashboard_messages.php"; ?></div>
+				<div id="invoices" class="tab-pane fade"><?php include_once "dashboard_invoices.php"; ?></div>
+				<div id="tokens" class="tab-pane fade"><?php include_once "dashboard_tokens.php"; ?></div>
 			</div>
 		</div>
 	</div>

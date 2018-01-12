@@ -22,7 +22,6 @@
 				<li><a data-toggle="tab" href="#models">Models</a></li>
 				<li><a data-toggle="tab" href="#jobs"><?=v("jobs");?></a></li>
 				<li><a data-toggle="tab" href="#appliedJobs"><?=v("applied_jobs");?></a></li>
-				<li><a data-toggle="tab" href="#jobOffers"><?=v("job_offers");?></a></li>
 				
 				<li><a data-toggle="tab" href="#bookings"><?=v("bookings");?></a></li>
 				<li onclick="loadMessages();">
@@ -38,11 +37,10 @@
 				<div id="models" class="tab-pane fade"><?php include_once "dashboard_agency_models.php"; ?></div>
 				<div id="jobs" class="tab-pane fade"><?php include_once "dashboard_agency_jobs.php"; ?></div>
 				<div id="appliedJobs" class="tab-pane fade"><?php include_once "dashboard_agency_applied_jobs.php"; ?></div>
-				<div id="jobOffers" class="tab-pane fade"><?php include_once "dashboard_agency_job_offers.php"; ?></div>
-				<div id="bookings" class="tab-pane fade"><?php include_once "dashboard_agency_bookings.php"; ?></div>
+				<div id="bookings" class="tab-pane fade"><?php include_once "dashboard_bookings.php"; ?></div>
 				<div id="message" class="tab-pane fade"><?php include_once "dashboard_messages.php"; ?></div>
-				<div id="invoices" class="tab-pane fade"><?php include_once "dashboard_agency_invoices.php"; ?></div>
-				<div id="tokens" class="tab-pane fade"><?php include_once "dashboard_agency_tokens.php"; ?></div>
+				<div id="invoices" class="tab-pane fade"><?php include_once "dashboard_invoices.php"; ?></div>
+				<div id="tokens" class="tab-pane fade"><?php include_once "dashboard_tokens.php"; ?></div>
 			</div>
 		</div>
 	</div>

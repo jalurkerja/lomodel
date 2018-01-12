@@ -28,9 +28,9 @@
 				<div id="profile" class="tab-pane fade in active">
 					<?php include_once "dashboard_personal_profiles.php";?>
 				</div><br>
-				<div id="bookings" class="tab-pane fade"><?php include_once "dashboard_personal_bookings.php"; ?></div>
+				<div id="bookings" class="tab-pane fade"><?php include_once "dashboard_bookings.php"; ?></div>
 				<div id="message" class="tab-pane fade"><?php include_once "dashboard_messages.php"; ?></div>
-				<div id="invoices" class="tab-pane fade"><?php include_once "dashboard_personal_invoices.php"; ?></div>
+				<div id="invoices" class="tab-pane fade"><?php include_once "dashboard_invoices.php"; ?></div>
 			</div>
 		</div>
 	</div>

@@ -8,7 +8,6 @@
 		
 		if($_GET["user_id"] > 0){
 			$model_profile = $db->fetch_all_data("model_profiles",[],"user_id='".$_GET["user_id"]."'")[0];
-			$model = $db->fetch_all_data("model_files",[],"user_id='".$_GET["user_id"]."'")[0];
 		}
 		
 		if(isset($_POST["send_booking_proposal"])){
@@ -29,9 +28,10 @@
 			if($inserting["affected_rows"] > 0){
 				$booking_id = $inserting["insert_id"];				
 				$invoice_no = "INV/BOOK/".date("ymd")."/";
-				$last_invoice = $db->fetch_single_data("invoices","invoice_no",["invoice_no"=>$invoice_no."%:LIKE"],["invoice_no DESC"]);
+				$last_invoice = $db->fetch_single_data("invoices","invoice_no",["invoice_no" => $invoice_no."%:LIKE"],["invoice_no DESC"]);
 				if($last_invoice){
 					$last_invoice = str_replace($invoice_no,"",$last_invoice) * 1;
+					$last_invoice++;
 					$invoice_no = $invoice_no.substr("000",0,3-strlen($last_invoice)).$last_invoice;
 				} else {
 					$invoice_no = $invoice_no."001";
@@ -70,7 +70,7 @@
 			<h3>Booking Proposal</h3>
 			<div class="well">
 				Kami memberikan penawaran pekerjaan / casting kepada :<br>
-				<img height="200" src="user_images/<?=$model["filename"];?>"><br>
+				<img height="200" src="user_images/<?=$model_profile["photo"];?>"><br>
 				<b><i><?=$model_profile["first_name"];?> <?=$model_profile["middle_name"];?> <?=$model_profile["last_name"];?></i></b><br>
 				dengan deskripsi pekerjaan :<br>
 				<i><?=str_replace(chr(13).chr(10),"<br>",$_POST["description"]);?></i><br><br>
@@ -98,16 +98,15 @@
 		<?php if($_GET["mode"] == "payment_confirmation"){ ?>
 			<?php
 				$invoice = $db->fetch_all_data("invoices",[],"id='".$_GET["invoice_id"]."'")[0];
-				$booking = $db->fetch_all_data("booking",[],"id='".$invoice["booking_id"]."'")[0];
+				$booking = $db->fetch_all_data("bookings",[],"id='".$invoice["booking_id"]."'")[0];
 				$model_profile = $db->fetch_all_data("model_profiles",[],"user_id='".$booking["book_user_id"]."'")[0];
-				$model = $db->fetch_all_data("model_files",[],"user_id='".$booking["book_user_id"]."'")[0];
 			?>
 			<h2 class="well">Payment</h2>
 			<div class="well">
 				<u>Detail Invoice:</u><br>
 				<i>
 					<b>Invoice No : <?=$invoice["invoice_no"];?></b><br><br>
-					Booking model dengan nama <b><?=$model_profile["first_name"];?> <?=$model_profile["middle_name"];?> <?=$model_profile["last_name"];?></b><br>
+					Booking model dengan nama "<b><?=$model_profile["first_name"];?> <?=$model_profile["middle_name"];?> <?=$model_profile["last_name"];?></b>"<br>
 					<table width="200">
 						<tr><td colspan="3" nowrap>Dengan nilai :</td><tr>
 						<tr><td style="width:35px;"></td><td>Rp. </td><td align="right"><?=format_amount($invoice["ammount"],2);?></td></tr>
@@ -119,23 +118,25 @@
 					<br>
 					<p><i>*) Kode Unik adalah 3 digit angka yang kami tambahkan di belakang nominal total biaya transaksi Anda. Tujuannya adalah untuk mempermudah bagian keuangan Kami dalam melakukan verifikasi atas pembayaran yang sudah Anda lakukan.</i></p>
 					<br><br>
-					<u>Harap dibayarkan ke :</u><br>
-					Bank BCA<br>No Rekening: 504.0304.098<br>a/n PT INDO HUMAN RESOURCE
-					<br><br>
-					<u>Data Pembayaran :</u><br>
-					<p>Jika Anda sudah melakukan pembayaran, silakan isi form berikut untuk mengkonfirmasi pembayaran Anda.</p>
-					<form method="POST">
-						<input type="hidden" name="invoice_id" value="<?=$_GET["invoice_id"];?>">
-						<table>
-							<tr><td>Nama Pemilik Rekening &nbsp;&nbsp;&nbsp;</td><td nowrap><?=$f->input("bank_an","","","form-control");?></td></tr>
-							<tr><td>No Rekening Bank Pengirim  &nbsp;&nbsp;&nbsp;</td><td nowrap><?=$f->input("account","","","form-control");?></td></tr>
-							<tr><td>Nama Bank Pengirim  &nbsp;&nbsp;&nbsp;</td><td nowrap><?=$f->input("bank","","","form-control");?></td></tr>
-							<tr><td>Tanggal Transfer  &nbsp;&nbsp;&nbsp;</td><td nowrap><?=$f->input("transfer_at",date("Y-m-d"),"type='date'","form-control");?></td></tr>
-						</table>
+					<?php if($invoice["status"] != "1"){ ?>
+						<u>Harap dibayarkan ke :</u><br>
+						Bank BCA<br>No Rekening: 504.0304.098<br>a/n PT INDO HUMAN RESOURCE
+						<br><br>
+						<u>Data Pembayaran :</u><br>
+						<p>Jika Anda sudah melakukan pembayaran, silakan isi form berikut untuk mengkonfirmasi pembayaran Anda.</p>
+						<form method="POST">
+							<input type="hidden" name="invoice_id" value="<?=$_GET["invoice_id"];?>">
+							<table>
+								<tr><td>Nama Pemilik Rekening &nbsp;&nbsp;&nbsp;</td><td nowrap><?=$f->input("bank_an","","","form-control");?></td></tr>
+								<tr><td>No Rekening Bank Pengirim  &nbsp;&nbsp;&nbsp;</td><td nowrap><?=$f->input("account","","","form-control");?></td></tr>
+								<tr><td>Nama Bank Pengirim  &nbsp;&nbsp;&nbsp;</td><td nowrap><?=$f->input("bank","","","form-control");?></td></tr>
+								<tr><td>Tanggal Transfer  &nbsp;&nbsp;&nbsp;</td><td nowrap><?=$f->input("transfer_at",date("Y-m-d"),"type='date'","form-control");?></td></tr>
+							</table>
+							<br>
+							<?=$f->input("payment","Konfirmasi","type='submit' style='width:100%;'","btn btn-lg btn-info");?>
+						</form>
 						<br>
-						<?=$f->input("payment","Konfirmasi","type='submit' style='width:100%;'","btn btn-lg btn-info");?>
-					</form>
-					<br>
+					<?php } ?>
 				</i><br>				
 			</div>
 		<?php } ?>
