@@ -59,4 +59,43 @@
 		<?php
 		exit();
 	}
+	
+	if(isset($_POST["accepting_join"])){
+		$agency_model_id = $_POST["agency_model_id"];
+		$db->addtable("agency_models");	$db->where("id",$agency_model_id);
+		$db->addfield("join_status");	$db->addvalue("2");
+		$db->addfield("join_at");		$db->addvalue($__now);
+		$db->addfield("updated_at");	$db->addvalue($__now);
+		$db->addfield("updated_by");	$db->addvalue($__username);
+		$db->addfield("updated_ip");	$db->addvalue($_SERVER["REMOTE_ADDR"]);
+		$db->update();
+		$_SESSION["message"] = "Join Offer Accepted.";
+		?>
+			<form method="POST" id="frmRefresh">
+				<input type="hidden" name="tabActive" value="joinOffers">
+			</form>
+			<script> frmRefresh.submit(); </script>
+		<?php
+		exit();
+	}
+	
+	if(isset($_POST["rejecting_join"])){
+		$agency_model_id = $_POST["agency_model_id"];
+		$db->addtable("agency_models");	$db->where("id",$agency_model_id);
+		$db->addfield("join_status");	$db->addvalue("3");
+		$db->addfield("join_notes");	$db->addvalue($_POST["join_notes"]);
+		$db->addfield("join_at");		$db->addvalue($__now);
+		$db->addfield("updated_at");	$db->addvalue($__now);
+		$db->addfield("updated_by");	$db->addvalue($__username);
+		$db->addfield("updated_ip");	$db->addvalue($_SERVER["REMOTE_ADDR"]);
+		$db->update();
+		$_SESSION["message"] = "Join Offer Rejected.";
+		?>
+			<form method="POST" id="frmRefresh">
+				<input type="hidden" name="tabActive" value="joinOffers">
+			</form>
+			<script> frmRefresh.submit(); </script>
+		<?php
+		exit();
+	}
 ?>

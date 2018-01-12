@@ -7,15 +7,16 @@
 			} else {
 				foreach($bookings as $booking){
 					$booker_role = $db->fetch_single_data("a_users","role",["id" => $booking["user_id"]]);
-					if($booker_role == "2") $table_booker = "personal_profiles";
-					if($booker_role == "3") $table_booker = "agency_profiles";
-					if($booker_role == "4") $table_booker = "corporate_profiles";
+					if($booker_role == "2"){ $table_booker = "personal_profiles";	$photoField = "photo"; }
+					if($booker_role == "3"){ $table_booker = "agency_profiles";		$photoField = "photo"; }
+					if($booker_role == "4"){ $table_booker = "corporate_profiles";	$photoField = "logo"; }
 					$booker = $db->fetch_all_data($table_booker,[],"user_id='".$booking["user_id"]."'")[0];
+					if($booker[$photoField] == "" || !file_exists("user_images/".$booker[$photoField])) $booker[$photoField] = "nophoto.png";
 			?>
 			<tr>
 				<td>									
 					<div class="col-sm-4">
-						<img style="margin-top:10px" src="user_images/no_logo.png" width="100">
+						<img style="margin-top:10px" src="user_images/<?=$booker[$photoField];?>" width="100">
 					</div>
 					<div class="col-sm-8">
 						<div><h3><?=$booker["name"];?></h3></div>

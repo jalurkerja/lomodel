@@ -20,8 +20,9 @@
 			<ul class="col-sm-12 nav nav-tabs">
 				<li class="active"><a data-toggle="tab" href="#profile">Profile</a></li>
 				<li onclick="window.location='?tabActive=album'"><a data-toggle="tab" href="#album">Album</a></li>
-				<li><a data-toggle="tab" href="#appliedCastings">Applied Castings</a></li>
-				<li><a data-toggle="tab" href="#bookings">Booking Requests</a></li>
+				<li><a data-toggle="tab" href="#appliedCastings"><?=v("applied_jobs");?></a></li>
+				<li><a data-toggle="tab" href="#bookings"><?=v("bookings");?></a></li>
+				<li><a data-toggle="tab" href="#joinOffers"><?=v("join_offers");?></a></li>
 				<li onclick="loadMessages();">
 					<a data-toggle="tab" href="#message"><?=v("message");?><span class="notification-counter" style="visibility:hidden;" id="notifMessageTabCount"></span></a>
 				</li>
@@ -34,6 +35,7 @@
 				<div id="album" class="tab-pane fade"><?php include_once "dashboard_model_albums.php"; ?></div>
 				<div id="appliedCastings" class="tab-pane fade"><?php include_once "dashboard_model_appliedCastings.php"; ?></div>
 				<div id="bookings" class="tab-pane fade"><?php include_once "dashboard_model_bookings.php"; ?></div>
+				<div id="joinOffers" class="tab-pane fade"><?php include_once "dashboard_model_join_offers.php"; ?></div>
 				<div id="message" class="tab-pane fade"><?php include_once "dashboard_messages.php"; ?></div>
 			</div>
 		</div>
