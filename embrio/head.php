@@ -199,7 +199,7 @@
 							</ul>
 						</li>
 					<?php } ?>
-						<li><a href="?locale=<?=$__anti_locale;?>"><img class="localeFlag" height="20" src="icons/<?=$__anti_locale;?>.png"></a></li>
+						<li><a href="index.php?locale=<?=$__anti_locale;?>"><img class="localeFlag" height="20" src="icons/<?=$__anti_locale;?>.png"></a></li>
 				</ul>
 			</div>
 		</div>

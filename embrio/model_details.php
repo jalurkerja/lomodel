@@ -1,6 +1,6 @@
 <?php include_once "homepage_header.php"; ?>
 <?php
-	if($__user_id == $_GET["user_id"]){
+	if($__user_id == $_GET["user_id"] && $__isloggedin){
 		?> <script> window.location="dashboard.php"; </script> <?php
 		exit();
 	}

@@ -47,6 +47,7 @@
 		$__token = "";
 	}
 	
+	if($__role == 5) $__agency_user_id = $db->fetch_single_data("agency_models","agency_user_id",["model_user_id" => $__user_id,"join_status" => "2"]);
 	
 	if(isset($_GET["utm_source"]) && $_GET["utm_source"] != "") add_utm();
 	

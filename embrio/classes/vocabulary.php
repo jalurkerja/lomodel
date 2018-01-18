@@ -17,6 +17,10 @@ class Vocabulary{
 	
 	public function words($index){
 		$l = "en";
+		$arr[$l]["yes"] 										= "Yes";
+		$arr[$l]["no"] 											= "No";
+		$arr[$l]["cancel"] 										= "Cancel";
+		$arr[$l]["at"] 											= "at";
 		$arr[$l]["hello"] 										= "Hello";
 		$arr[$l]["username"] 									= "Username";
 		$arr[$l]["signin"] 										= "Sign In";
@@ -58,8 +62,10 @@ class Vocabulary{
 		$arr[$l]["back_to_dashboard"]							= "Back to Dashboard";
 		$arr[$l]["personal"]									= "Personal";
 		$arr[$l]["agency"]										= "Agency";
+		$arr[$l]["agency_details"]								= "Agency Details";
 		$arr[$l]["corporate"]									= "Corporate";
 		$arr[$l]["model"]										= "Model";
+		$arr[$l]["models"]										= "Models";
 		$arr[$l]["personal_description"]						= "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.";
 		$arr[$l]["agency_description"]							= "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.";
 		$arr[$l]["corporate_description"]						= "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.";
@@ -74,6 +80,8 @@ class Vocabulary{
 		$arr[$l]["message"]										= "Message";
 		$arr[$l]["register_as"]									= "Register as";
 		$arr[$l]["modeling_for_everyone"]						= "MODELING FOR EVERYONE";
+		$arr[$l]["profile"]										= "Profile";
+		$arr[$l]["albums"]										= "Albums";
 		$arr[$l]["nationality"]									= "Nationality";
 		$arr[$l]["hair_color"]									= "Hair Color";
 		$arr[$l]["eye_color"]									= "Eye Color";
@@ -117,14 +125,19 @@ class Vocabulary{
 		$arr[$l]["message_not_found"]							= "Message not found";
 		$arr[$l]["already_member"]								= "Already Member";
 		$arr[$l]["join_requests"]								= "Join Requests";
+		$arr[$l]["requests_to_join"]							= "Request To Join";
 		$arr[$l]["join_offers"]									= "Join Offers";
 		$arr[$l]["joined"]										= "Joined";
+		$arr[$l]["waiting_for_join_approval"]					= "Waiting for join approval";
 		$arr[$l]["model_already_joined_agency"]					= "{modelName} already joined with {agencyName}";
 		$arr[$l]["new"]											= "New";
 		$arr[$l]["accept"]										= "Accept";
+		$arr[$l]["accept_join"]									= "Accept Join";
 		$arr[$l]["accepted"]									= "Accepted";
 		$arr[$l]["reject"]										= "Reject";
+		$arr[$l]["reject_join"]									= "Reject Join";
 		$arr[$l]["rejected"]									= "Rejected";
+		$arr[$l]["join_rejected"]								= "Join Rejected";
 		$arr[$l]["confirm_message_accept_join_request"]			= "Are you sure want to accept him/her to be your model member?";
 		$arr[$l]["confirm_message_reject_join_request"]			= "Are you sure want to reject him/her to be your model member?";
 		$arr[$l]["success_message_accept_join_request"]			= "You have just accepted {modelName} as a member of your model";
@@ -132,12 +145,20 @@ class Vocabulary{
 		$arr[$l]["success_message_post_a_job"]					= "Posting a job successfully saved, please wait for publishing process from us";
 		$arr[$l]["confirm_message_delete_a_job"]				= "Are You sure want to delete this job posting?";
 		$arr[$l]["success_message_delete_job"]					= "Job posting successfully deleted";
+		$arr[$l]["message_join_request"]						= "{modelName} wants to join with you, <a href='dashboard.php?tabActive=models&subtabActive=joinRequests'>click here</a> to get more detail info.";
+		$arr[$l]["message_join_request_sent"]					= "your join request has been sent to {agencyName}";
 		$arr[$l]["gender"]										= "Gender";
 		$arr[$l]["applicants"]									= "Applicants";
+		$arr[$l]["you_have_to_login_as_a_model"]				= "You have to registered/log in as a model";
+		$arr[$l]["are_you_sure_want_to_join_to_this_agency"]	= "Are you sure want to join to this agency";
 		
 		/*==================================================================================================================================*/
 		/*==================================================================================================================================*/
 		$l = "id";
+		$arr[$l]["yes"] 										= "Ya";
+		$arr[$l]["no"] 											= "Tidak";
+		$arr[$l]["cancel"] 										= "Batal";
+		$arr[$l]["at"] 											= "pada";
 		$arr[$l]["hello"] 										= "Halo";
 		$arr[$l]["username"] 									= "Username";
 		$arr[$l]["signin"] 										= "Masuk";
@@ -179,8 +200,10 @@ class Vocabulary{
 		$arr[$l]["back_to_dashboard"]							= "Kembali Ke Dasbor";
 		$arr[$l]["personal"]									= "Pribadi";
 		$arr[$l]["agency"]										= "Agensi";
+		$arr[$l]["agency_details"]								= "Detail Agensi";
 		$arr[$l]["corporate"]									= "Perusahaan";
 		$arr[$l]["model"]										= "Model";
+		$arr[$l]["models"]										= "Model";
 		$arr[$l]["personal_description"]						= "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.";
 		$arr[$l]["agency_description"]							= "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.";
 		$arr[$l]["corporate_description"]						= "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.";
@@ -195,6 +218,8 @@ class Vocabulary{
 		$arr[$l]["message"]										= "Pesan";
 		$arr[$l]["register_as"]									= "Daftar sebagai";
 		$arr[$l]["modeling_for_everyone"]						= "MODELING UNTUK SEMUA ORANG";
+		$arr[$l]["profile"]										= "Profil";
+		$arr[$l]["albums"]										= "Album";
 		$arr[$l]["nationality"]									= "Kebangsaan";
 		$arr[$l]["hair_color"]									= "Warna Rambut";
 		$arr[$l]["eye_color"]									= "Warna Bola Mata";
@@ -238,14 +263,19 @@ class Vocabulary{
 		$arr[$l]["message_not_found"]							= "Pesan tidak ditemukan";
 		$arr[$l]["already_member"]								= "Sudah Menjadi Anggota";
 		$arr[$l]["join_requests"]								= "Permintaan Bergabung";
+		$arr[$l]["requests_to_join"]							= "Meminta untuk bergabung";
 		$arr[$l]["join_offers"]									= "Tawaran Bergabung";
 		$arr[$l]["joined"]										= "Telah Bergabung";
+		$arr[$l]["waiting_for_join_approval"]					= "Menunggu persetujuan untuk bergabung";
 		$arr[$l]["model_already_joined_agency"]					= "{modelName} telah bergabung dengan {agencyName}";
 		$arr[$l]["new"]											= "Baru";
 		$arr[$l]["accept"]										= "Terima";
+		$arr[$l]["accept_join"]									= "Terima Bergabung";
 		$arr[$l]["accepted"]									= "Diterima";
 		$arr[$l]["reject"]										= "Tolak";
+		$arr[$l]["reject_join"]									= "Tolak Bergabung";
 		$arr[$l]["rejected"]									= "Ditolak";
+		$arr[$l]["join_rejected"]								= "Bergabung ditolak";
 		$arr[$l]["confirm_message_accept_join_request"]			= "Anda yakin untuk menerima dia sebagai anggota model Anda?";
 		$arr[$l]["confirm_message_reject_join_request"]			= "Anda yakin untuk menolak dia sebagai anggota model Anda?";
 		$arr[$l]["success_message_accept_join_request"]			= "Anda baru saja menerima {modelName} sebagai anggota model Anda";
@@ -253,8 +283,12 @@ class Vocabulary{
 		$arr[$l]["success_message_post_a_job"]					= "Posting pekerjaan berhasil, silakan tunggu proses publikasi dari Kami";
 		$arr[$l]["confirm_message_delete_a_job"]				= "Anda yakin akan menghapus lowongan pekerjaan ini?";
 		$arr[$l]["success_message_delete_job"]					= "Pengahapusan lowongan pekerjaan berhasil";
+		$arr[$l]["message_join_request"]						= "{modelName} ingin bergabung dengan Anda, <a href=\"dashboard.php?tabActive=models&subtabActive=joinRequests\">klik disini</a> untuk melihat lebih detail.";
+		$arr[$l]["message_join_request_sent"]					= "Permintaan bergabung Anda telah di kirim ke {agencyName}";
 		$arr[$l]["gender"]										= "Jenis Kelamin";
 		$arr[$l]["applicants"]									= "Pelamar";
+		$arr[$l]["you_have_to_login_as_a_model"]				= "Anda harus login/terdaftar sebagai model";
+		$arr[$l]["are_you_sure_want_to_join_to_this_agency"]	= "Anda yakin ingin bergabung dengan agency ini";
 		
 		return $arr[$this->locale][$index];
 	}

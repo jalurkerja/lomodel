@@ -40,7 +40,7 @@
 										<br><br> 
 								<?php } ?>
 								<?php if($agency_model["join_status"] == "3"){ ?>
-										<div class="col-sm-12 btn-danger text-center"><b><?=v("rejected");?></b></div>
+										<div class="col-sm-12 btn-danger text-center"><b><?=v("join_rejected");?></b></div>
 										<br><br> 
 								<?php } ?>
 							</div>

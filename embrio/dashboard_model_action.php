@@ -25,7 +25,9 @@
 	
 	if(isset($_POST["accepting"])){
 		$booking_id = $_POST["booking_id"];
-		$db->addtable("bookings");		$db->where("id",$booking_id);
+		$db->addtable("bookings");		
+		$db->where("id",$booking_id);
+		$db->where("model_user_id",$__user_id);
 		$db->addfield("status");		$db->addvalue("2");
 		$db->addfield("accepted");		$db->addvalue("1");
 		$db->addfield("accepted_at");	$db->addvalue($__now);
@@ -43,7 +45,9 @@
 	
 	if(isset($_POST["rejecting"])){
 		$booking_id = $_POST["booking_id"];
-		$db->addtable("bookings");		$db->where("id",$booking_id);
+		$db->addtable("bookings");		
+		$db->where("id",$booking_id);
+		$db->where("model_user_id",$__user_id);
 		$db->addfield("status");		$db->addvalue("3");
 		$db->addfield("accepted");		$db->addvalue("2");
 		$db->addfield("accepted_notes");$db->addvalue($_POST["accepted_notes"]);

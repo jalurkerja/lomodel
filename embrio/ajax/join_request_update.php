@@ -4,6 +4,7 @@
 	$join_status = $_GET["join_status"];
 	$db->addtable("agency_models");$db->where("id",$agency_model_id);$db->where("agency_user_id",$__user_id);
 	$db->addfield("join_status");	$db->addvalue($join_status);
+	$db->addfield("join_at");		$db->addvalue($__now);
 	$updating = $db->update();
 	if($updating["affected_rows"] > 0){
 		if($join_status == "2"){
