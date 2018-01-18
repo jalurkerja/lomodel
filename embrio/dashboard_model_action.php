@@ -61,22 +61,33 @@
 	}
 	
 	if(isset($_POST["accepting_join"])){
-		$agency_model_id = $_POST["agency_model_id"];
-		$db->addtable("agency_models");	$db->where("id",$agency_model_id);
-		$db->addfield("join_status");	$db->addvalue("2");
-		$db->addfield("join_at");		$db->addvalue($__now);
-		$db->addfield("updated_at");	$db->addvalue($__now);
-		$db->addfield("updated_by");	$db->addvalue($__username);
-		$db->addfield("updated_ip");	$db->addvalue($_SERVER["REMOTE_ADDR"]);
-		$db->update();
-		$_SESSION["message"] = "Join Offer Accepted.";
-		?>
-			<form method="POST" id="frmRefresh">
-				<input type="hidden" name="tabActive" value="joinOffers">
-			</form>
-			<script> frmRefresh.submit(); </script>
-		<?php
-		exit();
+		$agency_user_id = $db->fetch_single_data("agency_models","agency_user_id",["model_user_id"=>$__user_id,"join_status"=>"2"]);
+		if($agency_user_id <= 0){
+			$agency_model_id = $_POST["agency_model_id"];
+			$db->addtable("agency_models");	$db->where("id",$agency_model_id);
+			$db->addfield("join_status");	$db->addvalue("2");
+			$db->addfield("join_at");		$db->addvalue($__now);
+			$db->addfield("updated_at");	$db->addvalue($__now);
+			$db->addfield("updated_by");	$db->addvalue($__username);
+			$db->addfield("updated_ip");	$db->addvalue($_SERVER["REMOTE_ADDR"]);
+			$db->update();
+			$_SESSION["message"] = "Join Offer Accepted.";
+			?>
+				<form method="POST" id="frmRefresh">
+					<input type="hidden" name="tabActive" value="joinOffers">
+				</form>
+				<script> frmRefresh.submit(); </script>
+			<?php
+			exit();
+		} else {
+			$agency_name = $db->fetch_single_data("agency_profiles","name",["user_id"=>$agency_user_id]);
+			$model_name= $db->fetch_single_data("model_profiles","concat(first_name,' ',middle_name,' ',last_name)",["user_id"=>$__user_id]);
+			$_SESSION["errormessage"] = str_replace(["{modelName}","{agencyName}"],[$model_name,$agency_name],v("model_already_joined_agency"));
+			?>
+				<script> window.location="?tabActive=joinOffers"; </script>
+			<?php
+			exit();
+		}
 	}
 	
 	if(isset($_POST["rejecting_join"])){

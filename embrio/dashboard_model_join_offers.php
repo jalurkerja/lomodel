@@ -1,43 +1,54 @@
 <div>
 	<table>
 	<?php 
-		$agency_models = $db->fetch_all_data("agency_models",[],"model_user_id='".$__user_id."' AND mode='2' AND join_status <> '2'","join_status,id DESC");
-		if(count($agency_models) <= 0){
-			echo "<span class='col-sm-12 well' style='color:red;'>".v("data_not_found")."</span>";
+		$agency_user_id = $db->fetch_single_data("agency_models","agency_user_id",["model_user_id"=>$__user_id,"join_status"=>"2"]);
+		if($agency_user_id > 0){
+			$agency_name = $db->fetch_single_data("agency_profiles","name",["user_id"=>$agency_user_id]);
+			$model_name= $db->fetch_single_data("model_profiles","concat(first_name,' ',middle_name,' ',last_name)",["user_id"=>$__user_id]);
+			echo "<span class='col-sm-12 well' style='color:red;'>".str_replace(["{modelName}","{agencyName}"],[$model_name,$agency_name],v("model_already_joined_agency"))."</span>";
 		} else {
-			foreach($agency_models as $agency_model){
-				$agency_profile = $db->fetch_all_data("agency_profiles",[],"user_id='".$agency_model["agency_user_id"]."'")[0];
-				$name = $agency_profile["name"];
-				$location = $db->fetch_single_data("locations","name_".$__locale,["id" => $agency_profile["location_id"]]);
-				if($agency_profile["photo"] == "" || !file_exists("user_images/".$agency_profile["photo"])) $agency_profile["photo"] = "nophoto.png";
-		?>
-				<tr>
-					<td>
-						<div class="col-sm-4">
-							<img style="margin-top:10px" src="user_images/<?=$agency_profile["photo"];?>" width="100">
-						</div>
-						<div class="col-sm-8">
-							<div><h3><?=$agency_profile["name"];?></h3></div>
+			$agency_models = $db->fetch_all_data("agency_models",[],"model_user_id='".$__user_id."' AND mode='2' AND join_status <> '2'","join_status,id DESC");
+			if(count($agency_models) <= 0){
+				echo "<span class='col-sm-12 well' style='color:red;'>".v("data_not_found")."</span>";
+			} else {
+				foreach($agency_models as $agency_model){
+					$agency_profile = $db->fetch_all_data("agency_profiles",[],"user_id='".$agency_model["agency_user_id"]."'")[0];
+					$name = $agency_profile["name"];
+					$location = $db->fetch_single_data("locations","name_".$__locale,["id" => $agency_profile["location_id"]]);
+					if($agency_profile["photo"] == "" || !file_exists("user_images/".$agency_profile["photo"])) $agency_profile["photo"] = "nophoto.png";
+			?>
+					<tr>
+						<td>
 							<div class="col-sm-4">
-								<?=$f->input("detail","Detail","onclick=\"window.open('agency_details.php?id=".$agency_model["agency_user_id"]."');\" type='button' style='width:100%;'","btn btn-success");?>
+								<img style="margin-top:10px" src="user_images/<?=$agency_profile["photo"];?>" width="100">
 							</div>
-							<?php if($agency_model["status"] < 2){ ?>
-								<div class="col-sm-4">
-									<?=$f->input("accept","Accept","onclick=\"joinAgency('accept','".$agency_model["id"]."');\" type='button' style='width:100%;'","btn btn-success");?>
-								</div>
-								<div class="col-sm-4">
-									<?=$f->input("reject","Reject","onclick=\"joinAgency('reject','".$agency_model["id"]."');\" type='button' style='width:100%;'","btn btn-danger");?>
-								</div>
-							<?php } ?>
-							<?php if($agency_model["status"] == "2"){ ?>
-									<div class="col-sm-12 btn-success text-center"><b>Joined</b></div>
-									<br><br> 
-							<?php } ?>
-						</div>
-						<div class="col-sm-12" style="padding-bottom:10px;border-bottom:1px solid #aaa;width:100%;"></div>
-					</td>
-				</tr>
+							<div class="col-sm-8">
+								<div><h3><?=$agency_profile["name"];?></h3></div>
+								<?php if($agency_model["join_status"] < 2){ ?>
+									<div class="col-sm-4">
+										<?=$f->input("detail","Detail","onclick=\"window.open('agency_details.php?id=".$agency_model["agency_user_id"]."');\" type='button'","btn btn-success");?>
+									</div>
+									<div class="col-sm-4">
+										<?=$f->input("accept","Accept","onclick=\"joinAgency('accept','".$agency_model["id"]."');\" type='button'","btn btn-success");?>
+									</div>
+									<div class="col-sm-4">
+										<?=$f->input("reject","Reject","onclick=\"joinAgency('reject','".$agency_model["id"]."');\" type='button'","btn btn-danger");?>
+									</div>
+								<?php } ?>
+								<?php if($agency_model["join_status"] == "2"){ ?>
+										<div class="col-sm-12 btn-success text-center"><b><?=v("joined");?></b></div>
+										<br><br> 
+								<?php } ?>
+								<?php if($agency_model["join_status"] == "3"){ ?>
+										<div class="col-sm-12 btn-danger text-center"><b><?=v("rejected");?></b></div>
+										<br><br> 
+								<?php } ?>
+							</div>
+							<div class="col-sm-12" style="padding-bottom:10px;border-bottom:1px solid #aaa;width:100%;"></div>
+						</td>
+					</tr>
 		<?php 
+				} 
 			} 
 		}
 		?>

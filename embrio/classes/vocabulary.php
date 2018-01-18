@@ -118,6 +118,8 @@ class Vocabulary{
 		$arr[$l]["already_member"]								= "Already Member";
 		$arr[$l]["join_requests"]								= "Join Requests";
 		$arr[$l]["join_offers"]									= "Join Offers";
+		$arr[$l]["joined"]										= "Joined";
+		$arr[$l]["model_already_joined_agency"]					= "{modelName} already joined with {agencyName}";
 		$arr[$l]["new"]											= "New";
 		$arr[$l]["accept"]										= "Accept";
 		$arr[$l]["accepted"]									= "Accepted";
@@ -237,6 +239,8 @@ class Vocabulary{
 		$arr[$l]["already_member"]								= "Sudah Menjadi Anggota";
 		$arr[$l]["join_requests"]								= "Permintaan Bergabung";
 		$arr[$l]["join_offers"]									= "Tawaran Bergabung";
+		$arr[$l]["joined"]										= "Telah Bergabung";
+		$arr[$l]["model_already_joined_agency"]					= "{modelName} telah bergabung dengan {agencyName}";
 		$arr[$l]["new"]											= "Baru";
 		$arr[$l]["accept"]										= "Terima";
 		$arr[$l]["accepted"]									= "Diterima";
