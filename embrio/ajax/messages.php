@@ -47,7 +47,7 @@
 		$message = sanitasi($_GET["message"]);
 		if($message != ""){
 			if($thread_id <=0){
-				$thread_id = $db->fetch_single_data("messages","thread_id",[],["thread_id"]);
+				$thread_id = $db->fetch_single_data("messages","thread_id",[],["thread_id DESC"]);
 				$thread_id++;
 			}
 			$db->addtable("messages");

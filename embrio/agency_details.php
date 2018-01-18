@@ -1,5 +1,6 @@
 <?php include_once "homepage_header.php"; ?>
 <?php include_once "agency_details_action.php"; ?>
+<?php include_once "casting_action.php"; ?>
 <?php
 	if($__user_id == $_GET["id"] && $__isloggedin){
 		?> <script> window.location="dashboard.php"; </script> <?php
@@ -48,7 +49,7 @@
 					<div id="albums" class="tab-pane fade"><?php include_once "agency_details_albums.php"; ?></div>
 					<div id="models" class="tab-pane fade"><?php include_once "agency_details_models.php"; ?></div>
 					<div id="jobs" class="tab-pane fade"><?php include_once "agency_details_jobs.php"; ?></div>
-					<div id="message" class="tab-pane fade"><?php include_once "dashboard_messages.php"; ?></div>
+					<div id="message" class="tab-pane fade"><?php include_once "details_messages.php"; ?></div>
 				</div>
 			</div>
 		</div>

@@ -1,4 +1,28 @@
-<script>	
+<script>
+	function sendMessage(sender_id,textmessage){
+		if(sender_id > 0 && textmessage != ""){
+			$.ajax({url: "ajax/messages.php?mode=sendMessage&sender_id="+sender_id+"&message="+textmessage, success: function(result){
+				window.location="dashboard.php?tabActive=message";
+			}});
+		}
+	}
+	
+	function detailAgencyModel(agency_user_id,model_user_id,mode){
+		agency_user_id = agency_user_id || 0;
+		model_user_id = model_user_id || 0;
+		mode = mode || "already_member";
+		$.get( "ajax/detail_agency_model.php?agency_user_id="+agency_user_id+"&model_user_id="+model_user_id+"&mode="+mode, function(modalBody) {
+			modalFooter = "<button type=\"button\" class=\"btn btn-danger\" data-dismiss=\"modal\">Close</button>";
+			modalBody = modalBody.split("|||");
+			modalTitle = modalBody[0];
+			modalBody = modalBody[1];
+			$('#modalTitle').html(modalTitle);
+			$('#modalBody').html(modalBody);
+			$('#modalFooter').html(modalFooter);
+			$('#myModal').modal('show');
+		});
+	}
+	
 	function showGalery(model_album_id,mode){
 		mode = mode || 3;
 		$.get( "ajax/show_galery.php?model_album_id="+model_album_id+"&mode="+mode, function(modalBody) {
