@@ -4,12 +4,12 @@
 	$mode = $_GET["mode"];
 	if($mode == 0) $mode == $__role;
 	$album_id_fieldName = "album_id";
-	if($__role == "3") $tableName = "agency_albums";
-	if($__role == "4") {
+	if($mode == "3") $tableName = "agency_albums";
+	if($mode == "4") {
 		$tableName = "corporate_galleries";
 		$album_id_fieldName = "gallery_id";
 	}
-	if($__role == "5") $tableName = "model_albums";
+	if($mode == "5") $tableName = "model_albums";
 	$filename = $db->fetch_single_data($tableName,"filename",["id" => $model_album_id]);
 	$album_id = $db->fetch_single_data($tableName,$album_id_fieldName,["id" => $model_album_id]);
 	$next_id = $db->fetch_single_data($tableName,"id",[$album_id_fieldName => $album_id,"id"=>$model_album_id.":>"],["id"]);

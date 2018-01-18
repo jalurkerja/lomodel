@@ -1,4 +1,16 @@
 <script>	
+	function showGalery(model_album_id,mode){
+		mode = mode || 3;
+		$.get( "ajax/show_galery.php?model_album_id="+model_album_id+"&mode="+mode, function(modalBody) {
+			modalFooter = "<button type=\"button\" class=\"btn btn-danger\" data-dismiss=\"modal\">Close</button>";
+			$('#modalTitle').html("");
+			$('#modalTitle').parent().css( "display", "none" );
+			$('#modalBody').html(modalBody);
+			$('#modalFooter').html(modalFooter);
+			$('#myModal').modal('show');
+		});
+	}
+		
 	function requests_to_join(agency_user_id){
 		<?php if($__role != "5"){ ?>
 			toastr.warning("<?=v("you_have_to_login_as_a_model");?>","",toastroptions);
