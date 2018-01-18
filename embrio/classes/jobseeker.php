@@ -45,5 +45,13 @@
 			if($this->get_role($user_id) == "5"){ $tableName = "model_profiles";	$fieldName = "concat(first_name,' ',middle_name,' ',last_name) as name"; }
 			return $this->fetch_single_data($tableName,$fieldName,["user_id" => $user_id]);
 		}
+		
+		public function already_send_join_offer($agency_user_id,$model_user_id){
+			return $this->fetch_single_data("agency_models","id",["model_user_id" => $model_user_id,"agency_user_id" => $agency_user_id]);
+		}
+		
+		public function isModelJoinedAgency($model_user_id){
+			return $this->fetch_single_data("agency_models","agency_user_id",["model_user_id" => $model_user_id,"join_status" => "2"]);
+		}
     }
 ?>

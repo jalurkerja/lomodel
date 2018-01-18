@@ -21,6 +21,7 @@ class Vocabulary{
 		$arr[$l]["no"] 											= "No";
 		$arr[$l]["cancel"] 										= "Cancel";
 		$arr[$l]["at"] 											= "at";
+		$arr[$l]["send"] 										= "send";
 		$arr[$l]["hello"] 										= "Hello";
 		$arr[$l]["username"] 									= "Username";
 		$arr[$l]["signin"] 										= "Sign In";
@@ -118,6 +119,7 @@ class Vocabulary{
 		$arr[$l]["applied_jobs"]								= "Applied Jobs";
 		$arr[$l]["job_offers"]									= "Job Offers";
 		$arr[$l]["bookings"]									= "Bookings";
+		$arr[$l]["booking_proposal"]							= "Booking Proposal";
 		$arr[$l]["invoices"]									= "Invoices";
 		$arr[$l]["tokens"]										= "Tokens";
 		$arr[$l]["idcard"]										= "ID Card";
@@ -145,12 +147,20 @@ class Vocabulary{
 		$arr[$l]["success_message_post_a_job"]					= "Posting a job successfully saved, please wait for publishing process from us";
 		$arr[$l]["confirm_message_delete_a_job"]				= "Are You sure want to delete this job posting?";
 		$arr[$l]["success_message_delete_job"]					= "Job posting successfully deleted";
-		$arr[$l]["message_join_request"]						= "{modelName} wants to join with you, <a href='dashboard.php?tabActive=models&subtabActive=joinRequests'>click here</a> to get more detail info.";
+		$arr[$l]["message_join_request"]						= "{modelName} wants to join with you, <a href=\"dashboard.php?tabActive=models&subtabActive=joinRequests\">click here</a> to get more detail info.";
 		$arr[$l]["message_join_request_sent"]					= "your join request has been sent to {agencyName}";
+		$arr[$l]["message_join_offer"]							= "{agencyName} wants you to join, <a href=\"dashboard.php?tabActive=joinOffers\">click here</a> to get more detail info.";
+		$arr[$l]["message_join_offer_sent"]						= "your join offer has been sent to {modelName}";
 		$arr[$l]["gender"]										= "Gender";
 		$arr[$l]["applicants"]									= "Applicants";
 		$arr[$l]["you_have_to_login_as_a_model"]				= "You have to registered/log in as a model";
+		$arr[$l]["you_have_to_registered_as_a_agency_or_corporate"]	= "You have to registered as Agency or Corporate";
+		$arr[$l]["you_have_to_registered_as_a_agency"]			= "You have to registered as Agency";
 		$arr[$l]["are_you_sure_want_to_join_to_this_agency"]	= "Are you sure want to join to this agency";
+		$arr[$l]["are_you_sure_want_to_offer_this_model_to_join"]= "Are you sure want to offer this model to join";
+		$arr[$l]["you_have_to_login_first"]						= "You have to log in first";
+		$arr[$l]["notification_booking_proposal"]				= "{agencyName} mengirimkan booking proposal ke {modelName}";
+		$arr[$l]["this_model_has_asked_to_join_with_you"]		= "This model has asked to join with you";
 		
 		/*==================================================================================================================================*/
 		/*==================================================================================================================================*/
@@ -159,6 +169,7 @@ class Vocabulary{
 		$arr[$l]["no"] 											= "Tidak";
 		$arr[$l]["cancel"] 										= "Batal";
 		$arr[$l]["at"] 											= "pada";
+		$arr[$l]["send"] 										= "kirim";
 		$arr[$l]["hello"] 										= "Halo";
 		$arr[$l]["username"] 									= "Username";
 		$arr[$l]["signin"] 										= "Masuk";
@@ -255,7 +266,8 @@ class Vocabulary{
 		$arr[$l]["model_applicants"]							= "Lamaran Model";
 		$arr[$l]["applied_jobs"]								= "Pekerjaan yg dilamar";
 		$arr[$l]["job_offers"]									= "Tawaran Pekerjaan";
-		$arr[$l]["bookings"]									= "Bookings";
+		$arr[$l]["bookings"]									= "Booking";
+		$arr[$l]["booking_proposal"]							= "Proposal Booking";
 		$arr[$l]["invoices"]									= "Invoice";
 		$arr[$l]["tokens"]										= "Token";
 		$arr[$l]["idcard"]										= "No Identitas";
@@ -285,10 +297,18 @@ class Vocabulary{
 		$arr[$l]["success_message_delete_job"]					= "Pengahapusan lowongan pekerjaan berhasil";
 		$arr[$l]["message_join_request"]						= "{modelName} ingin bergabung dengan Anda, <a href=\"dashboard.php?tabActive=models&subtabActive=joinRequests\">klik disini</a> untuk melihat lebih detail.";
 		$arr[$l]["message_join_request_sent"]					= "Permintaan bergabung Anda telah di kirim ke {agencyName}";
+		$arr[$l]["message_join_offer"]							= "{agencyName} menginginkan Anda untuk bergabung, <a href=\"dashboard.php?tabActive=joinOffers\">click here</a> to get more detail info.";
+		$arr[$l]["message_join_offer_sent"]						= "Penawaran bergabung Anda telah di kirim ke {modelName}";
 		$arr[$l]["gender"]										= "Jenis Kelamin";
 		$arr[$l]["applicants"]									= "Pelamar";
 		$arr[$l]["you_have_to_login_as_a_model"]				= "Anda harus login/terdaftar sebagai model";
+		$arr[$l]["you_have_to_registered_as_a_agency_or_corporate"]	= "Anda harus terdaftar sebagai Agensi atau Corporate";
+		$arr[$l]["you_have_to_registered_as_a_agency"]			= "Anda harus terdaftar sebagai Agensi";
 		$arr[$l]["are_you_sure_want_to_join_to_this_agency"]	= "Anda yakin ingin bergabung dengan agency ini";
+		$arr[$l]["are_you_sure_want_to_offer_this_model_to_join"]= "Anda yakin ingin mengajak model ini untuk bergabung";
+		$arr[$l]["you_have_to_login_first"]						= "Anda harus login terlebih dahulu";
+		$arr[$l]["notification_booking_proposal"]				= "{agencyName} mengirimkan booking proposal ke {modelName}";
+		$arr[$l]["this_model_has_asked_to_join_with_you"]		= "Model ini telah meminta untuk bergabung dengan Anda";
 		
 		return $arr[$this->locale][$index];
 	}

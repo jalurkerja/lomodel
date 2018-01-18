@@ -1,7 +1,7 @@
 <?php include_once "homepage_header.php"; ?>
 <?php include_once "main_container.php"; ?>
 	<?php 
-		if($__role != 2 && $__role != 3 && $__role != 4){
+		if($__role != 3 && $__role != 4){
 			?> <script> window.location = "index.php"; </script> <?php
 			exit();
 		}
@@ -50,6 +50,17 @@
 				$db->addfield("status");		$db->addvalue(0);
 				$inserting = $db->insert();
 				$invoice_id = $inserting["insert_id"];
+				
+				$model_name= $db->fetch_single_data("model_profiles","concat(first_name,' ',middle_name,' ',last_name)",["user_id"=>$_POST["book_user_id"]]);
+				$agency_name = $db->fetch_single_data("agency_profiles","name",["user_id"=>$__user_id]);
+				$thread_id = $db->fetch_single_data("messages","thread_id",["user_id" => $_POST["book_user_id"]],["thread_id DESC"]);
+				$thread_id++;
+				$db->addtable("messages");
+				$db->addfield("thread_id");		$db->addvalue($thread_id);
+				$db->addfield("user_id");		$db->addvalue($__user_id);
+				$db->addfield("user_id2");		$db->addvalue(0);
+				$db->addfield("message");		$db->addvalue(str_replace(["{modelName}","{agencyName}"],[$model_name,$agency_name],v("notification_booking_proposal")));
+				$db->insert();
 				?><script> window.location="?mode=payment_confirmation&invoice_id=<?=$invoice_id;?>"; </script><?php
 			}
 		}
