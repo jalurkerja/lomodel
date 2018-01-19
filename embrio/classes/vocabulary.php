@@ -23,6 +23,11 @@ class Vocabulary{
 		$arr[$l]["at"] 											= "at";
 		$arr[$l]["send"] 										= "send";
 		$arr[$l]["more"] 										= "More";
+		$arr[$l]["show_advanced_search"] 						= "Show Advanced Search";
+		$arr[$l]["hide_advanced_search"] 						= "Hide Advanced Search";
+		$arr[$l]["age"] 										= "Age";
+		$arr[$l]["experience"] 									= "Experience";
+		$arr[$l]["years"] 										= "Years";
 		$arr[$l]["hello"] 										= "Hello";
 		$arr[$l]["username"] 									= "Username";
 		$arr[$l]["signin"] 										= "Sign In";
@@ -32,6 +37,7 @@ class Vocabulary{
 		$arr[$l]["fullname"]	 								= "Full Name";
 		$arr[$l]["email"]	 									= "E-mail";
 		$arr[$l]["address"]										= "Address";
+		$arr[$l]["birth_at"]									= "Birth Date";
 		$arr[$l]["email_address"]								= "E-mail Address";
 		$arr[$l]["password"]									= "Password";
 		$arr[$l]["repassword"]									= "Retype Password";
@@ -69,6 +75,7 @@ class Vocabulary{
 		$arr[$l]["models"]										= "Models";
 		$arr[$l]["model_search"]								= "Model Search";
 		$arr[$l]["agency_search"]								= "Agency Search";
+		$arr[$l]["job_search"]									= "Job Search";
 		$arr[$l]["personal_description"]						= "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.";
 		$arr[$l]["agency_description"]							= "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.";
 		$arr[$l]["corporate_description"]						= "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.";
@@ -173,6 +180,11 @@ class Vocabulary{
 		$arr[$l]["at"] 											= "pada";
 		$arr[$l]["send"] 										= "kirim";
 		$arr[$l]["more"] 										= "Lihat Lebih";
+		$arr[$l]["show_advanced_search"] 						= "Tampilkan Pencarian";
+		$arr[$l]["hide_advanced_search"] 						= "Sembunyikan Pencarian";
+		$arr[$l]["age"] 										= "Umur";
+		$arr[$l]["experience"] 									= "Pengalaman";
+		$arr[$l]["years"] 										= "Tahun";
 		$arr[$l]["hello"] 										= "Halo";
 		$arr[$l]["username"] 									= "Username";
 		$arr[$l]["signin"] 										= "Masuk";
@@ -182,6 +194,7 @@ class Vocabulary{
 		$arr[$l]["fullname"]	 								= "Nama Lengkap";
 		$arr[$l]["email"]	 									= "E-mail";
 		$arr[$l]["address"]										= "Alamat";
+		$arr[$l]["birth_at"]									= "Tanggal Lahir";
 		$arr[$l]["email_address"]								= "Alamat Email";
 		$arr[$l]["password"]									= "Kata Sandi";
 		$arr[$l]["repassword"]									= "Ketik Ulang Kata Sandi";
@@ -219,6 +232,7 @@ class Vocabulary{
 		$arr[$l]["models"]										= "Model";
 		$arr[$l]["model_search"]								= "Pencarian Model";
 		$arr[$l]["agency_search"]								= "Pencarian Agensi";
+		$arr[$l]["job_search"]									= "Pencarian Pekerjaan";
 		$arr[$l]["personal_description"]						= "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.";
 		$arr[$l]["agency_description"]							= "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.";
 		$arr[$l]["corporate_description"]						= "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.";

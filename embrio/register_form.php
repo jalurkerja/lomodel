@@ -119,13 +119,15 @@
 			if(!$keyToNextCol) $keyToNextCol = 6;
 		} 
 		if($_regrole == "5"){ 
-			$_forms["ids"] = ["nationality_id","address","location_id","model_category_ids","hair_color_id","eye_colors_id","height","chest","bust","waist","hips","shoe","ig","fb","tw"];
-			$_forms["caption"] = [v("nationality"),v("address"),v("location"),v("model_category"),v("hair_color"),v("eye_color"),v("height"),v("chest_size"),v("bust_size"),v("waist_size"),v("hips_size"),v("shoe_size"),"Instagram","Facebook","Twitter"];
+			$_forms["ids"] = ["nationality_id","gender_id","birth_at","address","location_id","model_category_ids","hair_color_id","eye_colors_id","height","chest","bust","waist","hips","shoe","ig","fb","tw"];
+			$_forms["caption"] = [v("nationality"),v("gender"),v("birth_at"),v("address"),v("location"),v("model_category"),v("hair_color"),v("eye_color"),v("height"),v("chest_size"),v("bust_size"),v("waist_size"),v("hips_size"),v("shoe_size"),"Instagram","Facebook","Twitter"];
 			if($_mode == "editing"){
 				array_unshift($_forms["ids"],"fullname");
 				array_unshift($_forms["caption"],v("fullname"));
 			}
 			$_forms["type"]["nationality_id"] = "select";
+			$_forms["type"]["gender_id"] = "select";
+			$_forms["type"]["birth_at"] = "date";
 			$_forms["type"]["location_id"] = "select";
 			$_forms["type"]["model_category_ids"] = "select";
 			$_forms["type"]["height"] = "select";
@@ -145,6 +147,8 @@
 			$_forms["jsaction"]["model_category_ids"] = "onchange='model_category_change(this.value);'";
 			if($_mode == "editing"){
 				$_forms["value"]["nationality_id"] = $_data["nationality_id"];
+				$_forms["value"]["gender_id"] = $_data["gender_id"];
+				$_forms["value"]["birth_at"] = $_data["birth_at"];
 				$_forms["value"]["fullname"] = $_data["first_name"]." ".$_data["middle_name"]." ".$_data["last_name"];
 				$_forms["value"]["address"] = $_data["address"];
 				$_forms["value"]["location_id"] = $_data["location_id"];
@@ -165,6 +169,10 @@
 			$nationalities = $db->fetch_select_data("nationalities","id","name",[],[],"",true);
 			$nationalities[""] = v("nationality")."...";
 			$_forms["select_data"]["nationality_id"] = $nationalities;
+			
+			$genders = $db->fetch_select_data("genders","id","name",[],[],"",true);
+			$genders[""] = v("gender")."...";
+			$_forms["select_data"]["gender_id"] = $genders;
 			
 			$locations = $db->fetch_select_data("locations","id","name_".$__locale,[],["name_".$__locale],"",true);
 			$locations[""] = v("location")."...";
@@ -222,7 +230,7 @@
 			}
 			$_forms["select_data"]["bust"] = $bust_sizes;
 			
-			if(!$keyToNextCol) $keyToNextCol = 7;
+			if(!$keyToNextCol) $keyToNextCol = 8;
 		} 
 	?>
 	<script>
@@ -237,7 +245,7 @@
 	<div class="col-sm-4 features wow fadeInRight animated">
 		<?php 
 			$labelClass = "";
-			if($_mode != "editing") $labelClass = "class='sr-only'";
+			// if($_mode != "editing") $labelClass = "class='sr-only'";
 		?>
 		<?php foreach($_forms["ids"] as $key => $_form_id){ ?>
 			<div class="form-group">
@@ -253,6 +261,7 @@
 					$_type = $_forms["type"][$_form_id];
 					if(!$_type) $showinput = $f->input($_form_id,$_POST[$_form_id],$addAttr." placeholder='".$_forms["caption"][$key]."...'","form-control");
 					else {
+						if($_type == "date") $showinput = $f->input($_form_id,$_POST[$_form_id],"type='date'".$addAttr." placeholder='".$_forms["caption"][$key]."...'","form-control");
 						if($_type == "number") $showinput = $f->input($_form_id,$_POST[$_form_id],"type='number' step='0.01' ".$addAttr." placeholder='".$_forms["caption"][$key]."...'","form-control");
 						if($_type == "textarea") $showinput = $f->textarea($_form_id,$_POST[$_form_id],$addAttr." placeholder='".$_forms["caption"][$key]."...'","form-control");
 						if($_type == "select") $showinput = $f->select($_form_id,$_forms["select_data"][$_form_id],$_POST[$_form_id],$addAttr,"form-control");

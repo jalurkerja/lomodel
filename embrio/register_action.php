@@ -50,7 +50,7 @@
 							$_POST["middle_name"] = $names[1];
 							for($xx=2;$xx <= count($names); $xx++){ $_POST["last_name"] .= $names[$xx]." "; }
 							$table_name = "model_profiles";
-							$fields_name = ["nationality_id","first_name","middle_name","last_name","address","location_id","hair_color_id","eye_colors_id","height","chest","bust","waist","hips","shoe","model_category_ids","ig","fb","tw"];
+							$fields_name = ["nationality_id","gender_id","birth_at","first_name","middle_name","last_name","address","location_id","hair_color_id","eye_colors_id","height","chest","bust","waist","hips","shoe","model_category_ids","ig","fb","tw"];
 						}
 						
 						$db->addtable($table_name);

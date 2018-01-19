@@ -1,5 +1,11 @@
 <h3><?=v("nationality");?> : <b><?=$db->fetch_single_data("nationalities","name",["id" => $model_profile["nationality_id"]]);?></b></h3>
 <div style="width:590px;border-top:1px solid #888;"></div>
+<?=v("gender");?> :
+<div class="container" style="width:100%"> <?=$db->fetch_single_data("genders","name",["id" =>$model_profile["gender_id"]]);?> </div>
+<div style="width:590px;border-top:1px solid #888;"></div>
+<?=v("birth_at");?> :
+<div class="container" style="width:100%"> <?=format_tanggal($model_profile["birth_at"],"d F Y");?> </div>
+<div style="width:590px;border-top:1px solid #888;"></div>
 	<table class="tbl_detail">
 		<tr>
 			<td>Hair</td><td>Eyes</td><td>Height</td>
@@ -28,7 +34,7 @@
 <div class="container" style="width:100%"><?=$db->fetch_single_data("model_categories","name_".$__locale,["id" => $model_profile["model_category_ids"]]);?></div>
 <div style="width:590px;border-top:1px solid #888;"></div>
 
-Address :
+<?=v("address");?> :
 <div class="container" style="width:100%">
 	<?=str_replace([chr(10),chr(13)],["<br>",""],$model_profile["address"]);?><br>
 	<?=$db->fetch_single_data("locations","name_".$__locale,["id" =>$model_profile["location_id"]]);?>
