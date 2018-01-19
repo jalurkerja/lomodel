@@ -50,7 +50,6 @@ class Vocabulary{
 		$arr[$l]["im_a_model"]									= "I'm A Model";
 		$arr[$l]["im_looking_models"]							= "I'm Looking For Models";
 		$arr[$l]["news"]										= "News";
-		$arr[$l]["models"]										= "Models";
 		$arr[$l]["show_all"]									= "Show All";
 		$arr[$l]["castings"]									= "Castings";
 		$arr[$l]["see_all_castings"]							= "See All Castings";
@@ -68,6 +67,8 @@ class Vocabulary{
 		$arr[$l]["corporate"]									= "Corporate";
 		$arr[$l]["model"]										= "Model";
 		$arr[$l]["models"]										= "Models";
+		$arr[$l]["model_search"]								= "Model Search";
+		$arr[$l]["agency_search"]								= "Agency Search";
 		$arr[$l]["personal_description"]						= "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.";
 		$arr[$l]["agency_description"]							= "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.";
 		$arr[$l]["corporate_description"]						= "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.";
@@ -199,7 +200,6 @@ class Vocabulary{
 		$arr[$l]["im_a_model"]									= "Saya Seorang Model";
 		$arr[$l]["im_looking_models"]							= "Saya Mencari Model";
 		$arr[$l]["news"]										= "Berita";
-		$arr[$l]["models"]										= "Model";
 		$arr[$l]["show_all"]									= "Lihat Semua";
 		$arr[$l]["castings"]									= "Casting";
 		$arr[$l]["see_all_castings"]							= "Lihat Semua Casting";
@@ -217,6 +217,8 @@ class Vocabulary{
 		$arr[$l]["corporate"]									= "Perusahaan";
 		$arr[$l]["model"]										= "Model";
 		$arr[$l]["models"]										= "Model";
+		$arr[$l]["model_search"]								= "Pencarian Model";
+		$arr[$l]["agency_search"]								= "Pencarian Agensi";
 		$arr[$l]["personal_description"]						= "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.";
 		$arr[$l]["agency_description"]							= "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.";
 		$arr[$l]["corporate_description"]						= "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.";

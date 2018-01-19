@@ -4,7 +4,7 @@
 		<div class="col-md-12" id="modelSearchArea">
 			<div class="container">
 				<form method="GET">
-					<h2>Model Search</h2>
+					<h2><?=v("model_search");?></h2>
 					<div class="col-sm-3 fadeInRight animated">
 						<div class="form-group">
 							<?php 
