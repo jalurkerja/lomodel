@@ -1,2 +1,0 @@
-ALTER TABLE `model_profiles` ADD `gender_id` INT NOT NULL AFTER `last_name`, ADD INDEX (`gender_id`);
-ALTER TABLE `model_profiles` ADD `birth_at` DATE NOT NULL AFTER `gender_id`, ADD INDEX (`birth_at`);
