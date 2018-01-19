@@ -1,6 +1,6 @@
 <?php include_once "../common.php"; ?>
 	<div class="row">
-		<table width="100%"><tr><td align="center"><h2><?=v("models");?></h2></td></tr></table>
+		<table width="100%"><tr><td align="center"><h2>Models</h2></td></tr></table>
 		<div class="col-md-12">
 		<ul id="waterfall">
 		<?php
@@ -30,9 +30,7 @@
 		<?php } ?>
 		</ul>
 		</div>
-		<div class="col-md-12">
-		<?=$f->input("model_more",v("more"),"type='button' onclick=\"window.location='models.php';\"","btn btn-lg btn-info");?>
-		</div>
+		<?=$f->input("model_more","More","type='button' style='width:100%;' onclick=\"window.location='models.php';\"","btn btn-lg btn-info");?>
 	</div>
 	<script>
 		$(document).ready(function ()

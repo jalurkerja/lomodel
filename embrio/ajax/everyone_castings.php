@@ -1,11 +1,17 @@
 <?php include_once "../common.php"; ?>
 <?php include_once "../casting_action.php"; ?>
-	<?=$f->input("post_a_casting","Post a casting","type='button' onclick='window.location=\"dashboard.php?tabActive=jobs&post_a_job=1\"'","btn btn-lg btn-info");?>
+	<?php 
+		if($__role == 3 || $__role == 4){
+			echo $f->input("post_a_casting",v("post_a_job"),"type='button' onclick='window.location=\"dashboard.php?tabActive=jobs&post_a_job=1\"'","btn btn-lg btn-info");
+		} else {
+			echo $f->input("post_a_casting",v("post_a_job"),"type='button' onclick=\"toastr.warning('".v("you_have_to_registered_as_a_agency_or_corporate")."','',toastroptions);\"","btn btn-lg btn-info");
+		}
+	?>
 	<div class="row">
 		<?php 
-			$castings = $db->fetch_all_data("jobs",[],"is_publish = 1 ORDER BY RAND()","","10");
+			$castings = $db->fetch_all_data("jobs",[],"is_publish = 1 AND date(NOW()) BETWEEN start_at AND end_at ORDER BY RAND()","","10");
 			if(count($castings) <= 0){
-				echo "<span class='col-sm-12 well' style='color:red;'>".v("data_not_found")."</span>";
+				echo "<br><span class='col-sm-12 well' style='color:red;'>".v("data_not_found")."</span>";
 			} else {
 				foreach($castings as $casting){
 					$work_category_ids = "";
@@ -43,12 +49,16 @@
 								<div class="col-sm-12"><br></div>
 							</div>
 							<div class="col-sm-12">
-								<?=$f->input("detail","Detail","onclick=\"showJobDetail('".$casting["id"]."');\" type='button' style='width:100%;'","btn btn-lg btn-info");?>
+								<?=$f->input("detail","Detail","onclick=\"showJobDetail('".$casting["id"]."');\" type='button'","btn btn-success");?>
 							</div>
 						</div>
 					</div>
-			<?php } ?>
-		<?php } ?>
+			<?php 
+				}
+				echo "<div class='col-sm-12'><br>";
+				echo $f->input("model_more",v("more"),"type='button' style='width:100%;' onclick=\"window.location='castings.php';\"","btn btn-lg btn-info");
+				echo "</div>";
+			} 
+			?>
 	</div>
 	<br><br>
-	<?=$f->input("model_more","More","type='button' style='width:100%;' onclick=\"window.location='castings.php';\"","btn btn-lg btn-info");?>

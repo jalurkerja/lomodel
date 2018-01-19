@@ -22,6 +22,7 @@ class Vocabulary{
 		$arr[$l]["cancel"] 										= "Cancel";
 		$arr[$l]["at"] 											= "at";
 		$arr[$l]["send"] 										= "send";
+		$arr[$l]["more"] 										= "More";
 		$arr[$l]["hello"] 										= "Hello";
 		$arr[$l]["username"] 									= "Username";
 		$arr[$l]["signin"] 										= "Sign In";
@@ -170,6 +171,7 @@ class Vocabulary{
 		$arr[$l]["cancel"] 										= "Batal";
 		$arr[$l]["at"] 											= "pada";
 		$arr[$l]["send"] 										= "kirim";
+		$arr[$l]["more"] 										= "Lihat Lebih";
 		$arr[$l]["hello"] 										= "Halo";
 		$arr[$l]["username"] 									= "Username";
 		$arr[$l]["signin"] 										= "Masuk";

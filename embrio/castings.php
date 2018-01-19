@@ -1,10 +1,16 @@
 <?php include_once "homepage_header.php"; ?>
 <?php include_once "main_container.php"; ?>
 <?php include_once "casting_action.php"; ?>
-	<?=$f->input("post_a_casting","Post a casting","type='button' onclick='window.location=\"dashboard.php?tabActive=jobs&post_a_job=1\"'","btn btn-lg btn-info");?>
+	<?php
+		if($__role == 3 || $__role == 4){
+			echo $f->input("post_a_casting",v("post_a_job"),"type='button' onclick='window.location=\"dashboard.php?tabActive=jobs&post_a_job=1\"'","btn btn-lg btn-info");
+		} else {
+			echo $f->input("post_a_casting",v("post_a_job"),"type='button' onclick=\"toastr.warning('".v("you_have_to_registered_as_a_agency_or_corporate")."','',toastroptions);\"","btn btn-lg btn-info");
+		}
+	?>
 	<div class="row">
-		<?php 
-			$castings = $db->fetch_all_data("jobs",[],"is_publish = 1","start_at DESC","100");
+		<?php
+			$castings = $db->fetch_all_data("jobs",[],"is_publish = 1 AND date(NOW()) BETWEEN start_at AND end_at","start_at DESC","1000");
 			if(count($castings) <= 0){
 				echo "<span class='col-sm-12 well' style='color:red;'>".v("data_not_found")."</span>";
 			} else {
