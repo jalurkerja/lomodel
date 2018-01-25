@@ -1,5 +1,6 @@
 <?php
 	include_once "../common.php";
+	exit();
 	function bacafile($filename){
 		$handle = fopen($filename, "r");
 		$contents = fread($handle, filesize($filename));

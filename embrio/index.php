@@ -4,7 +4,7 @@
 		<div class="container">
 			<div id="div_video" style="left:0px;top:0px;overflow:hidden;margin:0px;padding:0px;height:660px;width:100%;position:absolute;">
 				<div align="center" class="embed-responsive embed-responsive-16by9">
-					<video id="mainVideo" Xautoplay loop class="embed-responsive-item">
+					<video id="mainVideo" autoplay loop class="embed-responsive-item">
 						<source src="images/LoModel.mp4" type="video/mp4">
 					</video>
 				</div>
