@@ -73,7 +73,7 @@
 									$eye_colors[""] = "--All Eye Colors--";
 									ksort($eye_colors);
 									$hair_colors = $db->fetch_select_data("hair_colors","id","name");
-									$hair_colors[""] = "--All Eye Colors--";
+									$hair_colors[""] = "--All Hair Colors--";
 									ksort($hair_colors);
 								?>
 								<?=$f->select("filter_gender",["" => "--All Gender--","1" => "Male","2" => "Female"],$_GET["filter_gender"],"style='padding-bottom:10px;'","form-control");?><br>
