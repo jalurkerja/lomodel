@@ -1,0 +1,22 @@
+
+profil :
+Nama : Aline
+Email :aline.m@mail.com
+Password :
+Kebangsaan : Indonesia
+Jenis kelamin : Perempuan
+Tanggallahir : 4-1-1990
+Alamat :jl.bangau no 33, Semarang
+Lokasi : Semarang
+Kategori Model : Wanita
+Warna Rambut : Black
+Warna Bola Mata : Black
+Tinggi : 168
+Lingkar dada : 94cm
+Ukuran Bra : 34D
+Lingkar Pinggang : 82cm
+Lingkar Pinggul : 98cm
+Ukuran sepatu : 39
+Instagram :
+Facebook :
+Twitter :

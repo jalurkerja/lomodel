@@ -1,0 +1,21 @@
+profil :
+Nama : Irmayani
+Email :irmayani.w@mail.com
+Password :
+Kebangsaan : Indonesia
+Jenis kelamin : Perempuan
+Tanggallahir : 8-4-1996
+Alamat :jl.Gubeng no2, Surabaya
+Lokasi : Surabaya
+Kategori Model : Wanita
+Warna Rambut : Black
+Warna Bola Mata : Black
+Tinggi : 167
+Lingkar dada : 98cm
+Ukuran Bra : 32B
+Lingkar Pinggang : 78cm
+Lingkar Pinggul : 94cm
+Ukuran sepatu : 40
+Instagram :
+Facebook :
+Twitter :

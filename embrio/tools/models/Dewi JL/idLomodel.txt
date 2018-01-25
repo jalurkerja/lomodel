@@ -1,0 +1,21 @@
+profil :
+Nama : Dewi Julia
+Email :dewi.julia@mail.com
+Password :
+Kebangsaan : Indonesia
+Jenis kelamin : Perempuan
+Tanggallahir : 4-1-1993
+Alamat :jl.ABC no 8, Bandung
+Lokasi : Bandung
+Kategori Model : Wanita
+Warna Rambut : Black
+Warna Bola Mata : Black
+Tinggi : 163
+Lingkar dada : 98cm
+Ukuran Bra : 36B
+Lingkar Pinggang : 86cm
+Lingkar Pinggul : 102cm
+Ukuran sepatu : 39
+Instagram :
+Facebook :
+Twitter :

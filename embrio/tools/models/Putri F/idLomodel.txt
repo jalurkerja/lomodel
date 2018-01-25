@@ -1,0 +1,27 @@
+profil :
+Nama : Putri A.f
+Email :putri.af@mail.com
+Password :
+Kebangsaan : Indonesia
+Jenis kelamin : Perempuan
+Tanggallahir : 8-9-1995
+Alamat :jl.Sudirman no 99, Magetan
+Lokasi : Jawa Tengah
+Kategori Model : Wanita
+Warna Rambut : Blonde
+Warna Bola Mata : Blue
+Tinggi : 169
+Lingkar dada : 98cm
+Ukuran Bra : 32B
+Lingkar Pinggang : 78cm
+Lingkar Pinggul : 94cm
+Ukuran sepatu : 40
+Instagram :
+Facebook :
+Twitter :
+
+
+
+
+
+

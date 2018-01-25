@@ -1,0 +1,21 @@
+profil :
+Nama : Ayu 
+Email :ayu.m@mail.com
+Password :
+Kebangsaan : Indonesia
+Jenis kelamin : Perempuan
+Tanggallahir : 4-1-1994
+Alamat :jl.Merak Bangau no 14B, Jakarta
+Lokasi : Jakarta
+Kategori Model : Wanita
+Warna Rambut : Black
+Warna Bola Mata : Black
+Tinggi : 160
+Lingkar dada : 98cm
+Ukuran Bra : 34D
+Lingkar Pinggang : 86cm
+Lingkar Pinggul : 102cm
+Ukuran sepatu : 40
+Instagram :
+Facebook :
+Twitter :

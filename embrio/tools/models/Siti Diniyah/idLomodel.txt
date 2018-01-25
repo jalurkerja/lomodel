@@ -1,0 +1,36 @@
+profil :
+Nama :Siti Diniyah
+Email :siti.din@mail.com
+Password :
+Kebangsaan : Indonesia
+Jenis kelamin : Perempuan
+Tanggallahir : 17-8-1999
+Alamat :jl.Pelabuhan ratu no32,Sukabumi
+Lokasi :Jawa Barat
+Kategori Model : Wanita
+Warna Rambut : Black
+Warna Bola Mata : Black
+Tinggi : 168
+Lingkar dada : 98cm
+Ukuran Bra : 34B
+Lingkar Pinggang : 78cm
+Lingkar Pinggul : 94cm
+Ukuran sepatu : 40
+Instagram :
+Facebook :
+Twitter :
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,30 @@
+profil :
+Nama : Regina Frisil
+Email :regina.frisil@mail.com
+Password :
+Kebangsaan : Indonesia
+Jenis kelamin : Perempuan
+Tanggallahir : 1-1-2000
+Alamat :jl.Hang Tuah no 55, Banyuwangi
+Lokasi : Jawa Timur
+Kategori Model : Wanita
+Warna Rambut : Blonde
+Warna Bola Mata : Black
+Tinggi : 165
+Lingkar dada : 98cm
+Ukuran Bra : 34B
+Lingkar Pinggang : 78cm
+Lingkar Pinggul : 94cm
+Ukuran sepatu : 38
+Instagram :
+Facebook :
+Twitter :
+
+
+
+
+
+
+
+
+

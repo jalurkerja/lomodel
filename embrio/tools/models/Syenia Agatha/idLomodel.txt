@@ -1,0 +1,37 @@
+profil :
+Nama :Syenia Agatha
+Email :syenia.agatha@mail.com
+Password :
+Kebangsaan : Indonesia
+Jenis kelamin : Perempuan
+Tanggallahir : 17-10-2000
+Alamat :jl.Iskandar muda no5,Aceh Besar
+Lokasi :Banda Aceh
+Kategori Model : Wanita
+Warna Rambut : Black
+Warna Bola Mata : Black
+Tinggi : 166
+Lingkar dada : 98cm
+Ukuran Bra : 34B
+Lingkar Pinggang : 78cm
+Lingkar Pinggul : 94cm
+Ukuran sepatu : 40
+Instagram :
+Facebook :
+Twitter :
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

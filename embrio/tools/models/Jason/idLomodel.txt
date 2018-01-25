@@ -1,0 +1,21 @@
+profil :
+Nama : Jason
+Email :jason@mail.com
+Password :
+Kebangsaan : Indonesia
+Jenis kelamin : Pria
+Tanggallahir : 8-4-1999
+Alamat :jl.Asia Afrika no 100, Bandung
+Lokasi : Bandung
+Kategori Model : Pria
+Warna Rambut : Black
+Warna Bola Mata : Black
+Tinggi : 171
+Lingkar dada : 98cm
+Lingkar Pinggang : 78cm
+Lingkar Pinggul : 94cm
+Ukuran sepatu : 42
+Instagram :
+Facebook :
+Twitter :
+

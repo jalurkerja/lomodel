@@ -1,0 +1,23 @@
+profil :
+Nama : Karemitha Puspita
+Email :karemitha.p@mail.com
+Password :
+Kebangsaan : Indonesia
+Jenis kelamin : Perempuan
+Tanggallahir : 8-4-1991
+Alamat :jl. no7, Bandung
+Lokasi : Bandung
+Kategori Model : Wanita
+Warna Rambut : Black
+Warna Bola Mata : Black
+Tinggi : 167
+Lingkar dada : 98cm
+Ukuran Bra : 32B
+Lingkar Pinggang : 78cm
+Lingkar Pinggul : 94cm
+Ukuran sepatu : 38
+Instagram :
+Facebook :
+Twitter :
+
+

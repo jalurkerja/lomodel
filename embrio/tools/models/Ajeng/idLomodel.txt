@@ -1,0 +1,21 @@
+profil :
+Nama : Ajeng Dwi
+Email :ajeng.dbr@mail.com
+Password :
+Kebangsaan : Indonesia
+Jenis kelamin : Perempuan
+Tanggallahir : 6-9-1997
+Alamat :jl.jakarta no 103, Bandung
+Lokasi : Bandung
+Kategori Model : Wanita
+Warna Rambut : Blond
+Warna Bola Mata : Black
+Tinggi : 165
+Lingkar dada : 88cm
+Ukuran Bra : 32DD
+Lingkar Pinggang : 78cm
+Lingkar Pinggul : 94cm
+Ukuran sepatu : 37
+Instagram :
+Facebook :
+Twitter :

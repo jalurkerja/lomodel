@@ -1,0 +1,37 @@
+profil :
+Nama :ViviRandhika
+Email :vivi.v@mail.id
+Password :
+Kebangsaan : Indonesia
+Jenis kelamin : Perempuan
+Tanggallahir : 17-10-1990
+Alamat :jl.Sultan Syarif Kasim no5,Pekanbaru
+Lokasi :Riau
+Kategori Model : Wanita
+Warna Rambut : Black
+Warna Bola Mata : Black
+Tinggi : 162
+Lingkar dada : 98cm
+Ukuran Bra : 32B
+Lingkar Pinggang : 78cm
+Lingkar Pinggul : 94cm
+Ukuran sepatu : 40
+Instagram :
+Facebook :
+Twitter :
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

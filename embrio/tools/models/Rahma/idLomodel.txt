@@ -1,0 +1,28 @@
+profil :
+Nama : Rahma ALinda
+Email :rahma.alinda@mail.com
+Password :
+Kebangsaan : Indonesia
+Jenis kelamin : Perempuan
+Tanggallahir : 31-12-1995
+Alamat :jl.Sujiwo no 6, Brebes
+Lokasi : Jawa Tengah
+Kategori Model : Wanita
+Warna Rambut : Black
+Warna Bola Mata : Black
+Tinggi : 165
+Lingkar dada : 98cm
+Ukuran Bra : 34B
+Lingkar Pinggang : 78cm
+Lingkar Pinggul : 94cm
+Ukuran sepatu : 39
+Instagram :
+Facebook :
+Twitter :
+
+
+
+
+
+
+

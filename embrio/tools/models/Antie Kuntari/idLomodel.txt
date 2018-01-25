@@ -1,0 +1,22 @@
+
+profil :
+Nama : Antie Kuntari
+Email :antie.kuntari@mail.com
+Password :
+Kebangsaan : Indonesia
+Jenis kelamin : Perempuan
+Tanggallahir : 4-1-1993
+Alamat :jl.merpati no 5, Jakarta
+Lokasi : Jakarta
+Kategori Model : Wanita
+Warna Rambut : Blond
+Warna Bola Mata : Black
+Tinggi : 170
+Lingkar dada : 94cm
+Ukuran Bra : 32D
+Lingkar Pinggang : 82cm
+Lingkar Pinggul : 98cm
+Ukuran sepatu : 40
+Instagram :
+Facebook :
+Twitter :

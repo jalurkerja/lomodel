@@ -1,0 +1,23 @@
+profil :
+Nama : Elvia Putri
+Email :elvia.p@mail.com
+Password :
+Kebangsaan : Indonesia
+Jenis kelamin : Perempuan
+Tanggallahir : 4-1-1991
+Alamat :jl.Gelap Nyawang no33, Bandung
+Lokasi : Bandung
+Kategori Model : Wanita
+Warna Rambut : Black
+Warna Bola Mata : Black
+Tinggi : 167
+Lingkar dada : 98cm
+Ukuran Bra : 38B
+Lingkar Pinggang : 86cm
+Lingkar Pinggul : 102cm
+Ukuran sepatu : 40
+Instagram :
+Facebook :
+Twitter :
+
+

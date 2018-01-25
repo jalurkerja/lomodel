@@ -37,6 +37,7 @@
 	$t = new Tables();
 	$h = new Helper();
 	if($_SERVER["REMOTE_ADDR"] == "::1") $_SERVER["REMOTE_ADDR"] = "127.0.0.1";
+	$__remote_addr = $_SERVER["REMOTE_ADDR"];
 	
 	if($__user_id && $__isloggedin){
 		$__token = $db->fetch_single_data("a_users","token",["id" => $__user_id]);

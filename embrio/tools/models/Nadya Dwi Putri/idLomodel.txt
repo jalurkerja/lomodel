@@ -1,0 +1,26 @@
+profil :
+Nama : Nadya Indah putri
+Email :nadya.ip@mail.com
+Password :
+Kebangsaan : Indonesia
+Jenis kelamin : Perempuan
+Tanggallahir : 8-9-1987
+Alamat :jl.S.parman no 99, Jogjakarta
+Lokasi : Jogjakarta
+Kategori Model : Wanita
+Warna Rambut : black
+Warna Bola Mata : Black
+Tinggi : 163
+Lingkar dada : 98cm
+Ukuran Bra : 36B
+Lingkar Pinggang : 78cm
+Lingkar Pinggul : 94cm
+Ukuran sepatu : 40
+Instagram :
+Facebook :
+Twitter :
+
+
+
+
+

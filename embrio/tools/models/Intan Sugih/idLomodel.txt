@@ -1,0 +1,22 @@
+profil :
+Nama : Intan Diamond
+Email :intan.s@mail.com
+Password :
+Kebangsaan : Indonesia
+Jenis kelamin : Perempuan
+Tanggallahir : 8-4-1994
+Alamat :jl.Gajah Mada no15, Malang
+Lokasi : Malang
+Kategori Model : Wanita/hijab
+Warna Rambut : Black
+Warna Bola Mata : Black
+Tinggi : 167
+Lingkar dada : 98cm
+Ukuran Bra : 32B
+Lingkar Pinggang : 78cm
+Lingkar Pinggul : 94cm
+Ukuran sepatu : 40
+Instagram :
+Facebook :
+Twitter :
+

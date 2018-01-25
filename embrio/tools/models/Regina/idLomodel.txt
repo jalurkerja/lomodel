@@ -1,0 +1,29 @@
+profil :
+Nama : Regina Putri
+Email :regina92@mail.com
+Password :
+Kebangsaan : Indonesia
+Jenis kelamin : Perempuan
+Tanggallahir : 22-5-1998
+Alamat :jl.Timur Tragedi no 12, Magelang
+Lokasi : Jawa Tengah
+Kategori Model : Wanita
+Warna Rambut : Black
+Warna Bola Mata : Black
+Tinggi : 165
+Lingkar dada : 98cm
+Ukuran Bra : 34B
+Lingkar Pinggang : 78cm
+Lingkar Pinggul : 94cm
+Ukuran sepatu : 39
+Instagram :
+Facebook :
+Twitter :
+
+
+
+
+
+
+
+

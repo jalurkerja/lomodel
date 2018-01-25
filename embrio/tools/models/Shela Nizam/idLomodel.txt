@@ -1,0 +1,35 @@
+profil :
+Nama :Sheila Nizam
+Email :shella.nizam@mail.com
+Password :
+Kebangsaan : Indonesia
+Jenis kelamin : Perempuan
+Tanggallahir : 17-8-1986
+Alamat :jl.raya pamulang no 40a, Pamulang
+Lokasi :Tangerang Selatan
+Kategori Model : Wanita
+Warna Rambut : Black
+Warna Bola Mata : Black
+Tinggi : 171
+Lingkar dada : 98cm
+Ukuran Bra : 34B
+Lingkar Pinggang : 78cm
+Lingkar Pinggul : 94cm
+Ukuran sepatu : 41
+Instagram :
+Facebook :
+Twitter :
+
+
+
+
+
+
+
+
+
+
+
+
+
+

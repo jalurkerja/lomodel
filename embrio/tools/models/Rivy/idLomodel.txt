@@ -1,0 +1,33 @@
+profil :
+Nama :Rivy Rizki
+Email :rivy.riz@mail.com
+Password :
+Kebangsaan : Indonesia
+Jenis kelamin : Perempuan
+Tanggallahir : 25-4-1996
+Alamat :jl.Raya Utama no 41, Lampung
+Lokasi : Lampung
+Kategori Model : Wanita
+Warna Rambut : Blonde
+Warna Bola Mata : Black
+Tinggi : 168
+Lingkar dada : 98cm
+Ukuran Bra : 34B
+Lingkar Pinggang : 78cm
+Lingkar Pinggul : 94cm
+Ukuran sepatu : 39
+Instagram :
+Facebook :
+Twitter :
+
+
+
+
+
+
+
+
+
+
+
+
