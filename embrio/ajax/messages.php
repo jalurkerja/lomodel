@@ -148,7 +148,7 @@
 			<div class="row">
 				<div class="form-group">
 					<div class="col-sm-10">
-						<input type="text" class="form-control" id="txtmessage">
+						<input type="text" class="form-control" id="txtmessage" onkeyup="if(event.keyCode == '13'){ sendMessage('<?=$thread_id;?>','<?=$sender_id;?>',txtmessage.value); }">
 					</div>
 					<div class="col-sm-1">
 						<button class="btn info" onclick="sendMessage('<?=$thread_id;?>','<?=$sender_id;?>',txtmessage.value);">Send</button>

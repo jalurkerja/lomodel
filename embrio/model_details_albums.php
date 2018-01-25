@@ -29,6 +29,7 @@
 				<div class="col-sm-12" style="padding-bottom:10px;border-bottom:1px solid #aaa;width:100%;"></div>
 			<?php } ?>
 		<?php } ?>
+		<?php if(count($model_albums) == 1){ echo "<script> document.getElementById('more').click(); </script>"; } ?>
 	<?php 
 		} else {
 	?>

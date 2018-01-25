@@ -144,7 +144,15 @@
 						<a href="castings.php" class="dropdown-toggle"><?=v("castings");?> <span class="caret"></span></a>
 						<ul class="dropdown-menu wow fadeInLeft animated" role="menu">
 							<li><a href="castings.php"><?=v("see_all_castings");?></a></li>
-							<li><a href="dashboard.php?tabActive=jobs&post_a_job=1"><?=v("post_casting");?></a></li>
+							<?php 
+								if($__role == 3 || $__role == 4){
+									$urlPostCasting = "dashboard.php?tabActive=jobs&post_a_job=1";
+								} else {
+									$urlPostCasting = "#";
+									$jsPostCasting = "onclick=\"toastr.warning('".v("you_have_to_registered_as_a_agency_or_corporate")."','',toastroptions);\"";
+								}
+							?>
+							<li><a href="<?=$urlPostCasting;?>" <?=$jsPostCasting;?>><?=v("post_casting");?></a></li>
 						</ul>
 					</li>
 					<li><a href="agencies.php"><?=v("agencies");?></a></li>

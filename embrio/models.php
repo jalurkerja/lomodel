@@ -1,7 +1,7 @@
 <?php include_once "homepage_header.php"; ?>
 <?php include_once "main_container.php"; ?>
 <?php
-	if($_GET["filter_search"] == "Search"){
+	if($_GET["filter_search"] == "Search" && isset($_GET["filter_location"])){
 		$cap_advanced_search = v("hide_advanced_search");
 		$filter_area_style = "display:block;";
 	} else {
