@@ -28,7 +28,7 @@
 	$txt_email 			= $f->input("email",$users["email"]);
 	$txt_password 		= $f->input("password","","type='password'");
 	$txt_name 			= $f->input("name",$users["name"]);
-	$sel_role 			= $f->select("role",[""=>"","1"=>"Bank","2"=>"Investor","3"=>"Developer","999"=>"BO User"],$users["role"]);
+	$sel_role 			= $f->select("role",[""=>"","2"=>"Personal","3"=>"Agency","4"=>"Corporate","5"=>"Model","999"=>"BO User"],$users["role"]);
 ?>
 <?=$f->start();?>
 	<?=$t->start("","editor_content");?>

@@ -17,7 +17,7 @@
 				$group = $f->select("group",$db->fetch_select_data("a_groups","id","name",array(),array(),"",true),@$_GET["group"],"style='height:25px'");
 				$txt_email = $f->input("txt_email",@$_GET["txt_email"]);
 				$txt_name = $f->input("txt_name",@$_GET["txt_name"]);
-				$sel_role = $f->select("sel_role",[""=>"","1"=>"Bank","2"=>"Investor","3"=>"Developer","999"=>"BO User"],@$_GET["sel_role"]);
+				$sel_role = $f->select("sel_role",[""=>"","2"=>"Personal","3"=>"Agency","4"=>"Corporate","5"=>"Model","999"=>"BO User"],@$_GET["sel_role"],"style='height:25px'");
 			?>
 			<?=$t->row(array("Group",$group));?>
 			<?=$t->row(array("Email",$txt_email));?>
@@ -69,10 +69,11 @@
 				$user["email"] .= " [".base64_decode($db->fetch_single_data("a_users","password",array("id" => $user["id"])))."]";
 			}
 			$group = $db->fetch_single_data("a_groups","name",array("id"=>$user["group_id"]));
-			if($user["role"] == "999") $role = "BO User";
-			if($user["role"] == "1") $role = "Bank";
-			if($user["role"] == "2") $role = "Investor";
-			if($user["role"] == "3") $role = "Developer";
+			if($user["role"] == "0") $role = "BO User";
+			if($user["role"] == "2") $role = "Personal";
+			if($user["role"] == "3") $role = "Agency";
+			if($user["role"] == "4") $role = "Corporate";
+			if($user["role"] == "5") $role = "Model";
 		?>
 		<?=$t->row(
 					array($no+$start+1,"<a href=\"users_edit.php?id=".$user["id"]."\">".$user["email"]."</a>",

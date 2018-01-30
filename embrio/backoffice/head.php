@@ -26,7 +26,7 @@
 		<link rel="stylesheet" type="text/css" href="../calendar/calendar-win2k-cold-1.css">
 		<link rel="stylesheet" type="text/css" href="../styles/jquery.fancybox.css" media="screen" />
 		<link rel="stylesheet" href="../font/font.css">
-		<link rel="stylesheet" type="text/css" href="../styles/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="bootstrap.min.css">
 		<link rel="stylesheet" type="text/css" href="../styles/bootstrap-slider.css">
 		<link rel="stylesheet" type="text/css" href="../styles/animate.css">
 		<link rel="stylesheet" type="text/css" href="../styles/toastr.min.css">

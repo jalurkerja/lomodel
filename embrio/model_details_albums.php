@@ -29,7 +29,7 @@
 				<div class="col-sm-12" style="padding-bottom:10px;border-bottom:1px solid #aaa;width:100%;"></div>
 			<?php } ?>
 		<?php } ?>
-		<?php if(count($model_albums) == 1){ echo "<script> document.getElementById('more').click(); </script>"; } ?>
+		<?php if(count($model_albums) == 1){ echo "<script> XXXdocument.getElementById('more').click(); </script>"; } ?>
 	<?php 
 		} else {
 	?>
@@ -42,7 +42,9 @@
 				}
 			?>
 			<div class="col-sm-12">
+				<?php if($db->fetch_single_data("model_albums","count(distinct(album_id))",["user_id" => $_GET["user_id"]]) > 1){ ?>
 				<br><?=$f->input("back","Back","onclick=\"window.location='?user_id=".$_GET["user_id"]."&tabActive=albums';\" type='button'","btn btn-lg btn-info");?>
+				<?php } ?>
 			</div>
 		</div>
 		<div class="col-sm-12" style="padding-bottom:10px;border-bottom:1px solid #aaa;width:100%;"></div>
